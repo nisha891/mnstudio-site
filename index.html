@@ -4,34 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MN Studio — Product Design Boutique</title>
-<meta name="description" content="MN Studio is a product design boutique crafting strategy, UX/UI, design systems and brand experiences for ambitious teams.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23161513%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23f2c48d%22 text-anchor=%22middle%22>M</text></svg>">
+<meta name="description" content="MN Studio is a boutique product design studio partnering with startups and enterprises to design products people love.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%233CA1CE%22/><text x=%2250%22 y=%2266%22 font-size=%2244%22 font-family=%22Arial,sans-serif%22 font-weight=%22700%22 fill=%22%23FDFDFD%22 text-anchor=%22middle%22>MN</text></svg>">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ================= HEADER ================= -->
+<!-- ================= HEADER / NAV ================= -->
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
     <a href="#top" class="logo" aria-label="MN Studio home">
-      <span class="logo-mark">M<span>N</span></span>
+      <span class="logo-mark">MN</span>
       <span class="logo-text">MN&nbsp;Studio</span>
     </a>
 
     <nav class="main-nav" id="mainNav" aria-label="Primary">
       <ul>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#process">Process</a></li>
+        <li><a href="#top" aria-current="page">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#startups">For Startups</a></li>
+        <li><a href="#enterprises">For Enterprises</a></li>
+        <li><a href="#work">Work</a></li>
+        <li class="nav-cta-mobile"><a href="#book" class="btn btn-primary btn-small btn-full">Book a 30 min consultation</a></li>
       </ul>
     </nav>
 
     <div class="header-actions">
-      <a href="#contact" class="btn btn-primary btn-small">Start a project</a>
+      <a href="#book" class="btn btn-primary btn-small">Book a 30 min consultation</a>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -41,333 +42,14 @@
 
 <main id="main">
 
-  <!-- ================= HERO ================= -->
-  <section class="hero" id="top">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="wrap hero-inner">
-      <p class="eyebrow reveal">Product Design Boutique &nbsp;/&nbsp; Est. 2016</p>
-      <h1 class="hero-title reveal">
-        We design products<br>
-        people <em>actually</em> want<br>
-        to use.
-      </h1>
-      <p class="hero-sub reveal">
-        MN Studio partners with founders and product teams to turn early ideas
-        into refined, sellable, beautifully-crafted digital experiences —
-        from first sketch to shipped interface.
-      </p>
-      <div class="hero-cta reveal">
-        <a href="#contact" class="btn btn-primary">Start a project</a>
-        <a href="#work" class="btn btn-ghost">See our work ↓</a>
-      </div>
-
-      <dl class="hero-stats reveal">
-        <div><dt>120+</dt><dd>Products shipped</dd></div>
-        <div><dt>9</dt><dd>Years in practice</dd></div>
-        <div><dt>38</dt><dd>Design awards</dd></div>
-        <div><dt>94%</dt><dd>Client return rate</dd></div>
-      </dl>
-    </div>
-    <div class="scroll-cue" aria-hidden="true"><span></span></div>
-  </section>
-
-  <!-- ================= MARQUEE ================= -->
-  <section class="marquee-section" aria-label="Trusted by">
-    <div class="marquee">
-      <div class="marquee-track">
-        <span>Northwind</span><span>Aurea Health</span><span>Kaido</span><span>Fernbank</span>
-        <span>Loop Finance</span><span>Petal &amp; Co.</span><span>Havenly</span><span>Solstice</span>
-        <span>Northwind</span><span>Aurea Health</span><span>Kaido</span><span>Fernbank</span>
-        <span>Loop Finance</span><span>Petal &amp; Co.</span><span>Havenly</span><span>Solstice</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SERVICES ================= -->
-  <section class="services" id="services">
+  <!-- Placeholder — sections are built one at a time. Hero is next. -->
+  <section class="placeholder-section" id="top">
     <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">What we do</p>
-        <h2>Full-spectrum design,<br>without the agency bloat</h2>
-      </div>
-
-      <div class="services-grid">
-        <article class="service-card reveal">
-          <span class="service-num">01</span>
-          <h3>Product Strategy</h3>
-          <p>Positioning, discovery workshops and roadmapping that align your team before a single pixel is placed.</p>
-        </article>
-        <article class="service-card reveal">
-          <span class="service-num">02</span>
-          <h3>UX &amp; UI Design</h3>
-          <p>Research-led flows and refined interfaces for web and native apps that feel effortless to use.</p>
-        </article>
-        <article class="service-card reveal">
-          <span class="service-num">03</span>
-          <h3>Design Systems</h3>
-          <p>Scalable component libraries and documentation that keep your product consistent as it grows.</p>
-        </article>
-        <article class="service-card reveal">
-          <span class="service-num">04</span>
-          <h3>Brand Identity</h3>
-          <p>Logo, type, colour and voice — a visual language your product and marketing can share.</p>
-        </article>
-        <article class="service-card reveal">
-          <span class="service-num">05</span>
-          <h3>Prototyping</h3>
-          <p>High-fidelity, testable prototypes that de-risk decisions before engineering ever gets involved.</p>
-        </article>
-        <article class="service-card reveal">
-          <span class="service-num">06</span>
-          <h3>Dev Handoff</h3>
-          <p>Pixel-accurate specs, tokens and close collaboration with your engineers through to launch.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= WORK ================= -->
-  <section class="work" id="work">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Selected work</p>
-        <h2>A few products<br>we're proud of</h2>
-      </div>
-
-      <div class="work-grid">
-        <a class="work-card reveal work-1" href="#contact">
-          <div class="work-thumb"><span>Northwind</span></div>
-          <div class="work-meta">
-            <h3>Northwind Banking App</h3>
-            <p>Fintech · Product design, Design system</p>
-          </div>
-        </a>
-        <a class="work-card reveal work-2" href="#contact">
-          <div class="work-thumb"><span>Aurea</span></div>
-          <div class="work-meta">
-            <h3>Aurea Health Dashboard</h3>
-            <p>Healthtech · UX research, UI design</p>
-          </div>
-        </a>
-        <a class="work-card reveal work-3" href="#contact">
-          <div class="work-thumb"><span>Kaido</span></div>
-          <div class="work-meta">
-            <h3>Kaido Fitness Platform</h3>
-            <p>Consumer · Brand, Mobile app</p>
-          </div>
-        </a>
-        <a class="work-card reveal work-4" href="#contact">
-          <div class="work-thumb"><span>Fernbank</span></div>
-          <div class="work-meta">
-            <h3>Fernbank Real Estate</h3>
-            <p>Marketplace · Web platform</p>
-          </div>
-        </a>
-        <a class="work-card reveal work-5" href="#contact">
-          <div class="work-thumb"><span>Loop</span></div>
-          <div class="work-meta">
-            <h3>Loop Finance Suite</h3>
-            <p>B2B SaaS · End-to-end product design</p>
-          </div>
-        </a>
-        <a class="work-card reveal work-6" href="#contact">
-          <div class="work-thumb"><span>Petal</span></div>
-          <div class="work-meta">
-            <h3>Petal &amp; Co. Commerce</h3>
-            <p>Retail · Brand, E-commerce UX</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="work-cta reveal">
-        <a href="#contact" class="btn btn-outline">View full case studies →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= PROCESS ================= -->
-  <section class="process" id="process">
-    <div class="wrap">
-      <div class="section-head reveal light">
-        <p class="eyebrow">How we work</p>
-        <h2>A tight, transparent<br>four-step process</h2>
-      </div>
-
-      <ol class="process-list">
-        <li class="reveal">
-          <span class="process-index">01</span>
-          <div>
-            <h3>Discover</h3>
-            <p>We dig into your users, market and business goals to uncover what actually needs solving.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <span class="process-index">02</span>
-          <div>
-            <h3>Define</h3>
-            <p>Insights become a clear brief — scoped, prioritised and signed off before design begins.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <span class="process-index">03</span>
-          <div>
-            <h3>Design</h3>
-            <p>Rapid iteration in the open — wireframes, prototypes and visual design, tested with real users.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <span class="process-index">04</span>
-          <div>
-            <h3>Deliver</h3>
-            <p>Polished files, documented systems and hands-on support through build and launch.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ================= TESTIMONIAL ================= -->
-  <section class="testimonial">
-    <div class="wrap">
-      <blockquote class="reveal">
-        <p>&ldquo;MN Studio didn't just make our app look better — they rebuilt how our
-        whole team thinks about product decisions. Six months in, activation is up 41%.&rdquo;</p>
-        <footer>
-          <span class="avatar" aria-hidden="true">JR</span>
-          <div>
-            <cite>Jordan Reyes</cite>
-            <span>CEO, Northwind</span>
-          </div>
-        </footer>
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- ================= ABOUT ================= -->
-  <section class="about" id="about">
-    <div class="wrap about-inner">
-      <div class="about-copy reveal">
-        <p class="eyebrow">About the studio</p>
-        <h2>Small team.<br>Senior craft.<br>No hand-offs to strangers.</h2>
-        <p>
-          MN Studio is a deliberately small, senior team of product designers,
-          researchers and strategists. No account managers, no junior hand-offs —
-          you work directly with the people doing the thinking and the pixels,
-          from kickoff to launch.
-        </p>
-        <a href="#contact" class="btn btn-outline">Meet the team →</a>
-      </div>
-      <div class="about-values reveal">
-        <div>
-          <h4>Craft over noise</h4>
-          <p>Every detail is intentional — we'd rather ship less, and ship it right.</p>
-        </div>
-        <div>
-          <h4>Evidence over ego</h4>
-          <p>Opinions are welcome; user data and business outcomes decide.</p>
-        </div>
-        <div>
-          <h4>Partners, not vendors</h4>
-          <p>We work embedded with your team, not at arm's length from it.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CTA BANNER ================= -->
-  <section class="cta-banner">
-    <div class="wrap">
-      <h2 class="reveal">Have a product<br>worth designing well?</h2>
-      <a href="#contact" class="btn btn-primary btn-large reveal">Let's talk about it</a>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT ================= -->
-  <section class="contact" id="contact">
-    <div class="wrap contact-inner">
-      <div class="contact-copy reveal">
-        <p class="eyebrow">Get in touch</p>
-        <h2>Tell us about your project</h2>
-        <p>Fill out the form and we'll reply within one business day — or reach
-        us directly below.</p>
-        <ul class="contact-details">
-          <li><span>Email</span><a href="mailto:hello@mnstudio.net">hello@mnstudio.net</a></li>
-          <li><span>Phone</span><a href="tel:+10000000000">+1 (000) 000-0000</a></li>
-          <li><span>Studio</span>San Francisco, CA · Remote-friendly</li>
-        </ul>
-        <div class="social-links">
-          <a href="#" aria-label="MN Studio on Instagram">Instagram</a>
-          <a href="#" aria-label="MN Studio on LinkedIn">LinkedIn</a>
-          <a href="#" aria-label="MN Studio on Dribbble">Dribbble</a>
-        </div>
-      </div>
-
-      <form class="contact-form reveal" id="contactForm" novalidate>
-        <div class="form-row">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required autocomplete="name" placeholder="Jane Doe">
-        </div>
-        <div class="form-row">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required autocomplete="email" placeholder="jane@company.com">
-        </div>
-        <div class="form-row">
-          <label for="budget">Project budget</label>
-          <select id="budget" name="budget">
-            <option value="">Select a range</option>
-            <option>Under $25k</option>
-            <option>$25k – $75k</option>
-            <option>$75k – $150k</option>
-            <option>$150k+</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="message">Tell us about it</label>
-          <textarea id="message" name="message" rows="4" required placeholder="What are you building?"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary btn-full">Send message</button>
-        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
-      </form>
+      <p class="placeholder-note">✅ Nav bar built. Next section coming up →</p>
     </div>
   </section>
 
 </main>
-
-<!-- ================= FOOTER ================= -->
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <div class="footer-brand">
-      <a href="#top" class="logo">
-        <span class="logo-mark">M<span>N</span></span>
-        <span class="logo-text">MN&nbsp;Studio</span>
-      </a>
-      <p>A product design boutique for founders and teams who care about the details.</p>
-    </div>
-
-    <nav class="footer-nav" aria-label="Footer">
-      <div>
-        <h5>Studio</h5>
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#about">About</a>
-      </div>
-      <div>
-        <h5>Connect</h5>
-        <a href="mailto:hello@mnstudio.net">Email</a>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Dribbble</a>
-      </div>
-    </nav>
-  </div>
-  <div class="wrap footer-bottom">
-    <p>&copy; <span id="year"></span> MN Studio. All rights reserved.</p>
-    <p>Crafted with care, in San Francisco.</p>
-  </div>
-</footer>
-
-<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
 <script src="js/main.js"></script>
 </body>
