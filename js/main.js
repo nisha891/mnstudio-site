@@ -62,6 +62,34 @@
     revealEls.forEach((el) => el.classList.add('in-view'));
   }
 
+  /* ---------- Active nav link ---------- */
+  const navLinks = Array.from(
+    document.querySelectorAll('#mainNav a[href^="#"]')
+  );
+  const sections = navLinks
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const setActive = (id) => {
+      navLinks.forEach((link) => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
+    };
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        // Pick the entry closest to the top of the viewport that is visible.
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+        if (visible) setActive(visible.target.id);
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    );
+    sections.forEach((section) => sectionObserver.observe(section));
+  }
+
   /* ---------- Contact form (front-end only demo) ---------- */
   const form = document.getElementById('contactForm');
   const formNote = document.getElementById('formNote');
@@ -84,7 +112,7 @@
       // Front-end only: no backend is wired up yet. Replace this with a
       // real fetch() call to your form endpoint / API when ready.
       setTimeout(() => {
-        formNote.textContent = 'Thanks! Your message has been noted — we’ll be in touch within one business day.';
+        formNote.textContent = 'Thanks — your note is with us. We’ll reply within one business day.';
         submitBtn.disabled = false;
         submitBtn.textContent = originalLabel;
         form.reset();

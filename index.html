@@ -3,9 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MN Studio — Product Design Boutique</title>
-<meta name="description" content="MN Studio is a product design boutique crafting strategy, UX/UI, design systems and brand experiences for ambitious teams.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23161513%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23f2c48d%22 text-anchor=%22middle%22>M</text></svg>">
+<title>MN Studio — Product &amp; Design Consulting, Fractional Leadership</title>
+<meta name="description" content="MN Studio is a boutique product design firm. Consulting, fractional Head of Design and Head of Product, and AI-assisted development — senior operators embedded with your team.">
+<meta name="theme-color" content="#0a0a0a">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="MN Studio — Product &amp; Design Consulting, Fractional Leadership">
+<meta property="og:description" content="Consulting, fractional Head of Design and Head of Product, and AI-assisted development for teams that need senior judgement now.">
+<meta property="og:site_name" content="MN Studio">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230a0a0a%22/><text x=%2250%22 y=%2270%22 font-size=%2262%22 font-family=%22Georgia,serif%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>M</text></svg>">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,22 +24,22 @@
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
     <a href="#top" class="logo" aria-label="MN Studio home">
-      <span class="logo-mark">M<span>N</span></span>
-      <span class="logo-text">MN&nbsp;Studio</span>
+      <span class="logo-mark" aria-hidden="true">MN</span>
+      <span class="logo-text">Studio</span>
     </a>
 
     <nav class="main-nav" id="mainNav" aria-label="Primary">
       <ul>
-        <li><a href="#work">Work</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#fractional">Fractional</a></li>
+        <li><a href="#ai">AI Delivery</a></li>
         <li><a href="#process">Process</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
 
     <div class="header-actions">
-      <a href="#contact" class="btn btn-primary btn-small">Start a project</a>
+      <a href="#contact" class="btn btn-primary btn-small">Book an intro call</a>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -43,42 +51,61 @@
 
   <!-- ================= HERO ================= -->
   <section class="hero" id="top">
-    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
     <div class="wrap hero-inner">
-      <p class="eyebrow reveal">Product Design Boutique &nbsp;/&nbsp; Est. 2016</p>
+      <p class="label reveal">Boutique product design firm</p>
       <h1 class="hero-title reveal">
-        We design products<br>
-        people <em>actually</em> want<br>
-        to use.
+        Product and design
+        leadership,<br>
+        <em>without the headcount.</em>
       </h1>
       <p class="hero-sub reveal">
-        MN Studio partners with founders and product teams to turn early ideas
-        into refined, sellable, beautifully-crafted digital experiences —
-        from first sketch to shipped interface.
+        MN Studio embeds senior operators inside your team — as consultants, as a
+        fractional Head of Design or Head of Product, and as an AI-assisted build
+        partner that takes work from decision to shipped interface.
       </p>
       <div class="hero-cta reveal">
-        <a href="#contact" class="btn btn-primary">Start a project</a>
-        <a href="#work" class="btn btn-ghost">See our work ↓</a>
+        <a href="#contact" class="btn btn-primary">Book an intro call</a>
+        <a href="#services" class="btn btn-ghost">How we engage <span class="arrow" aria-hidden="true">↓︎</span></a>
       </div>
 
-      <dl class="hero-stats reveal">
-        <div><dt>120+</dt><dd>Products shipped</dd></div>
-        <div><dt>9</dt><dd>Years in practice</dd></div>
-        <div><dt>38</dt><dd>Design awards</dd></div>
-        <div><dt>94%</dt><dd>Client return rate</dd></div>
+      <dl class="hero-facts reveal">
+        <div>
+          <dt>Consulting</dt>
+          <dd>Strategy, discovery and design audits, scoped in weeks — not quarters.</dd>
+        </div>
+        <div>
+          <dt>Fractional leadership</dt>
+          <dd>A Head of Design or Head of Product in the room, one to three days a week.</dd>
+        </div>
+        <div>
+          <dt>AI-assisted delivery</dt>
+          <dd>Working prototypes and production front-ends, built alongside the design.</dd>
+        </div>
       </dl>
     </div>
-    <div class="scroll-cue" aria-hidden="true"><span></span></div>
   </section>
 
-  <!-- ================= MARQUEE ================= -->
-  <section class="marquee-section" aria-label="Trusted by">
-    <div class="marquee">
-      <div class="marquee-track">
-        <span>Northwind</span><span>Aurea Health</span><span>Kaido</span><span>Fernbank</span>
-        <span>Loop Finance</span><span>Petal &amp; Co.</span><span>Havenly</span><span>Solstice</span>
-        <span>Northwind</span><span>Aurea Health</span><span>Kaido</span><span>Fernbank</span>
-        <span>Loop Finance</span><span>Petal &amp; Co.</span><span>Havenly</span><span>Solstice</span>
+  <!-- ================= TICKER ================= -->
+  <section class="ticker-section" aria-label="Disciplines">
+    <div class="ticker">
+      <div class="ticker-track">
+        <span>Product strategy</span><span aria-hidden="true">/</span>
+        <span>Design leadership</span><span aria-hidden="true">/</span>
+        <span>Discovery &amp; research</span><span aria-hidden="true">/</span>
+        <span>Design systems</span><span aria-hidden="true">/</span>
+        <span>Roadmapping</span><span aria-hidden="true">/</span>
+        <span>Rapid prototyping</span><span aria-hidden="true">/</span>
+        <span>AI-assisted development</span><span aria-hidden="true">/</span>
+        <span>Team coaching</span><span aria-hidden="true">/</span>
+        <span>Product strategy</span><span aria-hidden="true">/</span>
+        <span>Design leadership</span><span aria-hidden="true">/</span>
+        <span>Discovery &amp; research</span><span aria-hidden="true">/</span>
+        <span>Design systems</span><span aria-hidden="true">/</span>
+        <span>Roadmapping</span><span aria-hidden="true">/</span>
+        <span>Rapid prototyping</span><span aria-hidden="true">/</span>
+        <span>AI-assisted development</span><span aria-hidden="true">/</span>
+        <span>Team coaching</span><span aria-hidden="true">/</span>
       </div>
     </div>
   </section>
@@ -87,157 +114,222 @@
   <section class="services" id="services">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">What we do</p>
-        <h2>Full-spectrum design,<br>without the agency bloat</h2>
+        <p class="label">What we do</p>
+        <h2>Three ways to put senior<br>judgement on your problem</h2>
+        <p class="section-lede">
+          Most teams don't need another agency deck. They need someone experienced
+          in the room, making calls, and leaving the team better than they found it.
+        </p>
       </div>
 
-      <div class="services-grid">
-        <article class="service-card reveal">
-          <span class="service-num">01</span>
-          <h3>Product Strategy</h3>
-          <p>Positioning, discovery workshops and roadmapping that align your team before a single pixel is placed.</p>
+      <div class="pillars">
+        <article class="pillar reveal">
+          <span class="pillar-num">01</span>
+          <h3>Consulting</h3>
+          <p>
+            A defined engagement against a defined question. Product strategy,
+            discovery, design and UX audits, positioning, or a second opinion on a
+            roadmap you're about to commit twelve months to.
+          </p>
+          <ul class="tick-list">
+            <li>Product &amp; design audits</li>
+            <li>Discovery and research sprints</li>
+            <li>Roadmap and prioritisation reviews</li>
+            <li>Design system assessments</li>
+          </ul>
         </article>
-        <article class="service-card reveal">
-          <span class="service-num">02</span>
-          <h3>UX &amp; UI Design</h3>
-          <p>Research-led flows and refined interfaces for web and native apps that feel effortless to use.</p>
-        </article>
-        <article class="service-card reveal">
-          <span class="service-num">03</span>
-          <h3>Design Systems</h3>
-          <p>Scalable component libraries and documentation that keep your product consistent as it grows.</p>
-        </article>
-        <article class="service-card reveal">
-          <span class="service-num">04</span>
-          <h3>Brand Identity</h3>
-          <p>Logo, type, colour and voice — a visual language your product and marketing can share.</p>
-        </article>
-        <article class="service-card reveal">
-          <span class="service-num">05</span>
-          <h3>Prototyping</h3>
-          <p>High-fidelity, testable prototypes that de-risk decisions before engineering ever gets involved.</p>
-        </article>
-        <article class="service-card reveal">
-          <span class="service-num">06</span>
-          <h3>Dev Handoff</h3>
-          <p>Pixel-accurate specs, tokens and close collaboration with your engineers through to launch.</p>
-        </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- ================= WORK ================= -->
-  <section class="work" id="work">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow">Selected work</p>
-        <h2>A few products<br>we're proud of</h2>
-      </div>
+        <article class="pillar reveal">
+          <span class="pillar-num">02</span>
+          <h3>Fractional leadership</h3>
+          <p>
+            We step in as your Head of Design or Head of Product — running rituals,
+            setting the bar, unblocking engineering and mentoring the people you
+            already have, without a full-time hire.
+          </p>
+          <ul class="tick-list">
+            <li>Head of Design, fractional</li>
+            <li>Head of Product, fractional</li>
+            <li>Hiring, levelling and team design</li>
+            <li>Operating cadence and rituals</li>
+          </ul>
+        </article>
 
-      <div class="work-grid">
-        <a class="work-card reveal work-1" href="#contact">
-          <div class="work-thumb"><span>Northwind</span></div>
-          <div class="work-meta">
-            <h3>Northwind Banking App</h3>
-            <p>Fintech · Product design, Design system</p>
-          </div>
-        </a>
-        <a class="work-card reveal work-2" href="#contact">
-          <div class="work-thumb"><span>Aurea</span></div>
-          <div class="work-meta">
-            <h3>Aurea Health Dashboard</h3>
-            <p>Healthtech · UX research, UI design</p>
-          </div>
-        </a>
-        <a class="work-card reveal work-3" href="#contact">
-          <div class="work-thumb"><span>Kaido</span></div>
-          <div class="work-meta">
-            <h3>Kaido Fitness Platform</h3>
-            <p>Consumer · Brand, Mobile app</p>
-          </div>
-        </a>
-        <a class="work-card reveal work-4" href="#contact">
-          <div class="work-thumb"><span>Fernbank</span></div>
-          <div class="work-meta">
-            <h3>Fernbank Real Estate</h3>
-            <p>Marketplace · Web platform</p>
-          </div>
-        </a>
-        <a class="work-card reveal work-5" href="#contact">
-          <div class="work-thumb"><span>Loop</span></div>
-          <div class="work-meta">
-            <h3>Loop Finance Suite</h3>
-            <p>B2B SaaS · End-to-end product design</p>
-          </div>
-        </a>
-        <a class="work-card reveal work-6" href="#contact">
-          <div class="work-thumb"><span>Petal</span></div>
-          <div class="work-meta">
-            <h3>Petal &amp; Co. Commerce</h3>
-            <p>Retail · Brand, E-commerce UX</p>
-          </div>
-        </a>
-      </div>
-
-      <div class="work-cta reveal">
-        <a href="#contact" class="btn btn-outline">View full case studies →</a>
+        <article class="pillar reveal">
+          <span class="pillar-num">03</span>
+          <h3>AI-assisted development</h3>
+          <p>
+            Design that arrives as working software. We use AI tooling to compress
+            the distance between a decision and something real you can click,
+            test and ship.
+          </p>
+          <ul class="tick-list">
+            <li>Clickable, production-grade prototypes</li>
+            <li>Front-end implementation</li>
+            <li>Design tokens and component libraries</li>
+            <li>Internal tools and workflow automation</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ================= PROCESS ================= -->
-  <section class="process" id="process">
+  <!-- ================= FRACTIONAL ================= -->
+  <section class="fractional" id="fractional">
     <div class="wrap">
-      <div class="section-head reveal light">
-        <p class="eyebrow">How we work</p>
-        <h2>A tight, transparent<br>four-step process</h2>
+      <div class="section-head light reveal">
+        <p class="label">Fractional leadership</p>
+        <h2>A head of function,<br>one to three days a week</h2>
+        <p class="section-lede">
+          For companies past their first product but not yet ready — or not yet
+          able — to hire a full-time executive. You get the judgement now, and a
+          team that can hold the standard once we hand it over.
+        </p>
       </div>
 
-      <ol class="process-list">
-        <li class="reveal">
-          <span class="process-index">01</span>
+      <div class="role-grid">
+        <article class="role-card reveal">
+          <h3>Fractional Head of Design</h3>
+          <p class="role-for">For teams where design has become the bottleneck, or has never had an owner.</p>
+          <ul class="role-list">
+            <li><strong>Set the bar.</strong> Craft standards, critique culture and a review process people actually use.</li>
+            <li><strong>Build the system.</strong> Tokens, components and documentation that survive your next three hires.</li>
+            <li><strong>Grow the team.</strong> Levelling, feedback, portfolio review and hiring loops that filter for craft.</li>
+            <li><strong>Ship the work.</strong> Hands stay on the tools — we design, not just direct.</li>
+          </ul>
+        </article>
+
+        <article class="role-card reveal">
+          <h3>Fractional Head of Product</h3>
+          <p class="role-for">For founders still holding product themselves, or a team without a clear owner of "why".</p>
+          <ul class="role-list">
+            <li><strong>Sharpen the strategy.</strong> A positioning and roadmap the whole company can repeat back to you.</li>
+            <li><strong>Install the cadence.</strong> Discovery, prioritisation and planning rituals that fit your size.</li>
+            <li><strong>Close the loop.</strong> Metrics, instrumentation and honest post-launch reviews.</li>
+            <li><strong>Coach the PMs.</strong> Your existing team grows into the role instead of being replaced.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="engagement-strip reveal">
+        <div>
+          <span class="label">Engagement</span>
+          <p>Fixed monthly retainer, no long lock-in</p>
+        </div>
+        <div>
+          <span class="label">Cadence</span>
+          <p>One to three days a week, embedded in your tools</p>
+        </div>
+        <div>
+          <span class="label">Exit</span>
+          <p>A documented handover to the team or your first full-time hire</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AI DELIVERY ================= -->
+  <section class="ai" id="ai">
+    <div class="wrap ai-inner">
+      <div class="ai-copy reveal">
+        <p class="label">AI-assisted development</p>
+        <h2>The gap between<br>the deck and the build<br>is where products die</h2>
+        <p>
+          Traditional design hands over a file and hopes. We use AI-assisted
+          development to close that gap ourselves — turning flows and decisions into
+          working, reviewable software inside the same week they're made.
+        </p>
+        <p>
+          The point isn't speed for its own sake. It's that a real prototype settles
+          arguments a static mockup can only start, and your engineers inherit
+          something concrete instead of an interpretation.
+        </p>
+        <a href="#contact" class="btn btn-outline">Talk through a build <span class="arrow" aria-hidden="true">→︎</span></a>
+      </div>
+
+      <ol class="ai-loop reveal">
+        <li>
+          <span class="ai-step">Step 01</span>
           <div>
-            <h3>Discover</h3>
-            <p>We dig into your users, market and business goals to uncover what actually needs solving.</p>
+            <h4>Decide</h4>
+            <p>A flow, a screen or a mechanic is agreed in the room — with the tradeoffs written down.</p>
           </div>
         </li>
-        <li class="reveal">
-          <span class="process-index">02</span>
+        <li>
+          <span class="ai-step">Step 02</span>
           <div>
-            <h3>Define</h3>
-            <p>Insights become a clear brief — scoped, prioritised and signed off before design begins.</p>
+            <h4>Generate</h4>
+            <p>AI tooling drafts the interface and the scaffolding; we direct, edit and hold the quality line.</p>
           </div>
         </li>
-        <li class="reveal">
-          <span class="process-index">03</span>
+        <li>
+          <span class="ai-step">Step 03</span>
           <div>
-            <h3>Design</h3>
-            <p>Rapid iteration in the open — wireframes, prototypes and visual design, tested with real users.</p>
+            <h4>Test</h4>
+            <p>Real users and your own team click something real — not a prototype held together by hotspots.</p>
           </div>
         </li>
-        <li class="reveal">
-          <span class="process-index">04</span>
+        <li>
+          <span class="ai-step">Step 04</span>
           <div>
-            <h3>Deliver</h3>
-            <p>Polished files, documented systems and hands-on support through build and launch.</p>
+            <h4>Hand over</h4>
+            <p>Documented components, tokens and code your engineers can adopt, extend or throw away knowingly.</p>
           </div>
         </li>
       </ol>
     </div>
   </section>
 
-  <!-- ================= TESTIMONIAL ================= -->
-  <section class="testimonial">
+  <!-- ================= PROCESS ================= -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="label">How we work</p>
+        <h2>Short loops,<br>written decisions</h2>
+      </div>
+
+      <ol class="process-list">
+        <li class="reveal">
+          <span class="process-index">01</span>
+          <div>
+            <h3>Frame</h3>
+            <p>A week of listening — users, team, data and constraints — ending in a written problem statement we both sign.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="process-index">02</span>
+          <div>
+            <h3>Focus</h3>
+            <p>Options on the table, tradeoffs made explicit, one direction chosen. Scope is cut here, not later.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="process-index">03</span>
+          <div>
+            <h3>Build</h3>
+            <p>Design and AI-assisted implementation run together, reviewed in the open every few days.</p>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="process-index">04</span>
+          <div>
+            <h3>Hand over</h3>
+            <p>Systems, documentation and coaching so the standard holds after we step out.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= MANIFESTO ================= -->
+  <section class="manifesto">
     <div class="wrap">
       <blockquote class="reveal">
-        <p>&ldquo;MN Studio didn't just make our app look better — they rebuilt how our
-        whole team thinks about product decisions. Six months in, activation is up 41%.&rdquo;</p>
+        <p>&ldquo;Good product work is mostly deciding — quickly, in public, and with
+        enough evidence that the team can disagree and still commit.&rdquo;</p>
         <footer>
-          <span class="avatar" aria-hidden="true">JR</span>
-          <div>
-            <cite>Jordan Reyes</cite>
-            <span>CEO, Northwind</span>
-          </div>
+          <cite>MN Studio</cite>
+          <span>Operating principle no. 1</span>
         </footer>
       </blockquote>
     </div>
@@ -247,28 +339,36 @@
   <section class="about" id="about">
     <div class="wrap about-inner">
       <div class="about-copy reveal">
-        <p class="eyebrow">About the studio</p>
-        <h2>Small team.<br>Senior craft.<br>No hand-offs to strangers.</h2>
+        <p class="label">About the studio</p>
+        <h2>Small, senior,<br>and in the room</h2>
         <p>
-          MN Studio is a deliberately small, senior team of product designers,
-          researchers and strategists. No account managers, no junior hand-offs —
-          you work directly with the people doing the thinking and the pixels,
-          from kickoff to launch.
+          MN Studio is a boutique practice, not an agency. Engagements are run by
+          the people who do the work — no account layer, no junior hand-off, no
+          team you meet once at kickoff and never again.
         </p>
-        <a href="#contact" class="btn btn-outline">Meet the team →</a>
+        <p>
+          We work with founders, operators and product teams who want the standard
+          raised and the decisions unstuck, and who'd rather borrow a head of
+          function for six months than mis-hire one for two years.
+        </p>
+        <a href="#contact" class="btn btn-outline">Start a conversation <span class="arrow" aria-hidden="true">→︎</span></a>
       </div>
       <div class="about-values reveal">
         <div>
-          <h4>Craft over noise</h4>
-          <p>Every detail is intentional — we'd rather ship less, and ship it right.</p>
+          <h4>Judgement, not deliverables</h4>
+          <p>You're buying decisions and the reasoning behind them. Artefacts are the residue.</p>
         </div>
         <div>
           <h4>Evidence over ego</h4>
-          <p>Opinions are welcome; user data and business outcomes decide.</p>
+          <p>Opinions are welcome. User behaviour and business outcomes settle it.</p>
         </div>
         <div>
-          <h4>Partners, not vendors</h4>
-          <p>We work embedded with your team, not at arm's length from it.</p>
+          <h4>Leave the team stronger</h4>
+          <p>Every engagement ends with capability transferred, not dependency created.</p>
+        </div>
+        <div>
+          <h4>Tools are leverage, not the point</h4>
+          <p>We use AI hard, and review everything it produces harder.</p>
         </div>
       </div>
     </div>
@@ -277,8 +377,9 @@
   <!-- ================= CTA BANNER ================= -->
   <section class="cta-banner">
     <div class="wrap">
-      <h2 class="reveal">Have a product<br>worth designing well?</h2>
-      <a href="#contact" class="btn btn-primary btn-large reveal">Let's talk about it</a>
+      <h2 class="reveal">Need a head of design<br>or product this quarter?</h2>
+      <p class="reveal">Tell us what's stuck. If we're not the right fit, we'll say so on the first call.</p>
+      <a href="#contact" class="btn btn-invert btn-large reveal">Book an intro call</a>
     </div>
   </section>
 
@@ -286,19 +387,20 @@
   <section class="contact" id="contact">
     <div class="wrap contact-inner">
       <div class="contact-copy reveal">
-        <p class="eyebrow">Get in touch</p>
-        <h2>Tell us about your project</h2>
-        <p>Fill out the form and we'll reply within one business day — or reach
-        us directly below.</p>
+        <p class="label">Get in touch</p>
+        <h2>Tell us what's stuck</h2>
+        <p>
+          A short note is enough. We reply within one business day, and the first
+          call is a conversation about your problem — not a pitch.
+        </p>
         <ul class="contact-details">
           <li><span>Email</span><a href="mailto:hello@mnstudio.net">hello@mnstudio.net</a></li>
-          <li><span>Phone</span><a href="tel:+10000000000">+1 (000) 000-0000</a></li>
-          <li><span>Studio</span>San Francisco, CA · Remote-friendly</li>
+          <li><span>Studio</span>Remote-first, working across UK &amp; US hours</li>
+          <li><span>Availability</span>Taking new engagements</li>
         </ul>
         <div class="social-links">
-          <a href="#" aria-label="MN Studio on Instagram">Instagram</a>
-          <a href="#" aria-label="MN Studio on LinkedIn">LinkedIn</a>
-          <a href="#" aria-label="MN Studio on Dribbble">Dribbble</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Read our notes</a>
         </div>
       </div>
 
@@ -308,22 +410,23 @@
           <input type="text" id="name" name="name" required autocomplete="name" placeholder="Jane Doe">
         </div>
         <div class="form-row">
-          <label for="email">Email</label>
+          <label for="email">Work email</label>
           <input type="email" id="email" name="email" required autocomplete="email" placeholder="jane@company.com">
         </div>
         <div class="form-row">
-          <label for="budget">Project budget</label>
-          <select id="budget" name="budget">
-            <option value="">Select a range</option>
-            <option>Under $25k</option>
-            <option>$25k – $75k</option>
-            <option>$75k – $150k</option>
-            <option>$150k+</option>
+          <label for="engagement">What do you need?</label>
+          <select id="engagement" name="engagement">
+            <option value="">Select an engagement</option>
+            <option>Consulting — a defined project</option>
+            <option>Fractional Head of Design</option>
+            <option>Fractional Head of Product</option>
+            <option>AI-assisted design &amp; build</option>
+            <option>Not sure yet</option>
           </select>
         </div>
         <div class="form-row">
           <label for="message">Tell us about it</label>
-          <textarea id="message" name="message" rows="4" required placeholder="What are you building?"></textarea>
+          <textarea id="message" name="message" rows="4" required placeholder="Where is your product or team stuck?"></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-full">Send message</button>
         <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
@@ -338,36 +441,39 @@
   <div class="wrap footer-inner">
     <div class="footer-brand">
       <a href="#top" class="logo">
-        <span class="logo-mark">M<span>N</span></span>
-        <span class="logo-text">MN&nbsp;Studio</span>
+        <span class="logo-mark" aria-hidden="true">MN</span>
+        <span class="logo-text">Studio</span>
       </a>
-      <p>A product design boutique for founders and teams who care about the details.</p>
+      <p>
+        A boutique product design firm. Consulting, fractional design and product
+        leadership, and AI-assisted development.
+      </p>
     </div>
 
     <nav class="footer-nav" aria-label="Footer">
       <div>
-        <h5>Studio</h5>
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
+        <h5>Services</h5>
+        <a href="#services">Consulting</a>
+        <a href="#fractional">Fractional leadership</a>
+        <a href="#ai">AI-assisted development</a>
         <a href="#process">Process</a>
-        <a href="#about">About</a>
       </div>
       <div>
-        <h5>Connect</h5>
-        <a href="mailto:hello@mnstudio.net">Email</a>
-        <a href="#">Instagram</a>
+        <h5>Studio</h5>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="mailto:hello@mnstudio.net">hello@mnstudio.net</a>
         <a href="#">LinkedIn</a>
-        <a href="#">Dribbble</a>
       </div>
     </nav>
   </div>
   <div class="wrap footer-bottom">
     <p>&copy; <span id="year"></span> MN Studio. All rights reserved.</p>
-    <p>Crafted with care, in San Francisco.</p>
+    <p>Designed and built in black and white.</p>
   </div>
 </footer>
 
-<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+<button class="to-top" id="toTop" aria-label="Back to top"><span class="arrow" aria-hidden="true">↑︎</span></button>
 
 <script src="js/main.js"></script>
 </body>
