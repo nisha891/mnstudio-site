@@ -282,29 +282,31 @@ section[id] { scroll-margin-top: 92px; }
   flex-wrap: wrap;
 }
 
+/* A rule per column — the same device as .process-list and .about-values —
+   rather than verticals hanging off one continuous rule with nothing to
+   close them. The gap sets the measure, so the copy needs no max-width. */
 .hero-facts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid var(--ink);
+  gap: 48px;
 }
 .hero-facts > div {
-  padding: 26px 28px 4px 0;
-  border-right: 1px solid var(--line);
+  border-top: 1px solid var(--ink);
+  padding-top: 20px;
 }
-.hero-facts > div:last-child { border-right: 0; padding-right: 0; }
 .hero-facts dt {
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: .12em;
+  font-size: 11.5px;
+  letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--ink);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .hero-facts dd {
   margin: 0;
-  font-size: 14.5px;
+  font-size: 15px;
+  line-height: 1.55;
   color: var(--grey-500);
-  max-width: 34ch;
 }
 
 /* =========================================================
@@ -830,14 +832,7 @@ section[id] { scroll-margin-top: 92px; }
   .main-nav a::after { display: none; }
   .header-actions .btn-small { display: none; }
   .nav-toggle { display: flex; }
-  .hero-facts { grid-template-columns: 1fr; }
-  .hero-facts > div {
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-    padding: 22px 0;
-  }
-  .hero-facts > div:last-child { border-bottom: 0; }
-  .hero-facts dd { max-width: none; }
+  .hero-facts { grid-template-columns: 1fr; gap: 28px; }
 }
 
 @media (max-width: 720px) {
