@@ -12,8 +12,9 @@ CSS and vanilla JS.
 
 ```
 index.html       Page markup — hero, discipline ticker, services (3 pillars),
-                  fractional leadership, AI-assisted development, process,
-                  manifesto, about, CTA banner, contact form, footer
+                  fractional leadership, AI-assisted development, case
+                  studies, process, manifesto, about, CTA banner, contact
+                  form, footer
 css/style.css     All styling — greyscale tokens, layout, responsive rules
 js/main.js        Mobile nav toggle, sticky header state, scroll-reveal,
                   active nav-link tracking, back-to-top, footer year,
@@ -65,10 +66,18 @@ These are deliberately generic — swap them for real details:
 - **Contact form** — `js/main.js` currently simulates a submit. Replace the
   `setTimeout` in the `submit` handler with a `fetch()` to your form endpoint
   (Formspree, Basin, a serverless function, etc.).
-- **Proof** — the site intentionally ships without client logos, invented
-  metrics or third-party testimonials. When real case studies and quotes are
-  available, the natural home is a new section between *Process* and
-  *Manifesto*, or a `/work` page linked from the nav.
+- **Case study links** — all three `Read case study` links and the cards
+  themselves point at `href="#"`. They need real URLs (or case study pages)
+  before launch.
+- **Case study imagery** — each card opens with a `.case-plate`, a black
+  title plate standing in for project imagery. Replace the whole
+  `.case-plate` element with an `<img>` when real screens or photography
+  are ready; nothing below it needs to change. Keep the `4 / 3` ratio so
+  the three cards stay aligned, and keep sector labels to one line — a
+  wrapping label pushes that card's title out of line with its neighbours.
+- **Testimonials** — the site still ships without third-party quotes. The
+  pull quote under *Case studies* is a first-person operating principle,
+  not an attributed client testimonial.
 
 ## Responsive breakpoints
 
