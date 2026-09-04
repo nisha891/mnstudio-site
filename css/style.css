@@ -179,14 +179,14 @@ section[id] { scroll-margin-top: 92px; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
+  width: 44px;
   height: 34px;
   background: var(--ink);
   color: var(--white);
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: .04em;
+  letter-spacing: .02em;
 }
 
 .main-nav ul { display: flex; gap: 34px; }
