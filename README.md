@@ -66,7 +66,7 @@ These are deliberately generic — swap them for real details:
 - **Contact form** — `js/main.js` currently simulates a submit. Replace the
   `setTimeout` in the `submit` handler with a `fetch()` to your form endpoint
   (Formspree, Basin, a serverless function, etc.).
-- **Case study links** — all three `Read case study` links and the cards
+- **Case study links** — all six `Read case study` links and the cards
   themselves point at `href="#"`. They need real URLs (or case study pages)
   before launch.
 - **Case study imagery** — each card opens with a `.case-plate`, a black
