@@ -38,12 +38,15 @@ Everything is driven by custom properties at the top of `css/style.css`:
 - **Greyscale ramp** — `--black`, `--ink`, `--grey-700` … `--grey-100`,
   `--paper`, `--white`, plus `--line` / `--line-strong` / `--line-invert`
   for the hairline rules that carry most of the layout.
-- **Type** — Inter, loaded from Google Fonts in `index.html`, for both
-  headings (`--font-display`) and body copy (`--font-sans`); `--font-mono`
-  is the system monospace, used for eyebrows, labels, step markers and form
-  labels. The mono labels are what give the page its technical register;
-  they all use the shared `.label` class. Display sizes carry tighter
-  letter-spacing than the base heading rule — Inter needs it above ~40px.
+- **Type** — Inter throughout, loaded from Google Fonts in `index.html`.
+  Two tokens point at the same stack (`--font-display` for headings,
+  `--font-sans` for everything else) so the display face can be swapped
+  later without touching body copy. Weight and letter-spacing carry the
+  hierarchy in place of a second typeface: headings at 600 with tracking
+  tightened by size (-0.042em on the hero, -0.032em on section heads,
+  -0.022em on the base rule), and uppercase micro-labels at 600 with
+  positive tracking around .11–.15em, all via the shared `.label` class.
+  Numeric markers use `font-variant-numeric: tabular-nums` so they align.
 - **Contrast blocks** — the Fractional section, CTA banner and footer invert
   to black; everything else sits on white or `--paper`.
 
