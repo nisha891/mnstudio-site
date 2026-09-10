@@ -82,7 +82,7 @@
 
   const blank = () => ({
     version: 1,
-    theme: 'light',
+    theme: null,   // null = follow the operating system
     workspace: { name: 'MN Studio', plan: 'Studio', seats: 12 },
     connectors: { figma: false, linear: false, jira: false, storybook: false, github: false, slack: false },
     debt: null,
@@ -151,15 +151,28 @@
   /* -------------------------------------------------------
      Theme
      ------------------------------------------------------- */
+  const systemDark = () => !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
   const applyTheme = (t) => {
     document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
   };
+
   MN.theme = {
-    get() { return store.get('theme', 'light'); },
+    /** The stored choice if there is one, otherwise whatever the OS asks for. */
+    get() { return store.get('theme', null) || (systemDark() ? 'dark' : 'light'); },
     set(t) { store.set('theme', t); applyTheme(t); },
     toggle() { const next = MN.theme.get() === 'dark' ? 'light' : 'dark'; MN.theme.set(next); return next; }
   };
-  applyTheme(store.get('theme', 'light'));
+
+  applyTheme(MN.theme.get());
+
+  // Track the OS until the viewer makes a choice of their own.
+  if (window.matchMedia) {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const onChange = () => { if (!store.get('theme', null)) applyTheme(MN.theme.get()); };
+    if (mq.addEventListener) mq.addEventListener('change', onChange);
+    else if (mq.addListener) mq.addListener(onChange);
+  }
 
   /* -------------------------------------------------------
      Icons
@@ -258,7 +271,10 @@
   const mountTop = () => {
     const toggle = document.getElementById('sideToggle');
     const side = document.getElementById('side');
-    if (toggle && side) {
+    // Guarded so the single-file build can re-mount the shell per route
+    // without stacking listeners on controls that outlive the swap.
+    if (toggle && side && !toggle.dataset.bound) {
+      toggle.dataset.bound = '1';
       toggle.innerHTML = ICONS.menu;
       toggle.addEventListener('click', () => {
         const open = side.classList.toggle('open');
@@ -280,7 +296,8 @@
     }
 
     const themeBtn = document.getElementById('themeBtn');
-    if (themeBtn) {
+    if (themeBtn && !themeBtn.dataset.bound) {
+      themeBtn.dataset.bound = '1';
       const paint = () => {
         const dark = MN.theme.get() === 'dark';
         themeBtn.innerHTML = dark ? ICONS.sun : ICONS.moon;
@@ -294,6 +311,20 @@
   MN.shell = {
     mount() { mountSide(); mountTop(); },
     refresh() { mountSide(); }
+  };
+
+  /* -------------------------------------------------------
+     Navigation
+
+     Pages address each other through these two rather than
+     touching location directly, so the single-file build can
+     swap in a hash router without patching any controller.
+     ------------------------------------------------------- */
+  MN.sub = String(location.hash || '').replace(/^#\/?/, '');
+
+  MN.goto = (page, sub) => {
+    const file = (page === 'overview' ? 'index' : page) + '.html';
+    window.location.href = file + (sub ? '#' + sub : '');
   };
 
   /* -------------------------------------------------------

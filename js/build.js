@@ -1183,5 +1183,5 @@
   STAGES.forEach((s) => $('#stage-' + s.key).classList.toggle('hidden', s.key !== current));
   render(current);
 
-  if (location.hash === '#build' && reached('build')) goto('build');
+  if (MN.sub === 'build' && reached('build')) goto('build');
 })();

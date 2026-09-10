@@ -1583,7 +1583,18 @@ table.tbl td .t-main { color: var(--ink); font-weight: 600; display: block; marg
   .canvas { padding-top: 22px; }
   .g2, .g3, .g4, .field-row, .choices.c2, .choices.c3, .finding-grid { grid-template-columns: minmax(0, 1fr); }
   .board { grid-template-columns: minmax(232px, 1fr); }
-  .top-actions { gap: 6px; }
+  /* The sidebar already says where you are, so the crumbs give up
+     their space to the actions before the actions have to shrink. */
+  .crumbs { display: none; }
+  .top-actions {
+    gap: 6px;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .top-actions::-webkit-scrollbar { display: none; }
+  .top-actions .btn { flex: none; }
   .top-actions .btn span.lbl { display: none; }
   .top-actions .hide-sm { display: none; }
   .tile-value { font-size: 27px; }

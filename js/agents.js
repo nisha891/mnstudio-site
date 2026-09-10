@@ -645,7 +645,7 @@
   renderConnections();
   renderActivity();
 
-  if (location.hash === '#connectors') {
+  if (MN.sub === 'connectors') {
     $('#t-conn').click();
     $('#t-conn').scrollIntoView({ block: 'center' });
   }

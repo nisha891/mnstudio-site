@@ -267,7 +267,7 @@
             MN.shell.refresh();
             MN.closeModal();
             MN.toast(`${tickets.length} tickets created`, 'Open the product pipeline to assign agents.', 'ok');
-            setTimeout(() => { window.location.href = 'build.html#build'; }, 900);
+            setTimeout(() => MN.goto('build', 'build'), 900);
           });
         }
       });

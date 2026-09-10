@@ -37,6 +37,19 @@ platform/
   agents.html           Agents, custom workflows, connections, activity
 ```
 
+## One-file build
+
+The whole platform also builds into a single self-contained HTML file — no server,
+no separate assets, openable from one URL or straight off disk:
+
+```bash
+node tools/build-single.js     # → dist/mn-platform.html
+```
+
+The multi-page app under `platform/` stays the source of truth; the bundler reads it,
+extracts each page's markup, rewrites the controllers behind a hash router, and inlines
+the CSS and JS. Rebuild after changing anything under `platform/`, `css/` or `js/`.
+
 ## Running locally
 
 Any static file server works:
@@ -47,6 +60,7 @@ python3 -m http.server 8080
 
 - Studio site — <http://localhost:8080/>
 - Platform — <http://localhost:8080/platform/>
+- Single-file build — <http://localhost:8080/dist/mn-platform.html>
 
 Opening `platform/index.html` straight from the filesystem also works, though a server
 is preferable so relative paths behave consistently.
@@ -122,7 +136,8 @@ clears it.
 
 - Connections to Figma, Linear, Jira, Storybook, GitHub and Slack are simulated. No OAuth
   is performed and nothing leaves the browser.
-- Light and dark themes are both supported; the toggle is in the app header.
+- Light and dark themes are both supported. The theme follows the operating system
+  until you use the toggle in the app header; after that your choice is remembered.
 - Reports are print-friendly — use Export → *Print / save as PDF* on a debt report.
 
 ## Customising the studio site

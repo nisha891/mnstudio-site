@@ -398,7 +398,7 @@
           MN.shell.refresh();
           MN.closeModal();
           MN.toast('Handed off', `${tickets.length} tickets created. Opening the pipeline.`, 'ok');
-          setTimeout(() => { window.location.href = 'build.html#build'; }, 900);
+          setTimeout(() => MN.goto('build', 'build'), 900);
         });
       }
     });
