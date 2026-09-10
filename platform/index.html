@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workspace — MN Studio Platform</title>
+<meta name="description" content="UX research, product design and design debt in one workspace, with AI agents wired through all of it.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23161513%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23f2c48d%22 text-anchor=%22middle%22>M</text></svg>">
+<link rel="stylesheet" href="../css/platform.css">
+</head>
+<body class="app-body">
+
+<div class="app">
+  <aside class="side" id="side" data-page="overview"></aside>
+
+  <div>
+    <header class="top">
+      <div class="top-inner">
+        <button class="side-toggle" id="sideToggle" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <span class="now">Workspace</span>
+        </nav>
+        <div class="top-actions">
+          <button class="btn btn-quiet" id="themeBtn" aria-label="Toggle theme"></button>
+          <a class="btn btn-ghost btn-sm hide-sm" href="../index.html">← Studio site</a>
+          <button class="btn btn-primary btn-sm" id="demoBtn">Load <span class="lbl">demo workspace</span></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="canvas" id="canvas">
+
+      <div class="page-head">
+        <p class="eyebrow" id="wsEyebrow">MN Studio · Studio plan</p>
+        <h1 id="wsTitle">Good to see you.</h1>
+        <p class="lede" id="wsLede">
+          Three ways in: score the debt in something that already exists, audit a Figma file
+          mid-flight, or take a product from first interview to shipped component. The agents run
+          through all of it.
+        </p>
+      </div>
+
+      <div id="kpis"></div>
+
+      <div class="section-head"><h2>Journeys</h2></div>
+      <div class="grid g3" id="journeyCards"></div>
+
+      <div class="grid g-side" style="margin-top:34px">
+        <div>
+          <div class="section-head" style="margin-top:0"><h2>Recent activity</h2></div>
+          <div id="activity"></div>
+        </div>
+        <aside class="stack-lg">
+          <div class="section-head" style="margin-top:0"><h3>Connections</h3></div>
+          <div id="connSummary"></div>
+          <div class="card card-quiet card-pad">
+            <p class="eyebrow">This is a working prototype</p>
+            <p class="small" style="margin:0 0 12px">
+              Every score, plan and agent run is computed in your browser by a real model — no
+              backend, no API keys. Crawl and file-read signals are simulated but deterministic:
+              the same input always returns the same report.
+            </p>
+            <button class="btn btn-ghost btn-sm btn-full" id="resetBtn">Reset the workspace</button>
+          </div>
+        </aside>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="../js/platform-core.js"></script>
+<script src="../js/debt-engine.js"></script>
+<script src="../js/pipeline-engine.js"></script>
+<script src="../js/figma-engine.js"></script>
+<script src="../js/overview.js"></script>
+</body>
+</html>

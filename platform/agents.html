@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agents &amp; workflows — MN Studio Platform</title>
+<meta name="description" content="The agent roster across research, design debt and delivery, plus a composer for custom AI workflows.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23161513%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23f2c48d%22 text-anchor=%22middle%22>M</text></svg>">
+<link rel="stylesheet" href="../css/platform.css">
+</head>
+<body class="app-body">
+
+<div class="app">
+  <aside class="side" id="side" data-page="agents"></aside>
+
+  <div>
+    <header class="top">
+      <div class="top-inner">
+        <button class="side-toggle" id="sideToggle" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Workspace</a>
+          <span class="sep">/</span>
+          <span class="now">Agents &amp; workflows</span>
+        </nav>
+        <div class="top-actions">
+          <button class="btn btn-quiet" id="themeBtn" aria-label="Toggle theme"></button>
+          <button class="btn btn-primary btn-sm" id="newWorkflow">+ New workflow</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="canvas" id="canvas">
+
+      <div class="page-head">
+        <p class="eyebrow">Intelligence</p>
+        <h1>The agents, and what you wire them into.</h1>
+        <p class="lede">
+          Twelve agents covering research, design debt and delivery. Compose them into workflows
+          with your own triggers, gates and outputs — the platform runs them so the work happens
+          whether or not anyone opens the tab.
+        </p>
+      </div>
+
+      <div class="tabs" data-tabs role="tablist" aria-label="Sections">
+        <button class="tab" role="tab" id="t-flows" aria-controls="p-flows" aria-selected="true">Workflows</button>
+        <button class="tab" role="tab" id="t-agents" aria-controls="p-agents" aria-selected="false">Agent roster</button>
+        <button class="tab" role="tab" id="t-conn" aria-controls="p-conn" aria-selected="false">Connections</button>
+        <button class="tab" role="tab" id="t-activity" aria-controls="p-activity" aria-selected="false">Activity</button>
+      </div>
+
+      <div class="panel" id="p-flows" role="tabpanel">
+        <div class="grid g-side-l" id="flowLayout">
+          <div id="flowList"></div>
+          <div id="flowDetail"></div>
+        </div>
+      </div>
+
+      <div class="panel" id="p-agents" role="tabpanel" hidden>
+        <div id="agentRoster"></div>
+      </div>
+
+      <div class="panel" id="p-conn" role="tabpanel" hidden>
+        <div class="grid g-side">
+          <div id="connList"></div>
+          <aside>
+            <div class="note">
+              <span class="note-ico">ℹ</span>
+              <div>
+                <b>Prototype behaviour.</b> Connections are simulated — nothing leaves your browser
+                and no OAuth is performed. In a real deployment each of these is a scoped token
+                stored server-side, and the workflows above run against the live APIs.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="panel" id="p-activity" role="tabpanel" hidden>
+        <div id="activityList"></div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="../js/platform-core.js"></script>
+<script src="../js/debt-engine.js"></script>
+<script src="../js/pipeline-engine.js"></script>
+<script src="../js/agents.js"></script>
+</body>
+</html>

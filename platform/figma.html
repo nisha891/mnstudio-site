@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Figma audit — MN Studio Platform</title>
+<meta name="description" content="Point the platform at a Figma file: structural audit, design debt score, tokenisation plan and component consolidation — then carry on building.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23161513%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23f2c48d%22 text-anchor=%22middle%22>M</text></svg>">
+<link rel="stylesheet" href="../css/platform.css">
+</head>
+<body class="app-body">
+
+<div class="app">
+  <aside class="side" id="side" data-page="figma"></aside>
+
+  <div>
+    <header class="top">
+      <div class="top-inner">
+        <button class="side-toggle" id="sideToggle" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Workspace</a>
+          <span class="sep">/</span>
+          <span class="now">Figma audit</span>
+        </nav>
+        <div class="top-actions">
+          <button class="btn btn-quiet" id="themeBtn" aria-label="Toggle theme"></button>
+          <button class="btn btn-ghost btn-sm hidden" id="newFile">New file</button>
+          <button class="btn btn-primary btn-sm hidden" id="handoffBtn">
+            Continue <span class="lbl">in the pipeline</span> →
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="canvas" id="canvas">
+
+      <!-- ============ CONNECT ============ -->
+      <section id="connect">
+        <div class="page-head">
+          <p class="eyebrow">Journey three</p>
+          <h1>Already halfway into design?</h1>
+          <p class="lede">
+            Connect the Figma file. We read its structure, audit the debt that only exists inside
+            design files, score it on the same index as a live product, and hand you a
+            tokenisation plan and a consolidation map — then you carry on from there.
+          </p>
+        </div>
+
+        <div class="grid g-side">
+          <div class="stack-lg">
+            <div class="card">
+              <div class="card-head">
+                <div>
+                  <h3>Connect a file</h3>
+                  <p class="sub">Read-only access to the file, its styles, components and variables.</p>
+                </div>
+                <span class="badge" id="connState">Not connected</span>
+              </div>
+              <div class="card-body">
+                <label class="field">
+                  <span class="field-label">Figma file URL</span>
+                  <div class="input-group">
+                    <input class="input" id="figUrl" placeholder="https://www.figma.com/file/…" spellcheck="false">
+                    <button class="btn btn-primary" id="readBtn">Read file</button>
+                  </div>
+                  <p class="hint">Nothing is written back to Figma. The audit is read-only.</p>
+                </label>
+
+                <p class="field-label" style="margin-top:22px">Or pick one of the example files</p>
+                <div id="sampleList" class="stack"></div>
+              </div>
+            </div>
+
+            <div class="card card-quiet">
+              <div class="card-head">
+                <div>
+                  <h4>Team context</h4>
+                  <p class="sub">Only needed to price the debt — the rest is read from the file.</p>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="field-row">
+                  <label class="field" style="margin:0">
+                    <span class="field-label">Designers</span>
+                    <input class="input" type="number" id="fDesigners" min="0" max="60" value="2">
+                  </label>
+                  <label class="field" style="margin:0">
+                    <span class="field-label">Engineers</span>
+                    <input class="input" type="number" id="fEngineers" min="1" max="400" value="8">
+                  </label>
+                </div>
+                <div class="field-row" style="margin-top:16px">
+                  <label class="field" style="margin:0">
+                    <span class="field-label">Stage</span>
+                    <select class="select" id="fStage">
+                      <option value="pre-seed">Pre-seed</option>
+                      <option value="seed">Seed</option>
+                      <option value="series-a" selected>Series A</option>
+                      <option value="growth">Growth</option>
+                      <option value="scale">Scale</option>
+                    </select>
+                  </label>
+                  <label class="field" style="margin:0">
+                    <span class="field-label">Blended day rate (USD)</span>
+                    <input class="input" type="number" id="fRate" min="100" max="5000" step="10" value="620">
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="stack-lg">
+            <div class="card card-pad">
+              <p class="eyebrow">What we read</p>
+              <ul class="fix-list small">
+                <li>Pages, frames and the screens among them</li>
+                <li>Components, variants and instance counts</li>
+                <li>Detached instances and where they drifted</li>
+                <li>Local styles, variables and library adoption</li>
+                <li>Auto layout coverage and naming conventions</li>
+                <li>Orphan frames and abandoned explorations</li>
+              </ul>
+            </div>
+            <div class="note">
+              <span class="note-ico">ℹ</span>
+              <div>
+                <b>The file answers the questionnaire.</b> Surface count, design-system maturity and
+                token coverage are derived from the file itself, so the debt score needs almost
+                nothing from you.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ============ SCANNING ============ -->
+      <section id="scanning" class="hidden">
+        <div class="card" style="max-width:660px;margin:40px auto">
+          <div class="scan">
+            <p class="eyebrow">Reading Figma file</p>
+            <h2 id="scanTarget">—</h2>
+            <div class="scan-bar"><div class="scan-fill" id="scanFill"></div></div>
+            <div class="scan-steps" id="scanSteps"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ RESULT ============ -->
+      <section id="result" class="hidden"></section>
+
+    </main>
+  </div>
+</div>
+
+<script src="../js/platform-core.js"></script>
+<script src="../js/debt-engine.js"></script>
+<script src="../js/debt-report.js"></script>
+<script src="../js/figma-engine.js"></script>
+<script src="../js/figma.js"></script>
+</body>
+</html>

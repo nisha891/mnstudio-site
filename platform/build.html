@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product pipeline — MN Studio Platform</title>
+<meta name="description" content="Research to viability gate to generated product design to agent-built tickets shipped into Storybook.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23161513%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23f2c48d%22 text-anchor=%22middle%22>M</text></svg>">
+<link rel="stylesheet" href="../css/platform.css">
+</head>
+<body class="app-body">
+
+<div class="app">
+  <aside class="side" id="side" data-page="build"></aside>
+
+  <div>
+    <header class="top">
+      <div class="top-inner">
+        <button class="side-toggle" id="sideToggle" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Workspace</a>
+          <span class="sep">/</span>
+          <span class="now">Product pipeline</span>
+        </nav>
+        <div class="top-actions">
+          <button class="btn btn-quiet" id="themeBtn" aria-label="Toggle theme"></button>
+          <button class="btn btn-ghost btn-sm" id="resetPipeline">Reset</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="canvas" id="canvas">
+
+      <div class="page-head">
+        <p class="eyebrow">Journey two</p>
+        <h1>Research it, prove it, design it, ship it.</h1>
+        <p class="lede">
+          One continuous line from the first interview to a component published in Storybook.
+          Each stage gates the next — you cannot design what research says nobody wants.
+        </p>
+      </div>
+
+      <nav class="stepper" id="stepper" aria-label="Pipeline stage"></nav>
+
+      <!-- ============ RESEARCH ============ -->
+      <section class="stage" id="stage-research" style="margin-top:26px">
+        <div class="grid g-side">
+          <div class="stack-lg">
+
+            <div class="card">
+              <div class="card-head">
+                <div>
+                  <h3>The brief</h3>
+                  <p class="sub">What you think you are building, and for whom. Everything downstream is derived from this.</p>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="exampleBrief">Use an example</button>
+              </div>
+              <div class="card-body">
+                <div class="field-row">
+                  <label class="field">
+                    <span class="field-label">Product name</span>
+                    <input class="input" id="pName" placeholder="Fernbank">
+                  </label>
+                  <label class="field">
+                    <span class="field-label">Who it is for</span>
+                    <input class="input" id="pAudience" placeholder="Operations leads at 20–200 person agencies">
+                  </label>
+                </div>
+                <label class="field">
+                  <span class="field-label">One line</span>
+                  <input class="input" id="pOneLiner" placeholder="Reconcile agency retainers without leaving the accounting tool">
+                </label>
+                <label class="field" style="margin:0">
+                  <span class="field-label">The problem, as you currently understand it</span>
+                  <textarea class="textarea" id="pProblem" placeholder="Describe the pain, who feels it, how often, and what they do about it today."></textarea>
+                </label>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-head">
+                <div>
+                  <h3>Research signals</h3>
+                  <p class="sub">Every claim in the synthesis traces back to one of these.</p>
+                </div>
+                <button class="btn btn-solid btn-sm" id="addSignal">+ Add signal</button>
+              </div>
+              <div class="card-body">
+                <div id="signalList"></div>
+              </div>
+              <div class="card-foot row-between">
+                <p class="small muted" style="margin:0" id="signalHint">Add at least four signals to synthesise.</p>
+                <button class="btn btn-primary" id="synthBtn" disabled>Synthesise with agent →</button>
+              </div>
+            </div>
+
+            <div id="synthesisOut"></div>
+          </div>
+
+          <aside class="stack-lg">
+            <div class="card card-quiet card-pad">
+              <p class="eyebrow">Signal weighting</p>
+              <p class="small">Not all evidence counts the same. Primary contact with the person who feels the pain outweighs desk research.</p>
+              <div id="weightTable" class="stack" style="margin-top:12px"></div>
+            </div>
+            <div class="note">
+              <span class="note-ico">◆</span>
+              <div><b>Research Synthesist</b> clusters the signals, ranks pains by frequency × severity, and flags the gaps that would make the synthesis unsafe to act on.</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ============ VIABILITY ============ -->
+      <section class="stage hidden" id="stage-viability" style="margin-top:26px">
+        <div class="grid g-side">
+          <div class="stack-lg">
+            <div class="card">
+              <div class="card-head">
+                <div>
+                  <h3>The commercial picture</h3>
+                  <p class="sub">Research tells us whether they want it. This tells us whether it is a business.</p>
+                </div>
+              </div>
+              <div class="card-body stack-lg">
+                <div class="field-row">
+                  <label class="field">
+                    <span class="field-label">Market shape</span>
+                    <select class="select" id="vMarket">
+                      <option value="niche">Niche — a few thousand buyers</option>
+                      <option value="focused" selected>Focused — a defined segment</option>
+                      <option value="broad">Broad — horizontal need</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span class="field-label">Direct competitors</span>
+                    <input class="input" type="number" id="vCompetitors" min="0" max="40" value="4">
+                  </label>
+                </div>
+
+                <div class="field">
+                  <span class="field-label">Hardest evidence of willingness to pay</span>
+                  <div class="choices c2">
+                    <label class="choice"><input type="radio" name="wtp" value="none" checked>
+                      <b>None yet</b><span>Nobody has been asked for money</span></label>
+                    <label class="choice"><input type="radio" name="wtp" value="signals">
+                      <b>Stated intent</b><span>People said they would pay</span></label>
+                    <label class="choice"><input type="radio" name="wtp" value="loi">
+                      <b>Letters of intent</b><span>Signed, not yet billed</span></label>
+                    <label class="choice"><input type="radio" name="wtp" value="paying">
+                      <b>Paying already</b><span>Pre-payments or a pilot invoice</span></label>
+                  </div>
+                </div>
+
+                <div class="field-row">
+                  <label class="field">
+                    <span class="field-label">Build complexity</span>
+                    <select class="select" id="vComplexity">
+                      <option value="low">Low — a focused app</option>
+                      <option value="medium" selected>Medium — integrations and state</option>
+                      <option value="high">High — infrastructure or compliance</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span class="field-label">Team fit for this problem</span>
+                    <select class="select" id="vTeamFit">
+                      <option value="weak">Weak — new domain to us</option>
+                      <option value="ok" selected>Adequate — adjacent experience</option>
+                      <option value="strong">Strong — we have lived it</option>
+                    </select>
+                  </label>
+                </div>
+
+                <label class="field">
+                  <span class="field-label">Primary route to the buyer</span>
+                  <select class="select" id="vChannel">
+                    <option value="none">Not established</option>
+                    <option value="organic" selected>Organic — content and search</option>
+                    <option value="audience">An audience we already own</option>
+                    <option value="partnerships">Partnerships and integrations</option>
+                    <option value="outbound">Outbound sales</option>
+                  </select>
+                </label>
+
+                <div class="row-wrap" style="gap:22px">
+                  <label class="toggle">
+                    <input type="checkbox" id="vWedge">
+                    <span class="toggle-track"></span>
+                    <span>We have a clear wedge we can be best at</span>
+                  </label>
+                  <label class="toggle">
+                    <input type="checkbox" id="vUnlock">
+                    <span class="toggle-track"></span>
+                    <span>Something changed recently that makes this possible now</span>
+                  </label>
+                </div>
+              </div>
+              <div class="card-foot row-between">
+                <p class="small muted" style="margin:0">Scored against your research synthesis.</p>
+                <button class="btn btn-primary" id="viabilityBtn">Run viability assessment →</button>
+              </div>
+            </div>
+
+            <div id="viabilityOut"></div>
+          </div>
+
+          <aside class="stack-lg">
+            <div class="card card-quiet card-pad">
+              <p class="eyebrow">The six axes</p>
+              <div id="axisPreview" class="stack" style="margin-top:4px"></div>
+            </div>
+            <div class="note warn">
+              <span class="note-ico">!</span>
+              <div><b>This is a real gate.</b> A no-go verdict blocks the design stage. You can override it, but the override is recorded on the project.</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ============ DESIGN ============ -->
+      <section class="stage hidden" id="stage-design" style="margin-top:26px">
+        <div id="designOut"></div>
+      </section>
+
+      <!-- ============ BUILD ============ -->
+      <section class="stage hidden" id="stage-build" style="margin-top:26px">
+        <div id="buildOut"></div>
+      </section>
+
+      <!-- ============ SHIP ============ -->
+      <section class="stage hidden" id="stage-ship" style="margin-top:26px">
+        <div id="shipOut"></div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="../js/platform-core.js"></script>
+<script src="../js/debt-engine.js"></script>
+<script src="../js/pipeline-engine.js"></script>
+<script src="../js/build.js"></script>
+</body>
+</html>

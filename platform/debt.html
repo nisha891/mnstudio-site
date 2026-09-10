@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design debt calculator — MN Studio Platform</title>
+<meta name="description" content="Point the platform at a live product or a demo video and get a scored design debt report with a costed refactoring strategy.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23161513%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-family=%22Georgia,serif%22 fill=%22%23f2c48d%22 text-anchor=%22middle%22>M</text></svg>">
+<link rel="stylesheet" href="../css/platform.css">
+</head>
+<body class="app-body">
+
+<div class="app">
+  <aside class="side" id="side" data-page="debt"></aside>
+
+  <div>
+    <header class="top">
+      <div class="top-inner">
+        <button class="side-toggle" id="sideToggle" aria-expanded="false" aria-label="Toggle navigation"></button>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Workspace</a>
+          <span class="sep">/</span>
+          <span class="now">Design debt</span>
+        </nav>
+        <div class="top-actions">
+          <button class="btn btn-quiet" id="themeBtn" aria-label="Toggle theme"></button>
+          <button class="btn btn-ghost btn-sm hidden" id="exportBtn">Export</button>
+          <button class="btn btn-ghost btn-sm hidden" id="restartBtn">New analysis</button>
+          <button class="btn btn-primary btn-sm hidden" id="ticketsBtn">
+            <span class="lbl">Send to</span> pipeline →
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="canvas" id="canvas">
+
+      <!-- ============ INTAKE ============ -->
+      <section id="intake">
+        <div class="page-head">
+          <p class="eyebrow">Journey one</p>
+          <h1>What does your product owe?</h1>
+          <p class="lede">
+            Point us at something real — a live URL or a demo video — tell us how the team is
+            shaped, and we return a scored debt ledger, what it costs you every sprint, and the
+            order to pay it down in.
+          </p>
+        </div>
+
+        <div class="grid g-side">
+          <div class="stack-lg">
+
+            <!-- source -->
+            <div class="card">
+              <div class="card-head">
+                <div>
+                  <h3>1 · The source</h3>
+                  <p class="sub">Live product gives us the most signal. A demo video works when the product is behind a login.</p>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="tabs" data-tabs role="tablist" aria-label="Source type">
+                  <button class="tab" role="tab" id="tab-url" aria-controls="pane-url" aria-selected="true">Live link</button>
+                  <button class="tab" role="tab" id="tab-video" aria-controls="pane-video" aria-selected="false">Demo video</button>
+                </div>
+
+                <div class="panel" id="pane-url" role="tabpanel" aria-labelledby="tab-url">
+                  <label class="field">
+                    <span class="field-label">Product URL</span>
+                    <input class="input" type="url" id="urlInput" placeholder="https://app.yourproduct.com"
+                           autocomplete="url" spellcheck="false">
+                    <p class="hint">We crawl reachable routes, capture rendered styles, and replay the flows we can reach without credentials.</p>
+                  </label>
+                  <div class="row-wrap">
+                    <span class="tiny muted">Try:</span>
+                    <button class="chip" type="button" data-demo-url="https://app.northwind.io">app.northwind.io</button>
+                    <button class="chip" type="button" data-demo-url="https://kaido.health">kaido.health</button>
+                    <button class="chip" type="button" data-demo-url="https://loopfinance.app">loopfinance.app</button>
+                  </div>
+                </div>
+
+                <div class="panel" id="pane-video" role="tabpanel" aria-labelledby="tab-video" hidden>
+                  <div class="dropzone" id="dropzone" tabindex="0" role="button"
+                       aria-label="Upload a demo video">
+                    <div class="dropzone-ico">▶</div>
+                    <h4>Drop a demo walkthrough</h4>
+                    <p>MP4, MOV or WebM up to 500&nbsp;MB — or click to browse</p>
+                  </div>
+                  <input type="file" id="fileInput" accept="video/*" class="sr-only">
+                  <div id="filePicked" class="hidden" style="margin-top:14px"></div>
+                  <p class="hint" style="margin-top:12px">
+                    Frames are sampled at scene boundaries to reconstruct screens and the flow between them.
+                    Video analysis carries lower confidence than a live crawl — we surface that on the report.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- context -->
+            <div class="card">
+              <div class="card-head">
+                <div>
+                  <h3>2 · The context</h3>
+                  <p class="sub">These answers drive the model directly — they are not cosmetic.</p>
+                </div>
+              </div>
+              <div class="card-body stack-lg">
+
+                <div class="field-row">
+                  <label class="field">
+                    <span class="field-label">Funding / maturity stage</span>
+                    <select class="select" id="ctxStage">
+                      <option value="pre-seed">Pre-seed — finding the shape</option>
+                      <option value="seed" selected>Seed — first real users</option>
+                      <option value="series-a">Series A — scaling what works</option>
+                      <option value="growth">Growth — multiple squads</option>
+                      <option value="scale">Scale — platform teams</option>
+                    </select>
+                  </label>
+                  <label class="field">
+                    <span class="field-label">Release cadence</span>
+                    <select class="select" id="ctxCadence">
+                      <option value="monthly">Monthly</option>
+                      <option value="biweekly" selected>Every two weeks</option>
+                      <option value="weekly">Weekly</option>
+                      <option value="daily">Continuous</option>
+                    </select>
+                  </label>
+                </div>
+
+                <div class="field slider-field">
+                  <div class="slider-top">
+                    <span class="field-label" style="margin:0">Distinct screens or views</span>
+                    <span class="slider-val" id="surfacesVal">22</span>
+                  </div>
+                  <input type="range" id="ctxSurfaces" min="3" max="160" value="22" step="1">
+                  <p class="hint">Surface count is the main multiplier on inconsistency — every screen is another place a decision gets re-made.</p>
+                </div>
+
+                <div class="field-row">
+                  <label class="field">
+                    <span class="field-label">Designers on the product</span>
+                    <input class="input" type="number" id="ctxDesigners" min="0" max="60" value="1">
+                  </label>
+                  <label class="field">
+                    <span class="field-label">Engineers on the product</span>
+                    <input class="input" type="number" id="ctxEngineers" min="1" max="400" value="6">
+                  </label>
+                </div>
+
+                <div class="field">
+                  <span class="field-label">Design system maturity</span>
+                  <div class="choices c3">
+                    <label class="choice">
+                      <input type="radio" name="system" value="none">
+                      <b>None</b><span>Components are built per feature</span>
+                    </label>
+                    <label class="choice">
+                      <input type="radio" name="system" value="partial" checked>
+                      <b>Partial</b><span>A library exists, coverage is patchy</span>
+                    </label>
+                    <label class="choice">
+                      <input type="radio" name="system" value="mature">
+                      <b>Mature</b><span>Versioned, owned, widely adopted</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <span class="field-label">Accessibility target you hold yourselves to</span>
+                  <div class="choices c3">
+                    <label class="choice">
+                      <input type="radio" name="a11y" value="none" checked>
+                      <b>Nothing formal</b><span>Handled case by case</span>
+                    </label>
+                    <label class="choice">
+                      <input type="radio" name="a11y" value="aa">
+                      <b>WCAG 2.2 AA</b><span>Checked before release</span>
+                    </label>
+                    <label class="choice">
+                      <input type="radio" name="a11y" value="aaa">
+                      <b>AA plus audits</b><span>Third-party tested</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <span class="field-label">Platforms shipped</span>
+                  <div class="choices c3">
+                    <label class="choice">
+                      <input type="checkbox" name="platform" value="web" checked>
+                      <b>Web</b><span>Responsive app or site</span>
+                    </label>
+                    <label class="choice">
+                      <input type="checkbox" name="platform" value="ios">
+                      <b>iOS</b><span>Native or hybrid</span>
+                    </label>
+                    <label class="choice">
+                      <input type="checkbox" name="platform" value="android">
+                      <b>Android</b><span>Native or hybrid</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="field-row">
+                  <label class="field">
+                    <span class="field-label">Years in production</span>
+                    <input class="input" type="number" id="ctxAge" min="0" max="30" step="0.5" value="2">
+                  </label>
+                  <label class="field">
+                    <span class="field-label">Blended day rate (USD)</span>
+                    <input class="input" type="number" id="ctxRate" min="100" max="5000" step="10" value="620">
+                    <p class="hint">Used to price the debt. Fully-loaded design + engineering cost.</p>
+                  </label>
+                </div>
+
+                <div class="row-wrap" style="gap:22px">
+                  <label class="toggle">
+                    <input type="checkbox" id="ctxTokens">
+                    <span class="toggle-track"></span>
+                    <span>Design tokens exist</span>
+                  </label>
+                  <label class="toggle">
+                    <input type="checkbox" id="ctxStorybook">
+                    <span class="toggle-track"></span>
+                    <span>Storybook or equivalent is published</span>
+                  </label>
+                </div>
+
+                <label class="field" style="margin:0">
+                  <span class="field-label">Anything you already know is broken <span class="muted">(optional)</span></span>
+                  <textarea class="textarea" id="ctxNotes" placeholder="e.g. the onboarding flow drops 40% at the plan-picker, and nobody has touched the mobile breakpoints in a year"></textarea>
+                </label>
+              </div>
+              <div class="card-foot row-between">
+                <p class="tiny muted" style="margin:0">Analysis takes about ten seconds.</p>
+                <button class="btn btn-primary" id="runBtn">Calculate design debt →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- aside -->
+          <aside class="stack-lg">
+            <div class="card card-quiet card-pad">
+              <p class="eyebrow">What you get back</p>
+              <ul class="fix-list">
+                <li><b class="strong">A Design Debt Index</b> — one 0–100 number, weighted across eight dimensions, benchmarked against your stage.</li>
+                <li><b class="strong">A findings ledger</b> — every issue with evidence, impact, effort, owner and a specific remediation.</li>
+                <li><b class="strong">The economics</b> — principal, interest per sprint, capacity lost, and payback period.</li>
+                <li><b class="strong">A refactoring strategy</b> — three costed waves, sequenced so each one funds the next.</li>
+              </ul>
+            </div>
+
+            <div class="card card-pad">
+              <p class="eyebrow">The eight dimensions</p>
+              <div id="dimPreview" class="stack" style="margin-top:4px"></div>
+            </div>
+
+            <div class="note">
+              <span class="note-ico">ℹ</span>
+              <div>
+                <b>Prototype behaviour.</b> Scores are computed by a real model from the context you
+                declare, combined with crawl signals that are simulated here and seeded from your
+                source — the same input always returns the same report. Every simulated figure is
+                labelled <em>observed</em> in the findings.
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ============ SCANNING ============ -->
+      <section id="scanning" class="hidden">
+        <div class="card" style="max-width:660px;margin:40px auto">
+          <div class="scan">
+            <p class="eyebrow" id="scanKind">Analysing</p>
+            <h2 id="scanTarget">—</h2>
+            <div class="scan-bar"><div class="scan-fill" id="scanFill"></div></div>
+            <div class="scan-steps" id="scanSteps"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ REPORT ============ -->
+      <section id="report" class="hidden"></section>
+
+    </main>
+  </div>
+</div>
+
+<script src="../js/platform-core.js"></script>
+<script src="../js/debt-engine.js"></script>
+<script src="../js/debt-report.js"></script>
+<script src="../js/debt.js"></script>
+</body>
+</html>
