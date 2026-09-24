@@ -13,6 +13,7 @@ css/style.css    Page styling — layout, theming, responsive breakpoints
 css/nav.css      Header: announcement bar, mega-menu nav, theme toggle,
                  mobile drawer (black / white / red, light + dark)
 assets/clients/  Client logos (transparent PNGs) for the scrolling logo strip
+assets/fonts/    Talesha display serif (WOFF2); 01 + 01 Slant are used
 js/main.js       Mega-menus (hover/click/Esc), mobile drawer, theme toggle,
                  sticky header state, scroll-reveal animations, back-to-top
                  button, footer year, featured case study rail
@@ -32,17 +33,22 @@ Or just open `index.html` directly in a browser.
 ## Customizing
 
 - **Colors / fonts / spacing** — CSS custom properties at the top of
-  `css/style.css` (`:root`). Inter is used throughout.
+  `css/style.css` (`:root`). Headlines and big numbers use Talesha 01
+  (italic emphasis uses Talesha 01 Slant) via `--font-serif`; see "Display
+  type" at the end of `style.css`. Body and UI text use Inter. Talesha has
+  no ★ or → glyphs, so those fall back to Inter. Talesha is a commercial
+  font by Seniors Studio: confirm the licence covers web embedding.
 - **Copy & sections** — edit `index.html` directly; each section is
   clearly commented (`<!-- ===== SECTION ===== -->`).
 
-## Hero
+## Hero and footer strands
 
-Light hero with a Mintlify-inspired bundle of red line strands
-(`#heroStrands`, drawn in `js/main.js`, "Hero strands" block) twisting
-diagonally behind the content. Strands use multiply blending so they
-deepen where they overlap. Animation pauses off-screen and is static for
-reduced motion.
+A Mintlify-inspired bundle of red line strands twists behind the hero
+(`#heroStrands`) and, mirrored, across the bottom of the dark footer
+(`#footerStrands`). Both use `initStrands()` in `js/main.js`: pass
+`mirror` to flip it, `dark` for glowing (additive) lines on dark
+backgrounds, and `desktop` / `mobile` placement (`cx`, `cy`, `angle`,
+`amp`). Animation pauses off-screen and is static for reduced motion.
 
 Saved alternatives: grainy ribbon hero at commit `ae7d7cf`; dark
 Mintlify-style hero with Qualux headlines at commit `ffa1905`.

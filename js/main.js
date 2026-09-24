@@ -225,10 +225,11 @@
     if (autoplay) requestAnimationFrame(tick);
   }
 
-  /* ---------- Hero strands: a twisting bundle of glowing lines ---------- */
-  const strands = document.getElementById('heroStrands');
-  if (strands && strands.getContext) {
-    const ctx = strands.getContext('2d');
+  /* ---------- Line strands: a twisting bundle of lines (hero + footer) ---------- */
+  // opts.mirror flips it left-to-right; opts.dark switches to glowing lines for dark backgrounds.
+  const initStrands = (canvas, opts = {}) => {
+    if (!canvas || !canvas.getContext) return;
+    const ctx = canvas.getContext('2d');
     const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const LINES = 30;
     const TAU = Math.PI * 2;
@@ -237,10 +238,10 @@
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = strands.clientWidth;
-      h = strands.clientHeight;
-      strands.width = Math.round(w * dpr);
-      strands.height = Math.round(h * dpr);
+      w = canvas.clientWidth;
+      h = canvas.clientHeight;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       grad = null;
       draw();
@@ -248,14 +249,14 @@
 
     // One ribbon, described in a rotated local frame that runs bottom-left to top-right
     const frameOf = () => {
-      const len = Math.hypot(w, h) * 1.15;
       const mobile = w < 720;
+      const place = (mobile ? opts.mobile : opts.desktop) || {};
       return {
-        len,
-        cx: w * (mobile ? 0.55 : 0.66),
-        cy: h * (mobile ? 0.97 : 0.5),
-        angle: mobile ? -0.3 : -0.46,
-        amp: Math.min(h * 0.26, 210),
+        len: Math.hypot(w, h) * 1.15,
+        cx: w * (place.cx ?? 0.66),
+        cy: h * (place.cy ?? 0.5),
+        angle: place.angle ?? -0.46,
+        amp: Math.min(h * (place.amp ?? 0.26), 210),
       };
     };
     const curve = (u, f) => {
@@ -271,30 +272,38 @@
       const f = frameOf();
       ctx.clearRect(0, 0, w, h);
       ctx.save();
+      if (opts.mirror) { ctx.translate(w, 0); ctx.scale(-1, 1); }
       ctx.translate(f.cx, f.cy);
       ctx.rotate(f.angle);
       if (!grad) {
         grad = ctx.createLinearGradient(-f.len / 2, 0, f.len / 2, 0);
-        grad.addColorStop(0, 'rgba(214,40,40,0)');
-        grad.addColorStop(0.15, 'rgba(214,40,40,.55)');
-        grad.addColorStop(0.55, 'rgba(214,40,40,.9)');
-        grad.addColorStop(0.8, 'rgba(150,20,20,.85)');
-        grad.addColorStop(1, 'rgba(214,40,40,.1)');
+        if (opts.dark) {
+          grad.addColorStop(0, 'rgba(214,40,40,0)');
+          grad.addColorStop(0.15, 'rgba(214,40,40,.7)');
+          grad.addColorStop(0.55, 'rgba(255,92,92,.95)');
+          grad.addColorStop(0.8, 'rgba(255,190,190,.9)');
+          grad.addColorStop(1, 'rgba(255,120,120,.15)');
+        } else {
+          grad.addColorStop(0, 'rgba(214,40,40,0)');
+          grad.addColorStop(0.15, 'rgba(214,40,40,.55)');
+          grad.addColorStop(0.55, 'rgba(214,40,40,.9)');
+          grad.addColorStop(0.8, 'rgba(150,20,20,.85)');
+          grad.addColorStop(1, 'rgba(214,40,40,.1)');
+        }
       }
-      ctx.globalCompositeOperation = 'multiply'; // strands deepen where they overlap on white
+      // Light backgrounds: multiply deepens overlaps. Dark backgrounds: lighter makes them glow.
+      ctx.globalCompositeOperation = opts.dark ? 'lighter' : 'multiply';
       ctx.lineWidth = 1;
       ctx.strokeStyle = grad;
       const STEP = 10;
       const n = Math.ceil(f.len / STEP);
       // Sample the ribbon once, then offset each strand across its width
       const pts = new Array(n + 1);
-      for (let i = 0; i <= n; i++) {
-        const u = i / n;
-        pts[i] = curve(u, f);
-      }
+      for (let i = 0; i <= n; i++) pts[i] = curve(i / n, f);
+      const baseAlpha = opts.dark ? 0.26 : 0.22;
       for (let k = 0; k < LINES; k++) {
-        const sOff = (k / (LINES - 1)) * 2 - 1;         // -1 .. 1 across the ribbon
-        ctx.globalAlpha = 0.22 + 0.5 * (1 - Math.abs(sOff));
+        const sOff = (k / (LINES - 1)) * 2 - 1; // -1 .. 1 across the ribbon
+        ctx.globalAlpha = baseAlpha + 0.5 * (1 - Math.abs(sOff));
         ctx.beginPath();
         for (let i = 0; i <= n; i++) {
           const x = -f.len / 2 + i * STEP;
@@ -303,7 +312,8 @@
         }
         ctx.stroke();
       }
-      // Two dark highlights travelling along individual strands
+      // Two highlights travelling along individual strands
+      const hl = opts.dark ? '255,255,255' : '10,10,10';
       ctx.lineWidth = 1.6;
       [[7, 0], [21, 0.5]].forEach(([k, phase]) => {
         const sOff = (k / (LINES - 1)) * 2 - 1;
@@ -314,8 +324,8 @@
         if (i1 <= i0) return;
         const x0 = -f.len / 2 + i0 * STEP, x1 = -f.len / 2 + i1 * STEP;
         const hg = ctx.createLinearGradient(x0, 0, x1, 0);
-        hg.addColorStop(0, 'rgba(10,10,10,0)');
-        hg.addColorStop(1, 'rgba(10,10,10,.85)');
+        hg.addColorStop(0, `rgba(${hl},0)`);
+        hg.addColorStop(1, `rgba(${hl},.85)`);
         ctx.strokeStyle = hg;
         ctx.beginPath();
         for (let i = i0; i <= i1; i++) {
@@ -350,11 +360,23 @@
       new IntersectionObserver(([entry]) => {
         visible = entry.isIntersecting;
         if (visible) start(); else stop();
-      }).observe(strands);
+      }).observe(canvas);
     }
     document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
     start();
-  }
+  };
+
+  initStrands(document.getElementById('heroStrands'), {
+    desktop: { cx: 0.66, cy: 0.5, angle: -0.46, amp: 0.26 },
+    mobile: { cx: 0.55, cy: 0.97, angle: -0.3, amp: 0.26 },
+  });
+  // Footer: the same bundle, mirrored so it sweeps in from the opposite side
+  initStrands(document.getElementById('footerStrands'), {
+    mirror: true,
+    dark: true,
+    desktop: { cx: 0.5, cy: 0.86, angle: -0.16, amp: 0.14 },
+    mobile: { cx: 0.5, cy: 0.93, angle: -0.3, amp: 0.1 },
+  });
 
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById('year');
