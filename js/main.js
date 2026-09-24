@@ -318,7 +318,7 @@
       ctx.globalCompositeOperation = 'source-over';
       [[7, 0], [21, 0.5]].forEach(([k, phase]) => {
         const sOff = (k / (LINES - 1)) * 2 - 1;
-        const pos = ((t * 0.06 + phase) % 1) * 0.8 + 0.18; // 0..1 along the strand
+        const pos = ((t * 0.16 + phase) % 1) * 0.72 + 0.14; // 0..1 along the strand; ~6s per pass
         const fi = pos * n;
         const i = Math.min(n - 1, Math.floor(fi));
         const frac = fi - i;
