@@ -100,11 +100,27 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(0); }
 
+/* Primary: dark pill with a red arrow circle, matching the nav CTAs */
 .btn-primary {
-  background: var(--ink);
-  color: var(--cream);
+  gap: 12px;
+  padding: 6px 26px 6px 6px;
+  background: #1f1f1f;
+  color: #fff;
 }
-.btn-primary:hover { background: var(--accent-dark); }
+.btn-primary::before {
+  content: "";
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center / 18px no-repeat;
+  transition: transform .3s var(--ease);
+}
+.btn-primary:hover { background: #000; }
+.btn-primary:hover::before { transform: translateX(3px); }
+.btn-primary.btn-large { padding: 8px 32px 8px 8px; }
+.btn-primary.btn-large::before { width: 44px; height: 44px; background-size: 20px; }
+.btn-primary.btn-full { justify-content: center; }
 
 .btn-ghost {
   background: transparent;

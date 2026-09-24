@@ -14,8 +14,9 @@
   --nav-red-dark: #a91d1d;
   --nav-red-tint: #fdf1f1;
   --nav-red-line: #f3c9c9;
-  --nav-btn-bg: #0a0a0a;
+  --nav-btn-bg: #1f1f1f;
   --nav-btn-ink: #ffffff;
+  --nav-btn-hover: #000000;
   --nav-shadow: 0 24px 48px -16px rgba(0, 0, 0, .18);
   --font-mono: var(--font-sans); /* labels use Inter too */
   --announce-h: 36px;
@@ -34,6 +35,7 @@
     --nav-red-line: #4a1c1c;
     --nav-btn-bg: #ffffff;
     --nav-btn-ink: #0a0a0a;
+    --nav-btn-hover: #e5e5e5;
     --nav-shadow: 0 24px 48px -16px rgba(0, 0, 0, .6);
   }
 }
@@ -48,6 +50,7 @@
   --nav-red-line: #4a1c1c;
   --nav-btn-bg: #ffffff;
   --nav-btn-ink: #0a0a0a;
+  --nav-btn-hover: #e5e5e5;
   --nav-shadow: 0 24px 48px -16px rgba(0, 0, 0, .6);
 }
 
@@ -172,14 +175,35 @@
   white-space: nowrap;
   transition: background-color .2s ease, color .2s ease, border-color .2s ease;
 }
-.nav-btn-primary { background: var(--nav-btn-bg); color: var(--nav-btn-ink); }
-.nav-btn-primary:hover { background: var(--nav-red); color: #fff; }
+/* Pill CTAs: dark (or light) pill with a red icon circle on the left */
+.nav-btn-primary,
 .nav-btn-secondary {
-  background: transparent;
-  color: var(--nav-ink);
-  border-color: var(--nav-ink);
+  gap: 10px;
+  padding: 5px 18px 5px 5px;
+  border-radius: 999px;
 }
-.nav-btn-secondary:hover { border-color: var(--nav-red); color: var(--nav-red); }
+.nav-btn-primary { background: var(--nav-btn-bg); color: var(--nav-btn-ink); }
+.nav-btn-primary:hover { background: var(--nav-btn-hover); }
+.nav-btn-secondary {
+  background: var(--nav-bg);
+  color: var(--nav-ink);
+  border: 1.5px solid var(--nav-ink);
+}
+.nav-btn-secondary:hover { background: var(--nav-red-tint); }
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--nav-red);
+  color: #fff;
+  flex-shrink: 0;
+  transition: transform .25s var(--ease);
+}
+.btn-icon svg { width: 15px; height: 15px; }
+.nav-btn:hover .btn-icon { transform: scale(1.08); }
 .nav-btn-outline {
   padding: 8px 11px;
   font-size: 13px;
@@ -363,7 +387,7 @@
 @media (max-width: 1180px) {
   .nav-list { gap: 0; }
   .nav-link { padding: 8px 10px; }
-  .nav-btn { padding: 10px 14px; font-size: 14.5px; }
+  .nav-btn { font-size: 14.5px; }
 }
 
 @media (max-width: 1100px) {
@@ -426,7 +450,8 @@
   }
 
   .nav-cta-mobile { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
-  .nav-cta-mobile .nav-btn { width: 100%; padding: 14px 18px; }
+  .nav-cta-mobile .nav-btn { width: 100%; padding: 7px 18px 7px 7px; justify-content: flex-start; }
+  .nav-cta-mobile .btn-icon { width: 36px; height: 36px; }
 }
 
 @media (max-width: 720px) {
