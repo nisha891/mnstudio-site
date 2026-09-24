@@ -1105,3 +1105,15 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 .result-value-text { letter-spacing: -0.01em; }
 /* Small uppercase labels that happen to be headings stay in Inter */
 .footer-title { font-family: var(--font-sans); }
+
+/* M&N wordmark in Talesha everywhere it appears */
+.nav-logo, .footer-logo, .toolkit-hub {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: -0.02em;
+}
+.nav-logo { font-size: 32px; }
+.footer-logo { font-size: 42px; }
+.toolkit-hub { font-size: 28px; }
+@media (max-width: 720px) { .toolkit-hub { font-size: 21px; } }
