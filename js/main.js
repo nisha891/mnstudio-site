@@ -312,28 +312,28 @@
         }
         ctx.stroke();
       }
-      // Two highlights travelling along individual strands
-      const hl = opts.dark ? '255,255,255' : '10,10,10';
-      ctx.lineWidth = 1.6;
+      // Two particles (glowing dots) travelling along individual strands
+      const dot = opts.dark ? '255,255,255' : '10,10,10';
+      const halo = opts.dark ? '255,120,120' : '214,40,40';
+      ctx.globalCompositeOperation = 'source-over';
       [[7, 0], [21, 0.5]].forEach(([k, phase]) => {
         const sOff = (k / (LINES - 1)) * 2 - 1;
-        const head = ((t * 0.06 + phase) % 1) * 0.8 + 0.25;
-        const tail = head - 0.07;
-        ctx.globalAlpha = 0.9;
-        const i0 = Math.max(0, Math.floor(tail * n)), i1 = Math.min(n, Math.floor(head * n));
-        if (i1 <= i0) return;
-        const x0 = -f.len / 2 + i0 * STEP, x1 = -f.len / 2 + i1 * STEP;
-        const hg = ctx.createLinearGradient(x0, 0, x1, 0);
-        hg.addColorStop(0, `rgba(${hl},0)`);
-        hg.addColorStop(1, `rgba(${hl},.85)`);
-        ctx.strokeStyle = hg;
-        ctx.beginPath();
-        for (let i = i0; i <= i1; i++) {
-          const x = -f.len / 2 + i * STEP;
-          const y = pts[i].cy + sOff * pts[i].half;
-          if (i === i0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-        }
-        ctx.stroke();
+        const pos = ((t * 0.06 + phase) % 1) * 0.8 + 0.18; // 0..1 along the strand
+        const fi = pos * n;
+        const i = Math.min(n - 1, Math.floor(fi));
+        const frac = fi - i;
+        const yA = pts[i].cy + sOff * pts[i].half;
+        const yB = pts[i + 1].cy + sOff * pts[i + 1].half;
+        const x = -f.len / 2 + fi * STEP;
+        const y = yA + (yB - yA) * frac;
+        ctx.globalAlpha = 1;
+        const g = ctx.createRadialGradient(x, y, 0, x, y, 12);
+        g.addColorStop(0, `rgba(${halo},.45)`);
+        g.addColorStop(1, `rgba(${halo},0)`);
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(x, y, 12, 0, TAU); ctx.fill();
+        ctx.fillStyle = `rgba(${dot},.95)`;
+        ctx.beginPath(); ctx.arc(x, y, 2.6, 0, TAU); ctx.fill();
       });
       ctx.restore();
       ctx.globalAlpha = 1;
