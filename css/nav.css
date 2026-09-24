@@ -474,7 +474,9 @@
 }
 
 @media (max-width: 720px) {
-  .announce { font-size: 12.5px; }
+  :root { --announce-h: 50px; }
+  .announce { font-size: 12.5px; line-height: 1.35; }
+  .announce-link { white-space: normal; }
 }
 
 @media (prefers-reduced-motion: reduce) {
