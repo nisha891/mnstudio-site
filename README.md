@@ -11,7 +11,7 @@ index.html      Page markup (hero, services, work, process, testimonial,
 css/style.css    Page styling — layout, theming, responsive breakpoints
 css/nav.css      Header: announcement bar, mega-menu nav, theme toggle,
                  mobile drawer (black / white / red, light + dark)
-assets/clients/ Client logos (transparent PNGs) for the scrolling logo strip
+assets/clients/  Client logos (transparent PNGs) for the scrolling logo strip
 js/main.js       Mega-menus (hover/click/Esc), mobile drawer, theme toggle, sticky header state, scroll-reveal
                  animations, back-to-top button, footer year, contact
                  form UI (front-end only, no backend wired up)
