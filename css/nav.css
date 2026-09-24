@@ -290,6 +290,48 @@
   color: var(--nav-muted);
 }
 .mega-col li a:hover .mega-title { color: var(--nav-red); }
+/* Publication wordmarks (text stand-ins until official logo files are added) */
+.press-mark {
+  display: block;
+  margin-top: 6px;
+  color: var(--nav-ink);
+  opacity: .72;
+  line-height: 1.2;
+}
+.mega-col li a:hover .press-mark { opacity: 1; }
+.press-wsj {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.press-forbes {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.press-bloomberg {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.press-bloomberg small {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .02em;
+  color: var(--nav-muted);
+  margin-left: 4px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 .mega-title .ext { font-size: .85em; margin-left: 2px; }
 
 .mega-more {
