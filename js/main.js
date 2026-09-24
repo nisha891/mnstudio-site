@@ -185,6 +185,22 @@
 
     const bar = (i) => panels[i].querySelector('.cs-progress');
 
+    // Testimonial under the rail follows the open case study; hidden when a panel has no quote
+    const quote = document.getElementById('caseQuote');
+    const showQuote = (i) => {
+      if (!quote) return;
+      const { quote: text, cite } = panels[i].dataset;
+      quote.classList.add('is-swapping');
+      setTimeout(() => {
+        quote.hidden = !text;
+        if (text) {
+          quote.querySelector('blockquote p').textContent = text;
+          quote.querySelector('figcaption').textContent = cite || '';
+        }
+        quote.classList.remove('is-swapping');
+      }, reduceMotion ? 0 : 200);
+    };
+
     const activate = (i, { fromUser = false } = {}) => {
       panels.forEach((panel, idx) => {
         const on = idx === i;
@@ -196,6 +212,7 @@
       });
       active = i;
       elapsed = 0;
+      showQuote(i);
       if (fromUser) {
         autoplay = false; // the visitor has taken over; stop rotating
         panels[i].querySelector('.cs-body').focus({ preventScroll: true });

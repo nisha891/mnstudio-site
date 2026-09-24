@@ -50,6 +50,11 @@ opens by default. On desktop it auto-advances every 7s (pauses on hover
 or focus, stops once a visitor clicks); on phones it is a tap-to-open
 accordion. Panel colours are the `.cs-<name>` rules in `css/style.css`.
 
+Testimonials: each panel's `data-quote` and `data-cite` attributes feed
+the quote shown under the rail, and it swaps with the open panel. They
+are **placeholders** until real client quotes are supplied. Remove
+`data-quote` from a panel to hide the quote for that case study.
+
 ## Navigation
 
 - **Book a call** buttons link to Calendly
