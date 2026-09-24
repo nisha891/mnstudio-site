@@ -591,62 +591,6 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 .service-card p { font-size: 14.5px; margin: 0; }
 
 /* =========================================================
-   Work
-   ========================================================= */
-.work { padding: 0 0 120px; }
-
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-.work-card {
-  display: block;
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
-}
-.work-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px -20px rgba(23,20,15,.28);
-}
-.work-thumb {
-  aspect-ratio: 4 / 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-.work-thumb span {
-  font-family: var(--font-serif);
-  font-size: 26px;
-  color: rgba(255,255,255,.92);
-  letter-spacing: .01em;
-  z-index: 1;
-}
-.work-thumb::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.35) 100%);
-}
-.work-1 .work-thumb { background: linear-gradient(135deg, #2b3a4a, #6d8ba6); }
-.work-2 .work-thumb { background: linear-gradient(135deg, #2e4a3d, #7bab8f); }
-.work-3 .work-thumb { background: linear-gradient(135deg, #4a2e2e, #c1662f); }
-.work-4 .work-thumb { background: linear-gradient(135deg, #3a2e4a, #9a7bc4); }
-.work-5 .work-thumb { background: linear-gradient(135deg, #4a3e2e, #c4a05c); }
-.work-6 .work-thumb { background: linear-gradient(135deg, #2e3f4a, #5da3a1); }
-
-.work-meta { padding: 22px 24px 26px; }
-.work-meta h3 { font-size: 18px; margin-bottom: 4px; }
-.work-meta p { font-size: 13.5px; margin: 0; color: var(--ink-soft); }
-
-.work-cta { margin-top: 52px; text-align: center; }
-
-/* =========================================================
    Process
    ========================================================= */
 .process {
@@ -735,113 +679,6 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 }
 .about-values h4 { font-family: var(--font-sans); font-size: 15.5px; font-weight: 700; margin-bottom: 6px; }
 .about-values p { font-size: 14.5px; margin: 0; }
-
-/* =========================================================
-   CTA banner
-   ========================================================= */
-.cta-banner {
-  background: var(--accent);
-  color: var(--paper);
-  padding: 100px 0;
-  text-align: center;
-}
-.cta-banner h2 {
-  color: var(--paper);
-  font-size: clamp(30px, 5vw, 52px);
-  margin-bottom: 36px;
-}
-.cta-banner .btn-primary {
-  background: var(--ink);
-}
-.cta-banner .btn-primary:hover { background: var(--dark-2); }
-
-/* =========================================================
-   Contact
-   ========================================================= */
-.contact { padding: 120px 0; }
-.contact-inner {
-  display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 72px;
-}
-.contact-copy h2 { font-size: clamp(28px, 3.6vw, 40px); }
-.contact-details { margin-top: 28px; }
-.contact-details li {
-  display: flex;
-  gap: 16px;
-  padding: 14px 0;
-  border-top: 1px solid var(--line);
-  font-size: 15px;
-  align-items: baseline;
-}
-.contact-details li:last-child { border-bottom: 1px solid var(--line); }
-.contact-details span {
-  width: 80px;
-  flex-shrink: 0;
-  color: var(--ink-soft);
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-}
-.contact-details a { font-weight: 600; }
-.contact-details a:hover { color: var(--accent-dark); }
-
-.social-links {
-  display: flex;
-  gap: 22px;
-  margin-top: 30px;
-}
-.social-links a {
-  font-size: 13.5px;
-  font-weight: 600;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 3px;
-}
-.social-links a:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
-
-.contact-form {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 36px;
-}
-.form-row { margin-bottom: 20px; }
-.form-row label {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--ink-soft);
-  text-transform: uppercase;
-  letter-spacing: .06em;
-}
-.form-row input,
-.form-row select,
-.form-row textarea {
-  width: 100%;
-  padding: 13px 14px;
-  border-radius: 8px;
-  border: 1px solid var(--line);
-  background: var(--cream);
-  font-family: inherit;
-  font-size: 15px;
-  color: var(--ink);
-  resize: vertical;
-  transition: border-color .2s ease, box-shadow .2s ease;
-}
-.form-row input:focus,
-.form-row select:focus,
-.form-row textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(214,40,40,.15);
-}
-.form-note {
-  margin: 14px 0 0;
-  font-size: 13.5px;
-  color: var(--accent-dark);
-  min-height: 1.2em;
-}
 
 /* =========================================================
    FAQ
@@ -1063,10 +900,8 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
    ========================================================= */
 @media (max-width: 1024px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .work-grid { grid-template-columns: repeat(2, 1fr); }
   .process-list { grid-template-columns: repeat(2, 1fr); }
   .about-inner { grid-template-columns: 1fr; }
-  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
   .results-grid { grid-template-columns: repeat(2, 1fr); }
   .cs-rail { height: 600px; }
   .faq-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -1107,16 +942,11 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   .audience-head { margin-bottom: 44px; }
   .results-grid { grid-template-columns: 1fr; }
   .result-card { padding: 26px 22px 28px; }
-  .work-grid { grid-template-columns: 1fr; }
   .process-list { grid-template-columns: 1fr; }
   .services { padding: 80px 0; }
-  .work { padding: 0 0 80px; }
   .process { padding: 80px 0; }
   .testimonial { padding: 80px 0; }
   .about { padding: 20px 0 80px; }
-  .cta-banner { padding: 72px 0; }
-  .contact { padding: 80px 0; }
-  .contact-form { padding: 26px; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; padding: 40px 0 48px; }
   .faq { padding: 80px 0; }
   .start { padding: 80px 0; }
@@ -1127,5 +957,4 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 420px) {
   .hero-cta { flex-direction: column; }
   .hero-cta .btn { width: 100%; }
-  .btn-full, .contact-form .btn { width: 100%; }
 }

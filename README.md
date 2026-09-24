@@ -6,15 +6,16 @@ No build step, no dependencies — plain HTML, CSS and vanilla JS.
 ## Structure
 
 ```
-index.html      Page markup (hero, services, work, process, testimonial,
-                 about, CTA, contact form, footer)
+index.html      Page markup (hero, client logos, audience, featured case
+                 studies, results, services, process, testimonial, about,
+                 FAQ, ready-to-start CTA, footer)
 css/style.css    Page styling — layout, theming, responsive breakpoints
 css/nav.css      Header: announcement bar, mega-menu nav, theme toggle,
                  mobile drawer (black / white / red, light + dark)
 assets/clients/  Client logos (transparent PNGs) for the scrolling logo strip
-js/main.js       Mega-menus (hover/click/Esc), mobile drawer, theme toggle, sticky header state, scroll-reveal
-                 animations, back-to-top button, footer year, contact
-                 form UI (front-end only, no backend wired up)
+js/main.js       Mega-menus (hover/click/Esc), mobile drawer, theme toggle,
+                 sticky header state, scroll-reveal animations, back-to-top
+                 button, footer year, featured case study rail
 ```
 
 ## Running locally
@@ -34,12 +35,6 @@ Or just open `index.html` directly in a browser.
   `css/style.css` (`:root`).
 - **Copy & sections** — edit `index.html` directly; each section is
   clearly commented (`<!-- ===== SECTION ===== -->`).
-- **Work / portfolio thumbnails** — currently CSS gradient placeholders
-  (`.work-1` … `.work-6` in `style.css`). Swap the `.work-thumb` markup
-  for `<img>` tags when real project imagery is ready.
-- **Contact form** — `js/main.js` currently just simulates a submit.
-  Wire the `fetch()` call in the `submit` handler up to your form
-  endpoint / API when ready.
 
 ## Featured case studies
 

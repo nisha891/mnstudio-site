@@ -138,36 +138,6 @@
     revealEls.forEach((el) => el.classList.add('in-view'));
   }
 
-  /* ---------- Contact form (front-end only demo) ---------- */
-  const form = document.getElementById('contactForm');
-  const formNote = document.getElementById('formNote');
-
-  if (form && formNote) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      if (!form.checkValidity()) {
-        formNote.textContent = 'Please fill in the required fields before sending.';
-        form.reportValidity();
-        return;
-      }
-
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalLabel = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending…';
-
-      // Front-end only: no backend is wired up yet. Replace this with a
-      // real fetch() call to your form endpoint / API when ready.
-      setTimeout(() => {
-        formNote.textContent = 'Thanks! Your message has been noted — we’ll be in touch within one business day.';
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalLabel;
-        form.reset();
-      }, 700);
-    });
-  }
-
   /* ---------- Featured case studies: expanding panels ---------- */
   const rail = document.getElementById('caseRail');
   if (rail) {
