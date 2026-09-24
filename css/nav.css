@@ -245,6 +245,7 @@
   box-shadow: var(--nav-shadow);
 }
 
+.mega-inner-3 { grid-template-columns: repeat(3, 1fr); }
 .mega-col { display: flex; flex-direction: column; }
 .mega-label {
   margin: 0 0 20px;
