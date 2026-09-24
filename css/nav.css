@@ -257,6 +257,7 @@
   color: var(--nav-muted);
 }
 .mega-col li a:hover .mega-title { color: var(--nav-red); }
+.mega-title .ext { font-size: .85em; margin-left: 2px; }
 
 .mega-more {
   margin-top: 18px;
