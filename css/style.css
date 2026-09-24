@@ -768,14 +768,54 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 .site-footer {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   color: rgba(255,255,255,.72);
   background:
-    radial-gradient(60% 70% at 85% 10%, rgba(214,40,40,.16), transparent 60%),
-    radial-gradient(circle, rgba(255,255,255,.16) 1px, transparent 1.4px) 0 0 / 96px 96px,
-    radial-gradient(circle, rgba(255,255,255,.09) 1px, transparent 1.4px) 48px 40px / 132px 132px,
-    #0b0b0b;
+    /* star field: three layers of tiny points at different densities */
+    radial-gradient(circle, rgba(255,255,255,.55) .8px, transparent 1.3px) 13px 21px / 173px 151px,
+    radial-gradient(circle, rgba(255,255,255,.35) .7px, transparent 1.2px) 71px 87px / 109px 127px,
+    radial-gradient(circle, rgba(255,255,255,.22) .6px, transparent 1.1px) 37px 5px / 97px 83px,
+    radial-gradient(circle, rgba(255,255,255,.3) .7px, transparent 1.2px) 151px 49px / 239px 211px,
+    linear-gradient(180deg, #050505 0%, #0a0a0a 55%, #120606 100%);
   padding: 88px 0 0;
 }
+.site-footer > .wrap { position: relative; z-index: 2; }
+
+/* Planet horizon: a huge dark disc rising from below with a red atmospheric rim */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  bottom: calc(150px - 1900px);
+  width: 3000px;
+  height: 1900px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(ellipse 60% 22% at 50% 0%, #2a0c0c 0%, #0b0707 55%, #050505 100%);
+  box-shadow:
+    0 -1px 0 rgba(255,150,150,.75),
+    0 -6px 18px rgba(255,92,92,.55),
+    0 -26px 70px rgba(214,40,40,.38),
+    0 -70px 160px rgba(214,40,40,.18),
+    inset 0 10px 28px rgba(255,92,92,.28);
+  pointer-events: none;
+}
+/* Sunrise flare where the light breaks over the horizon */
+.site-footer::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: 110px;
+  width: min(760px, 90vw);
+  height: 90px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at 50% 55%, rgba(255,255,255,.75) 0%, rgba(255,170,170,.45) 14%, rgba(214,40,40,.22) 38%, transparent 70%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
 .footer-top { padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.12); }
 .footer-logo {
   display: inline-block;
@@ -792,7 +832,7 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
-  padding: 52px 0 64px;
+  padding: 52px 0 170px; /* room for the planet horizon below the links */
 }
 .footer-title {
   margin: 0 0 22px;
@@ -815,9 +855,9 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   flex-wrap: wrap;
   gap: 8px;
   padding: 24px 0;
-  border-top: 1px solid rgba(255,255,255,.12);
+  border-top: 1px solid rgba(255,255,255,.1);
   font-size: 13px;
-  color: rgba(255,255,255,.45);
+  color: rgba(255,255,255,.55);
 }
 .footer-bottom p { margin: 0; color: inherit; }
 
@@ -912,6 +952,9 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   .results-grid { grid-template-columns: 1fr; }
   .result-card { padding: 26px 22px 28px; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; padding: 40px 0 48px; }
+  .site-footer::before { width: 1500px; height: 1100px; bottom: calc(120px - 1100px); }
+  .site-footer::after { bottom: 84px; height: 70px; }
+  .footer-bottom { padding: 28px 0 32px; }
   .faq { padding: 80px 0; }
   .start { padding: 80px 0; }
   .wwd { padding: 80px 0 0; }
