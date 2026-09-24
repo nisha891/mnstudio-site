@@ -8,8 +8,10 @@ No build step, no dependencies — plain HTML, CSS and vanilla JS.
 ```
 index.html      Page markup (hero, services, work, process, testimonial,
                  about, CTA, contact form, footer)
-css/style.css    All styling — layout, theming, responsive breakpoints
-js/main.js       Mobile nav toggle, sticky header state, scroll-reveal
+css/style.css    Page styling — layout, theming, responsive breakpoints
+css/nav.css      Header: announcement bar, mega-menu nav, theme toggle,
+                 mobile drawer (black / white / red, light + dark)
+js/main.js       Mega-menus (hover/click/Esc), mobile drawer, theme toggle, sticky header state, scroll-reveal
                  animations, back-to-top button, footer year, contact
                  form UI (front-end only, no backend wired up)
 ```
@@ -38,10 +40,18 @@ Or just open `index.html` directly in a browser.
   Wire the `fetch()` call in the `submit` handler up to your form
   endpoint / API when ready.
 
+## Navigation
+
+- **Talk to the founder** buttons link to WhatsApp (`https://wa.me/919099344578`).
+  Change the number in both places in `index.html` if needed.
+- Mega-menu content for Services / Our Work / Newsroom is in the header
+  markup in `index.html`.
+
 ## Responsive breakpoints
 
 - `1024px` — 3-col grids collapse to 2-col
-- `860px`  — nav collapses into the hamburger menu
+- `1100px` — mega-menu feature card drops below the three columns
+- `960px`  — nav collapses into the full-screen hamburger drawer
 - `720px`  — single-column layout, tightened section padding
 - `420px`  — buttons stack full-width
 

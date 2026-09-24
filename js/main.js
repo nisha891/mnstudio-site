@@ -1,24 +1,100 @@
 (() => {
   'use strict';
 
-  /* ---------- Mobile nav toggle ---------- */
+  /* ---------- Navigation: mega menus + mobile drawer ---------- */
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
+  const megaItems = Array.from(document.querySelectorAll('.nav-item.has-mega'));
+  const mobileMQ = window.matchMedia('(max-width: 960px)');
+  let closeTimer;
 
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = mainNav.classList.toggle('open');
-      navToggle.classList.toggle('open', isOpen);
-      navToggle.setAttribute('aria-expanded', String(isOpen));
+  const setOpen = (item, open) => {
+    item.classList.toggle('open', open);
+    item.querySelector('.nav-link').setAttribute('aria-expanded', String(open));
+  };
+  const closeAll = (except) => megaItems.forEach((it) => { if (it !== except) setOpen(it, false); });
+
+  megaItems.forEach((item) => {
+    const trigger = item.querySelector('.nav-link');
+
+    trigger.addEventListener('click', () => {
+      const open = !item.classList.contains('open');
+      closeAll(item);
+      setOpen(item, open);
     });
 
-    // Close menu when a link is clicked (mobile)
+    // Desktop: open on hover, with a short grace period on leave
+    item.addEventListener('mouseenter', () => {
+      if (mobileMQ.matches) return;
+      clearTimeout(closeTimer);
+      closeAll(item);
+      setOpen(item, true);
+    });
+    item.addEventListener('mouseleave', () => {
+      if (mobileMQ.matches) return;
+      closeTimer = setTimeout(() => setOpen(item, false), 150);
+    });
+
+    // Keyboard: close when focus leaves the item
+    item.addEventListener('focusout', (e) => {
+      if (!mobileMQ.matches && !item.contains(e.relatedTarget)) setOpen(item, false);
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const openItem = megaItems.find((it) => it.classList.contains('open'));
+    if (openItem) {
+      setOpen(openItem, false);
+      openItem.querySelector('.nav-link').focus();
+    } else if (mainNav && mainNav.classList.contains('open')) {
+      setDrawer(false);
+      navToggle.focus();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!mobileMQ.matches && !e.target.closest('.nav-item.has-mega')) closeAll();
+  });
+
+  const setDrawer = (open) => {
+    mainNav.classList.toggle('open', open);
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (!open) closeAll();
+  };
+
+  if (navToggle && mainNav) {
+    navToggle.addEventListener('click', () => setDrawer(!mainNav.classList.contains('open')));
+
+    // Close menus when a link is followed
     mainNav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
-        mainNav.classList.remove('open');
-        navToggle.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
+        closeAll();
+        if (mobileMQ.matches) setDrawer(false);
       });
+    });
+
+    mobileMQ.addEventListener('change', () => { setDrawer(false); });
+  }
+
+  /* ---------- Theme toggle ---------- */
+  const themeToggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  const storedTheme = (() => { try { return localStorage.getItem('theme'); } catch (_) { return null; } })();
+  const applyTheme = (theme) => {
+    root.setAttribute('data-theme', theme);
+    if (themeToggle) themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  };
+  applyTheme(storedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('theme', next); } catch (_) { /* storage unavailable */ }
     });
   }
 
