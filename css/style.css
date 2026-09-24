@@ -197,16 +197,19 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   gap: 40px;
   padding-top: 40px;
   border-top: 1px solid var(--line);
-  max-width: 720px;
+  max-width: 860px;
 }
 .hero-stats dt {
   font-family: var(--font-serif);
   font-size: clamp(24px, 3vw, 32px);
   color: var(--ink);
 }
+.hero-stats dt { font-weight: 700; letter-spacing: -0.02em; }
 .hero-stats dd {
   margin: 4px 0 0;
+  max-width: 19ch;
   font-size: 13px;
+  line-height: 1.45;
   color: var(--ink-soft);
 }
 
@@ -276,6 +279,47 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 .section-head h2 { font-size: clamp(28px, 4vw, 44px); }
 .section-head.light .eyebrow { color: var(--accent-soft); }
 .section-head.light h2 { color: var(--paper); }
+
+/* =========================================================
+   Results
+   ========================================================= */
+.results { padding: 120px 0 0; }
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.result-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 28px 36px;
+  background: var(--paper);
+  transition: background-color .25s ease;
+}
+.result-card:hover { background: var(--cream); }
+.result-client {
+  margin: 0 0 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+}
+.result-value {
+  margin: 0 0 12px;
+  font-size: clamp(36px, 3.6vw, 48px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+.result-value-text { font-size: clamp(26px, 2.6vw, 32px); line-height: 1.1; }
+.result-desc { margin: 0; font-size: 14.5px; line-height: 1.55; }
 
 /* =========================================================
    Services
@@ -658,6 +702,7 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   .about-inner { grid-template-columns: 1fr; }
   .contact-inner { grid-template-columns: 1fr; gap: 48px; }
   .hero-stats { grid-template-columns: repeat(4, auto); gap: 28px; }
+  .results-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 720px) {
@@ -665,6 +710,9 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   .hero { padding: 150px 0 80px; }
   .hero-stats { grid-template-columns: repeat(2, auto); row-gap: 28px; }
   .services-grid { grid-template-columns: 1fr; }
+  .results { padding: 80px 0 0; }
+  .results-grid { grid-template-columns: 1fr; }
+  .result-card { padding: 26px 22px 28px; }
   .work-grid { grid-template-columns: 1fr; }
   .process-list { grid-template-columns: 1fr; }
   .services { padding: 80px 0; }
