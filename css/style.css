@@ -341,6 +341,7 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center / 17px no-repeat;
   transition: transform .3s var(--ease);
 }
+.audience-startups .audience-btn::before { background-color: var(--ink); }
 .audience-btn:hover { background: var(--tone-tint); }
 .audience-btn:hover::before { transform: translateX(3px); }
 
