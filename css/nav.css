@@ -94,28 +94,14 @@
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
   color: var(--nav-ink);
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
   flex-shrink: 0;
 }
-.nav-logo-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
-  background: var(--nav-ink);
-  color: var(--nav-bg);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-}
-.nav-logo-mark span { color: var(--nav-red); }
-.nav-logo-text span { color: var(--nav-red); }
+.nav-logo-text span { color: var(--nav-red); margin: 0 .04em; }
 
 /* ---------- Top-level links ---------- */
 .main-nav { margin-left: auto; }

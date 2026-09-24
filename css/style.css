@@ -127,25 +127,15 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 
 /* Logo (used in footer; header logo is styled in nav.css) */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-serif);
-  font-size: 19px;
-  font-weight: 600;
-}
-.logo-mark {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 9px;
-  background: var(--ink);
-  color: var(--paper);
-  font-size: 16px;
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
-.logo-mark span { color: var(--accent); }
+.logo-text span { color: var(--accent); margin: 0 .04em; }
 
 /* =========================================================
    Hero
