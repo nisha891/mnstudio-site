@@ -105,8 +105,6 @@
   const onScroll = () => {
     const scrolled = window.scrollY > 12;
     if (header) header.classList.toggle('scrolled', scrolled);
-    const heroEl = document.querySelector('.hero');
-    if (header && heroEl) header.classList.toggle('is-over-dark', window.scrollY < heroEl.offsetHeight - 100);
     if (toTopBtn) toTopBtn.classList.toggle('visible', window.scrollY > 600);
   };
   document.addEventListener('scroll', onScroll, { passive: true });
@@ -278,12 +276,12 @@
       if (!grad) {
         grad = ctx.createLinearGradient(-f.len / 2, 0, f.len / 2, 0);
         grad.addColorStop(0, 'rgba(214,40,40,0)');
-        grad.addColorStop(0.15, 'rgba(214,40,40,.7)');
-        grad.addColorStop(0.55, 'rgba(255,92,92,.95)');
-        grad.addColorStop(0.8, 'rgba(255,190,190,.9)');
-        grad.addColorStop(1, 'rgba(255,120,120,.15)');
+        grad.addColorStop(0.15, 'rgba(214,40,40,.55)');
+        grad.addColorStop(0.55, 'rgba(214,40,40,.9)');
+        grad.addColorStop(0.8, 'rgba(150,20,20,.85)');
+        grad.addColorStop(1, 'rgba(214,40,40,.1)');
       }
-      ctx.globalCompositeOperation = 'lighter';
+      ctx.globalCompositeOperation = 'multiply'; // strands deepen where they overlap on white
       ctx.lineWidth = 1;
       ctx.strokeStyle = grad;
       const STEP = 10;
@@ -296,7 +294,7 @@
       }
       for (let k = 0; k < LINES; k++) {
         const sOff = (k / (LINES - 1)) * 2 - 1;         // -1 .. 1 across the ribbon
-        ctx.globalAlpha = 0.3 + 0.6 * (1 - Math.abs(sOff));
+        ctx.globalAlpha = 0.22 + 0.5 * (1 - Math.abs(sOff));
         ctx.beginPath();
         for (let i = 0; i <= n; i++) {
           const x = -f.len / 2 + i * STEP;
@@ -305,7 +303,7 @@
         }
         ctx.stroke();
       }
-      // Two white highlights travelling along individual strands
+      // Two dark highlights travelling along individual strands
       ctx.lineWidth = 1.6;
       [[7, 0], [21, 0.5]].forEach(([k, phase]) => {
         const sOff = (k / (LINES - 1)) * 2 - 1;
@@ -316,8 +314,8 @@
         if (i1 <= i0) return;
         const x0 = -f.len / 2 + i0 * STEP, x1 = -f.len / 2 + i1 * STEP;
         const hg = ctx.createLinearGradient(x0, 0, x1, 0);
-        hg.addColorStop(0, 'rgba(255,255,255,0)');
-        hg.addColorStop(1, 'rgba(255,255,255,.9)');
+        hg.addColorStop(0, 'rgba(10,10,10,0)');
+        hg.addColorStop(1, 'rgba(10,10,10,.85)');
         ctx.strokeStyle = hg;
         ctx.beginPath();
         for (let i = i0; i <= i1; i++) {

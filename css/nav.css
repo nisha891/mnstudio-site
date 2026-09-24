@@ -51,21 +51,6 @@
   --nav-shadow: 0 24px 48px -16px rgba(0, 0, 0, .6);
 }
 
-/* Over the dark hero the header switches to dark tokens (toggled in js/main.js) */
-.site-header.is-over-dark {
-  --nav-bg: #08080a;
-  --nav-panel: #121214;
-  --nav-ink: #f5f5f5;
-  --nav-muted: #a3a3a3;
-  --nav-line: #242428;
-  --nav-red-tint: #1f0e0e;
-  --nav-red-line: #4a1c1c;
-  --nav-btn-bg: #ffffff;
-  --nav-btn-ink: #0a0a0a;
-  --nav-shadow: 0 24px 48px -16px rgba(0, 0, 0, .7);
-}
-.site-header.is-over-dark .nav-bar { border-bottom-color: rgba(255,255,255,.08); }
-
 /* ---------- Shell ---------- */
 .site-header {
   position: fixed;

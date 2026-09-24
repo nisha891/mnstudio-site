@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap">
-<link rel="preload" href="assets/fonts/qualux-light.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/nav.css">
 </head>
@@ -164,12 +163,9 @@
 
   <!-- ================= HERO ================= -->
   <section class="hero" id="top">
+    <div class="hero-glow" aria-hidden="true"></div>
     <canvas class="hero-strands" id="heroStrands" aria-hidden="true"></canvas>
     <div class="wrap hero-inner">
-      <a href="#case-studies" class="hero-chip reveal">
-        <span class="hero-chip-label">Tax credits transferred</span>
-        <span class="hero-chip-value">$8B+ <span aria-hidden="true">›</span></span>
-      </a>
       <h1 class="hero-title reveal">
         We design products<br>
         people <em>actually</em> want<br>
@@ -179,41 +175,8 @@
         Product design and leadership for <strong>founders</strong>, <strong>enterprises</strong>, and <strong>funds</strong>. From founding MVP to flagship product.
       </p>
       <div class="hero-cta reveal">
-        <a href="https://calendly.com/munmun_mnstudio/lets_get_to_know_each_other" target="_blank" rel="noopener" class="btn btn-primary hero-btn-light">Book a 30-minute meeting</a>
-        <a href="#case-studies" class="btn hero-btn-outline">See our work <span aria-hidden="true">›</span></a>
-      </div>
-    </div>
-
-    <!-- Product-window preview (decorative; the same content lives in the sections below) -->
-    <div class="hero-window" aria-hidden="true">
-      <div class="hw-side">
-        <div class="hw-logo">M&amp;N</div>
-        <ul class="hw-nav">
-          <li><span class="hw-ico">✦</span>Ask the founder</li>
-          <li class="is-on"><span class="hw-ico">▣</span>Case studies</li>
-          <li><span class="hw-ico">◎</span>Assess</li>
-          <li><span class="hw-ico">◇</span>Design</li>
-          <li><span class="hw-ico">◉</span>Embed</li>
-        </ul>
-        <ul class="hw-nav hw-nav-muted">
-          <li><span class="hw-ico">▤</span>Results</li>
-          <li><span class="hw-ico">▥</span>Clients</li>
-          <li><span class="hw-ico">▦</span>Newsroom</li>
-        </ul>
-      </div>
-      <div class="hw-main">
-        <div class="hw-top">
-          <div class="hw-tabs"><span class="is-on">Featured</span><span>Live demos</span><span>Press</span></div>
-          <div class="hw-search">⌕ Search case studies</div>
-        </div>
-        <p class="hw-kicker">Clean energy · Reunion</p>
-        <p class="hw-title">Tax credit marketplace</p>
-        <p class="hw-sub">Designed end to end, with an audit-ready PWA compliance platform</p>
-        <div class="hw-cards">
-          <div class="hw-card"><span class="hw-num">$8B+</span><span class="hw-cap">Tax credits transferred since 2024</span></div>
-          <div class="hw-card"><span class="hw-num">884%</span><span class="hw-cap">MRR growth, mentorship platform</span></div>
-          <div class="hw-card"><span class="hw-num">+150%</span><span class="hw-cap">Revenue per user, Surreal</span></div>
-        </div>
+        <a href="https://calendly.com/munmun_mnstudio/lets_get_to_know_each_other" target="_blank" rel="noopener" class="btn btn-primary">Book a 30-minute meeting</a>
+        <a href="#case-studies" class="btn btn-ghost">See our work ↓</a>
       </div>
     </div>
   </section>

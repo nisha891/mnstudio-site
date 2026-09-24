@@ -3,13 +3,6 @@
    Base styles
    ========================================================= */
 
-/* Qualux (display serif) for headlines; Inter stays for body and UI text */
-@font-face { font-family: "Qualux"; src: url("../assets/fonts/qualux-light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
-@font-face { font-family: "Qualux"; src: url("../assets/fonts/qualux-light-italic.woff2") format("woff2"); font-weight: 300; font-style: italic; font-display: swap; }
-@font-face { font-family: "Qualux"; src: url("../assets/fonts/qualux-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: "Qualux"; src: url("../assets/fonts/qualux-bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
-@font-face { font-family: "Qualux"; src: url("../assets/fonts/qualux-bold-italic.woff2") format("woff2"); font-weight: 700; font-style: italic; font-display: swap; }
-
 :root {
   --ink: #0a0a0a;
   --ink-soft: #52525b;
@@ -23,9 +16,9 @@
   --dark: #0a0a0a;
   --dark-2: #1a1a1a;
 
-  /* Inter for body/UI; Qualux (--font-serif) for headlines and display numbers */
+  /* Inter everywhere; --font-serif kept as an alias so heading rules stay put */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-serif: "Qualux", Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-sans);
 
   --wrap: 1180px;
   --radius: 14px;
@@ -164,17 +157,21 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
    Hero
    ========================================================= */
 .hero {
-  --hero-bg: #08080a;
   position: relative;
-  min-height: max(720px, 100vh);
+  min-height: max(640px, calc(100vh - 40px));
   padding: calc(100px + clamp(40px, 9vh, 88px)) 0 0;
   overflow: hidden;
-  color: #fff;
-  background:
-    radial-gradient(70% 60% at 85% 20%, rgba(214,40,40,.10), transparent 60%),
-    var(--hero-bg);
 }
-/* Glowing line strands (drawn in js/main.js) sit behind everything */
+.hero-glow {
+  position: absolute;
+  top: -220px; right: -160px;
+  width: 640px; height: 640px;
+  background: radial-gradient(circle, var(--accent-soft) 0%, rgba(246,193,193,0) 70%);
+  opacity: .5;
+  filter: blur(10px);
+  pointer-events: none;
+}
+/* Mintlify-style line strands (drawn in js/main.js), behind the content */
 .hero-strands {
   position: absolute;
   inset: 0;
@@ -183,119 +180,29 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   z-index: 0;
   pointer-events: none;
 }
-.hero-inner { position: relative; z-index: 2; }
-
-.hero-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 26px;
-  padding: 5px 5px 5px 12px;
-  border: 1px solid rgba(255,255,255,.14);
-  border-radius: 6px;
-  background: rgba(255,255,255,.03);
-  font-size: 13px;
-  color: rgba(255,255,255,.72);
-  transition: border-color .2s ease;
-}
-.hero-chip:hover { border-color: rgba(255,255,255,.3); }
-.hero-chip-value {
-  padding: 3px 8px;
-  border-radius: 4px;
-  background: rgba(214,40,40,.16);
-  color: #ff6b6b;
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  font-size: 12.5px;
-  font-weight: 600;
-}
+.hero-inner { position: relative; z-index: 1; }
 
 .hero-title {
-  font-size: clamp(38px, min(5.2vw, 8vh), 64px);
-  font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
+  font-size: clamp(38px, min(5.4vw, 8vh), 68px);
   max-width: 18ch;
   margin-bottom: 0;
-  color: #fff;
 }
-.hero-title em { color: #ff4d4d; font-style: italic; }
+.hero-title em { color: var(--accent); font-style: italic; }
 
 .hero-sub {
-  max-width: 44ch;
+  max-width: 46ch;
   font-size: clamp(16px, 1.5vw, 19px);
-  line-height: 1.5;
-  margin-top: 22px;
-  color: rgba(255,255,255,.6);
+  line-height: 1.55;
+  margin-top: 20px;
 }
-.hero-sub strong { color: #fff; font-weight: 500; }
+.hero-sub strong { color: var(--ink); font-weight: 600; }
 
 .hero-cta {
   display: flex;
-  gap: 12px;
-  margin: 30px 0 0;
+  gap: 16px;
+  margin: 28px 0 0;
   flex-wrap: wrap;
 }
-.hero-btn-light { background: #fff; color: var(--ink); }
-.hero-btn-light:hover { background: #ececec; }
-.hero-btn-outline {
-  gap: 8px;
-  padding: 13px 22px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.03);
-  color: #fff;
-}
-.hero-btn-outline:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.3); }
-
-/* Product-window preview, bleeding off the bottom-right like a screenshot */
-.hero-window {
-  position: absolute;
-  z-index: 1;
-  left: max(52%, calc(50% + 60px));
-  bottom: -140px;
-  width: 900px;
-  height: 480px;
-  display: grid;
-  grid-template-columns: 210px 1fr;
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 16px;
-  background: rgba(14,14,16,.92);
-  box-shadow: 0 40px 120px -20px rgba(0,0,0,.8), 0 0 0 1px rgba(0,0,0,.4);
-  backdrop-filter: blur(6px);
-  font-size: 13px;
-  color: rgba(255,255,255,.7);
-  overflow: hidden;
-}
-.hw-side { padding: 20px 14px; border-right: 1px solid rgba(255,255,255,.07); }
-.hw-logo { padding: 0 8px 18px; font-size: 18px; font-weight: 800; letter-spacing: -0.03em; color: #fff; }
-.hw-nav { display: flex; flex-direction: column; gap: 2px; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.07); }
-.hw-nav li { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border-radius: 6px; }
-.hw-nav li.is-on { background: rgba(214,40,40,.14); color: #ff7070; }
-.hw-nav-muted li { color: rgba(255,255,255,.38); }
-.hw-ico { width: 14px; text-align: center; font-size: 11px; opacity: .8; }
-.hw-main { padding: 20px 32px; min-width: 0; }
-.hw-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-.hw-tabs { display: flex; gap: 22px; }
-.hw-tabs span { padding-bottom: 10px; border-bottom: 1px solid transparent; }
-.hw-tabs .is-on { color: #ff6b6b; border-color: #ff6b6b; }
-.hw-search { padding: 7px 14px; border: 1px solid rgba(255,255,255,.1); border-radius: 8px; color: rgba(255,255,255,.35); width: 220px; }
-.hw-kicker { margin: 0 0 6px; font-size: 13px; color: #ff6b6b; }
-.hw-title { margin: 0 0 6px; font-size: 22px; font-weight: 500; letter-spacing: -0.02em; color: #fff; }
-.hw-sub { margin: 0 0 24px; font-size: 13px; color: rgba(255,255,255,.45); }
-.hw-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.hw-card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 22px 18px;
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 12px;
-  background:
-    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px) 0 0 / 18px 18px,
-    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px) 0 0 / 18px 18px,
-    rgba(214,40,40,.05);
-}
-.hw-num { font-size: 28px; font-weight: 500; letter-spacing: -0.03em; color: #fff; }
-.hw-cap { font-size: 12px; line-height: 1.4; color: rgba(255,255,255,.45); }
 
 /* =========================================================
    Marquee
@@ -992,8 +899,7 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
    ========================================================= */
 @media (max-width: 1024px) {
   .results-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-window { display: none; }
-  .hero { min-height: 0; padding-bottom: 160px; }
+  .hero { min-height: 0; padding-bottom: 220px; }
   .cs-rail { height: 600px; }
   .faq-inner { grid-template-columns: 1fr; gap: 40px; }
   .wwd-grid { grid-template-columns: 1fr; }
@@ -1026,7 +932,7 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 
 @media (max-width: 720px) {
   .wrap { padding: 0 22px; }
-  .hero { min-height: 0; padding: 150px 0 120px; }
+  .hero { min-height: 0; padding: 150px 0 200px; }
   .hero-cta { gap: 10px; margin-top: 24px; }
   .results { padding: 0 0 80px; }
   .audience { padding: 80px 0 0; }
@@ -1051,19 +957,3 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   .hero-cta { flex-direction: column; }
   .hero-cta .btn { width: 100%; }
 }
-
-/* =========================================================
-   Display type: Qualux Light for headlines and big numbers
-   ========================================================= */
-.hero-title,
-.audience-head h2, .cases-head h2, .wwd-head h2, .faq-head h2, .start h2, .section-head h2,
-.audience-card h3, .cs-content h3, .wwd-card h3,
-.result-value, .cs-stats dt, .hw-num, .hw-title {
-  font-family: var(--font-serif);
-  font-weight: 300;
-  letter-spacing: -0.01em;
-}
-.hero-title { line-height: 1.04; }
-.result-value-text { letter-spacing: -0.01em; }
-/* Small uppercase labels that happen to be headings stay in Inter */
-.footer-title { font-family: var(--font-sans); }
