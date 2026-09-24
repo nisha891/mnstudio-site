@@ -146,8 +146,13 @@
       setTimeout(() => {
         quote.hidden = !text;
         if (text) {
+          const { role, avatar } = panels[i].dataset;
+          const img = quote.querySelector('.cs-quote-avatar');
           quote.querySelector('blockquote p').textContent = text;
-          quote.querySelector('figcaption').textContent = cite || '';
+          quote.querySelector('.cs-quote-name').textContent = cite || '';
+          quote.querySelector('.cs-quote-role').textContent = role || '';
+          img.hidden = !avatar;
+          if (avatar) img.src = avatar;
         }
         quote.classList.remove('is-swapping');
       }, reduceMotion ? 0 : 200);
