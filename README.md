@@ -6,9 +6,9 @@ No build step, no dependencies — plain HTML, CSS and vanilla JS.
 ## Structure
 
 ```
-index.html      Page markup (hero, client logos, audience, featured case
-                 studies, results, services, process, testimonial, about,
-                 FAQ, ready-to-start CTA, footer)
+index.html      Page markup (hero, client logos, who we work with, featured
+                 case studies, what we do, FAQ, results, ready-to-start CTA,
+                 footer)
 css/style.css    Page styling — layout, theming, responsive breakpoints
 css/nav.css      Header: announcement bar, mega-menu nav, theme toggle,
                  mobile drawer (black / white / red, light + dark)
