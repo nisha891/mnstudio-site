@@ -241,6 +241,15 @@
 }
 .mega-col ul { display: flex; flex-direction: column; gap: 18px; }
 .mega-col li a { display: block; }
+.mega-col-wide { grid-column: span 2; }
+.mega-col-wide ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  column-gap: 32px;
+  row-gap: 18px;
+}
 .mega-title {
   display: block;
   font-size: 16px;
@@ -405,6 +414,8 @@
   }
   .mega { display: none; }
   .nav-item.open > .mega { display: block; }
+  .mega-col-wide { grid-column: auto; }
+  .mega-col-wide ul { display: flex; }
   .mega-inner {
     grid-template-columns: 1fr;
     gap: 28px;
