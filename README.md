@@ -36,8 +36,8 @@ Or just open `index.html` directly in a browser.
   `css/style.css` (`:root`). Headlines and big numbers use Talesha 01
   (italic emphasis uses Talesha 01 Slant) via `--font-serif`; see "Display
   type" at the end of `style.css`. Body and UI text use Inter. Talesha has
-  no ★ or → glyphs, so those fall back to Inter. Talesha is a commercial
-  font by Seniors Studio: confirm the licence covers web embedding.
+  no ★ or → glyphs, so those fall back to Inter. Talesha (Seniors Studio)
+  is licensed for web use.
 - **Copy & sections** — edit `index.html` directly; each section is
   clearly commented (`<!-- ===== SECTION ===== -->`).
 
