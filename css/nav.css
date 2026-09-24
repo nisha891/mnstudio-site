@@ -22,21 +22,7 @@
   --nav-h: 64px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --nav-bg: #0a0a0a;
-    --nav-panel: #121212;
-    --nav-ink: #f5f5f5;
-    --nav-muted: #a3a3a3;
-    --nav-label: #8a8a8a;
-    --nav-line: #262626;
-    --nav-red-tint: #1f0e0e;
-    --nav-red-line: #4a1c1c;
-    --nav-btn-bg: #ffffff;
-    --nav-btn-ink: #0a0a0a;
-    --nav-shadow: 0 24px 48px -16px rgba(0, 0, 0, .6);
-  }
-}
+/* Dark nav tokens apply only when the visitor explicitly picks dark (theme toggle). */
 :root[data-theme="dark"] {
   --nav-bg: #0a0a0a;
   --nav-panel: #121212;
