@@ -520,9 +520,69 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 .cs-surreal .cs-progress { background: #fff; }
 
 /* =========================================================
+   What we do (Assess / Design / Embed)
+   ========================================================= */
+.wwd { padding: 120px 0 0; }
+.wwd-head { max-width: 760px; margin-bottom: 56px; }
+.wwd-head h2 {
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  margin-bottom: 18px;
+}
+.wwd-head .accent { color: var(--accent); }
+.wwd-head p:not(.eyebrow) { font-size: clamp(17px, 1.6vw, 19px); line-height: 1.6; margin: 0; }
+
+.wwd-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 40px -28px rgba(0,0,0,.25);
+  overflow: hidden;
+}
+.wwd-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 36px 34px 38px;
+}
+.wwd-card + .wwd-card { border-left: 1px solid var(--line); }
+.wwd-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 36px;
+}
+.wwd-icon { color: var(--accent); display: inline-flex; }
+.wwd-count { font-size: 12px; letter-spacing: .12em; color: rgba(10,10,10,.35); }
+.wwd-count b { color: var(--ink-soft); font-weight: 600; }
+.wwd-card h3 {
+  font-size: clamp(28px, 2.6vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  margin-bottom: 10px;
+}
+.wwd-tag {
+  width: 100%;
+  margin: 0 0 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+.wwd-meta { margin-bottom: 20px; font-size: 13.5px; line-height: 1.7; color: var(--ink-soft); }
+.wwd-body { font-size: 15px; line-height: 1.65; margin-bottom: 32px; }
+.wwd-cta { margin-top: auto; }
+
+/* =========================================================
    Results
    ========================================================= */
-.results { padding: 120px 0 0; }
+.results { padding: 0 0 120px; }
 
 .results-grid {
   display: grid;
@@ -905,6 +965,8 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   .results-grid { grid-template-columns: repeat(2, 1fr); }
   .cs-rail { height: 600px; }
   .faq-inner { grid-template-columns: 1fr; gap: 40px; }
+  .wwd-grid { grid-template-columns: 1fr; }
+  .wwd-card + .wwd-card { border-left: 0; border-top: 1px solid var(--line); }
   .faq-head { position: static; }
   .footer-grid { grid-template-columns: repeat(2, 1fr); }
   .cs-panel { flex-basis: 52px; }
@@ -935,7 +997,7 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   .wrap { padding: 0 22px; }
   .hero { padding: 150px 0 110px; }
   .services-grid { grid-template-columns: 1fr; }
-  .results { padding: 80px 0 0; }
+  .results { padding: 0 0 80px; }
   .audience { padding: 80px 0 0; }
   .cases { padding: 80px 0 0; }
   .audience-grid { grid-template-columns: 1fr; gap: 56px; }
@@ -950,6 +1012,8 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   .footer-grid { grid-template-columns: 1fr; gap: 36px; padding: 40px 0 48px; }
   .faq { padding: 80px 0; }
   .start { padding: 80px 0; }
+  .wwd { padding: 80px 0 0; }
+  .wwd-card { padding: 28px 22px 30px; }
   .faq-answer { padding-right: 0; }
   .faq-item summary { font-size: 16.5px; }
 }
