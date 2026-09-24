@@ -378,6 +378,26 @@
     mobile: { cx: 0.5, cy: 0.93, angle: -0.3, amp: 0.1 },
   });
 
+  /* ---------- Hero headline: rotate the ending every few seconds ---------- */
+  const rotator = document.getElementById('heroRotator');
+  if (rotator && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const phrases = Array.from(rotator.children);
+    let current = 0;
+    setInterval(() => {
+      if (document.hidden) return;
+      const prev = phrases[current];
+      current = (current + 1) % phrases.length;
+      const next = phrases[current];
+      prev.classList.remove('is-on');
+      prev.classList.add('is-leaving');
+      prev.setAttribute('aria-hidden', 'true');
+      next.classList.remove('is-leaving');
+      next.classList.add('is-on');
+      next.removeAttribute('aria-hidden');
+      setTimeout(() => prev.classList.remove('is-leaving'), 700);
+    }, 3200);
+  }
+
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();

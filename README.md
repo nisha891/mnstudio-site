@@ -43,6 +43,12 @@ Or just open `index.html` directly in a browser.
 - **Copy & sections** — edit `index.html` directly; each section is
   clearly commented (`<!-- ===== SECTION ===== -->`).
 
+## Rotating headline
+
+The hero headline keeps "We design products" fixed and cycles the ending
+(`#heroRotator` in `index.html`) every 3.2s. Add or edit the `<span>`s to
+change the phrases. It stays on the first phrase for reduced motion.
+
 ## Hero and footer strands
 
 A Mintlify-inspired bundle of red line strands twists behind the hero
