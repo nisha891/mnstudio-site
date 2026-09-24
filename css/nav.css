@@ -64,15 +64,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--nav-red);
-  color: #fff;
+  background: #111111;
+  color: #e8e8e8;
   font-size: 14px;
+  letter-spacing: .005em;
   padding: 0 16px;
   text-align: center;
+  border-bottom: 1px solid #262626;
 }
 .announce-link { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.announce-link:hover { text-decoration: underline; text-underline-offset: 3px; }
-.announce strong { font-weight: 700; }
+.announce-link:hover strong { text-decoration: underline; text-underline-offset: 3px; }
+.announce strong { font-weight: 600; color: #fff; }
+.announce-tag {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--nav-red);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
 
 .nav-bar {
   position: relative;
