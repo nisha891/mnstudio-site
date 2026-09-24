@@ -259,6 +259,80 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 .section-head.light h2 { color: var(--paper); }
 
 /* =========================================================
+   Audience
+   ========================================================= */
+.audience { padding: 120px 0 0; }
+.eyebrow-muted { color: var(--ink-soft); font-weight: 500; }
+.audience-head { margin-bottom: 64px; }
+.audience-head h2 {
+  font-size: clamp(36px, 5.4vw, 60px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  margin-bottom: 20px;
+}
+.audience-head .accent { color: var(--accent); }
+.audience-sub { font-size: clamp(17px, 1.6vw, 20px); margin: 0; }
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+.audience-card {
+  --tone: var(--accent);
+  --tone-tint: #fdecec;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 560px;
+}
+.audience-investors { --tone: var(--ink); --tone-tint: #ececec; }
+
+.audience-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--tone);
+}
+.audience-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--tone-tint);
+  color: var(--tone);
+  flex-shrink: 0;
+}
+.audience-card h3 {
+  font-size: clamp(26px, 2.8vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: var(--tone);
+  margin-bottom: 22px;
+}
+.audience-card > p:not(.audience-tag) { font-size: 16px; line-height: 1.7; margin-bottom: 28px; }
+.audience-btn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 20px;
+  border: 1.5px solid var(--tone);
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--tone);
+  transition: background-color .2s ease, color .2s ease;
+}
+.audience-btn:hover { background: var(--tone); color: #fff; }
+
+/* =========================================================
    Results
    ========================================================= */
 .results { padding: 120px 0 0; }
@@ -687,6 +761,9 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   .hero { padding: 150px 0 110px; }
   .services-grid { grid-template-columns: 1fr; }
   .results { padding: 80px 0 0; }
+  .audience { padding: 80px 0 0; }
+  .audience-grid { grid-template-columns: 1fr; gap: 56px; }
+  .audience-head { margin-bottom: 44px; }
   .results-grid { grid-template-columns: 1fr; }
   .result-card { padding: 26px 22px 28px; }
   .work-grid { grid-template-columns: 1fr; }
