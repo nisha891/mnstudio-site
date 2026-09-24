@@ -168,6 +168,76 @@
     });
   }
 
+  /* ---------- Featured case studies: expanding panels ---------- */
+  const rail = document.getElementById('caseRail');
+  if (rail) {
+    const panels = Array.from(rail.querySelectorAll('.cs-panel'));
+    const DURATION = 7000; // ms each case study stays open while auto-playing
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const stacked = window.matchMedia('(max-width: 860px)'); // phones: accordion, no auto-rotate
+    let active = Math.max(0, panels.findIndex((p) => p.classList.contains('is-active')));
+    let autoplay = !reduceMotion;
+    let hovered = false;
+    let focused = false;
+    let inView = false;
+    let elapsed = 0;
+    let last = null;
+
+    const bar = (i) => panels[i].querySelector('.cs-progress');
+
+    const activate = (i, { fromUser = false } = {}) => {
+      panels.forEach((panel, idx) => {
+        const on = idx === i;
+        panel.classList.toggle('is-active', on);
+        panel.querySelector('.cs-tab').setAttribute('aria-expanded', String(on));
+        const body = panel.querySelector('.cs-body');
+        if (on) body.removeAttribute('inert'); else body.setAttribute('inert', '');
+        bar(idx).style.width = '0';
+      });
+      active = i;
+      elapsed = 0;
+      if (fromUser) {
+        autoplay = false; // the visitor has taken over; stop rotating
+        panels[i].querySelector('.cs-body').focus({ preventScroll: true });
+      }
+    };
+
+    panels.forEach((panel, i) => {
+      panel.querySelector('.cs-tab').addEventListener('click', () => activate(i, { fromUser: true }));
+    });
+
+    // Left/right arrows move between case studies when focus is inside the rail
+    rail.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      const step = e.key === 'ArrowRight' ? 1 : -1;
+      activate((active + step + panels.length) % panels.length, { fromUser: true });
+    });
+
+    rail.addEventListener('mouseenter', () => { hovered = true; });
+    rail.addEventListener('mouseleave', () => { hovered = false; });
+    rail.addEventListener('focusin', () => { focused = true; });
+    rail.addEventListener('focusout', (e) => { if (!rail.contains(e.relatedTarget)) focused = false; });
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; }, { threshold: 0.35 }).observe(rail);
+    }
+
+    const tick = (now) => {
+      if (last === null) last = now;
+      const dt = now - last;
+      last = now;
+      if (autoplay && inView && !hovered && !focused && !document.hidden && !stacked.matches) {
+        elapsed += dt;
+        bar(active).style.width = `${Math.min(elapsed / DURATION, 1) * 100}%`;
+        if (elapsed >= DURATION) activate((active + 1) % panels.length);
+      }
+      if (autoplay) requestAnimationFrame(tick);
+      else bar(active).style.width = '0';
+    };
+    if (autoplay) requestAnimationFrame(tick);
+  }
+
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();

@@ -41,6 +41,15 @@ Or just open `index.html` directly in a browser.
   Wire the `fetch()` call in the `submit` handler up to your form
   endpoint / API when ready.
 
+## Featured case studies
+
+The "Take a look at work we're proud of" section is an expanding-panel
+rail (`#caseRail`). Each `.cs-panel` in `index.html` is one case study;
+add, remove or reorder panels there. The first panel with `is-active`
+opens by default. On desktop it auto-advances every 7s (pauses on hover
+or focus, stops once a visitor clicks); on phones it is a tap-to-open
+accordion. Panel colours are the `.cs-<name>` rules in `css/style.css`.
+
 ## Navigation
 
 - **Book a call** buttons link to Calendly
