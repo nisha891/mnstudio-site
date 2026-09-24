@@ -36,6 +36,15 @@ Or just open `index.html` directly in a browser.
 - **Copy & sections** — edit `index.html` directly; each section is
   clearly commented (`<!-- ===== SECTION ===== -->`).
 
+## Hero ribbon
+
+The twisting red/black band at the bottom of the hero is a `<canvas>`
+(`#heroRibbon`) drawn in `js/main.js` ("Hero ribbon" block). Colours are
+`FACE_A` / `FACE_B` / `LIGHT`; shape and speed come from the sine terms in
+`at()`. Grain is a static noise mask applied via CSS, so each frame only
+draws the ribbon. It pauses off-screen and in background tabs, and shows
+a still frame when the visitor prefers reduced motion.
+
 ## Featured case studies
 
 The "Take a look at work we're proud of" section is an expanding-panel
