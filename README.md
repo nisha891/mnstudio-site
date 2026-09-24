@@ -13,11 +13,11 @@ index.html      Page markup (hero, client logos, who we work with, featured
                  case studies, what we do, FAQ, results, ready-to-start CTA,
                  footer)
 css/style.css    Page styling — layout, theming, responsive breakpoints
-css/nav.css      Header: announcement bar, mega-menu nav, theme toggle,
-                 mobile drawer (black / white / red, light + dark)
+css/nav.css      Header: announcement bar, mega-menu nav,
+                 mobile drawer (black / white / red, light only)
 assets/clients/  Client logos (transparent PNGs) for the scrolling logo strip
 assets/fonts/    Talesha display serif (WOFF2); 01 + 01 Slant are used
-js/main.js       Mega-menus (hover/click/Esc), mobile drawer, theme toggle,
+js/main.js       Mega-menus (hover/click/Esc), mobile drawer,
                  sticky header state, scroll-reveal animations, back-to-top
                  button, footer year, featured case study rail
 ```

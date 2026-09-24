@@ -80,25 +80,6 @@
     mobileMQ.addEventListener('change', () => { setDrawer(false); });
   }
 
-  /* ---------- Theme toggle ---------- */
-  const themeToggle = document.getElementById('themeToggle');
-  const root = document.documentElement;
-  const storedTheme = (() => { try { return localStorage.getItem('mn-theme'); } catch (_) { return null; } })();
-  const applyTheme = (theme) => {
-    root.setAttribute('data-theme', theme);
-    if (themeToggle) themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-  };
-  // Always start light; dark only if the visitor chose it with the toggle
-  applyTheme(storedTheme === 'dark' ? 'dark' : 'light');
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      applyTheme(next);
-      try { localStorage.setItem('mn-theme', next); } catch (_) { /* storage unavailable */ }
-    });
-  }
-
   /* ---------- Header scroll state ---------- */
   const header = document.getElementById('siteHeader');
   const toTopBtn = document.getElementById('toTop');
