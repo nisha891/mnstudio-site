@@ -5,7 +5,7 @@
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
   const megaItems = Array.from(document.querySelectorAll('.nav-item.has-mega'));
-  const mobileMQ = window.matchMedia('(max-width: 960px)');
+  const mobileMQ = window.matchMedia('(max-width: 1080px)');
   let closeTimer;
 
   const setOpen = (item, open) => {

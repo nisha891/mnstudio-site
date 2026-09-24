@@ -42,6 +42,8 @@ Or just open `index.html` directly in a browser.
 
 ## Navigation
 
+- **Book a call** buttons currently link to `#contact` — swap in your
+  booking link (e.g. Calendly) in both places in `index.html`.
 - **Talk to the founder** buttons link to WhatsApp (`https://wa.me/919099344578`).
   Change the number in both places in `index.html` if needed.
 - Mega-menu content for Services / Our Work / Newsroom is in the header
@@ -51,7 +53,7 @@ Or just open `index.html` directly in a browser.
 
 - `1024px` — 3-col grids collapse to 2-col
 - `1100px` — mega-menu feature card drops below the three columns
-- `960px`  — nav collapses into the full-screen hamburger drawer
+- `1080px` — nav collapses into the full-screen hamburger drawer
 - `720px`  — single-column layout, tightened section padding
 - `420px`  — buttons stack full-width
 
