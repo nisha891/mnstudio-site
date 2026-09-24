@@ -43,6 +43,14 @@ Or just open `index.html` directly in a browser.
 - **Copy & sections** — edit `index.html` directly; each section is
   clearly commented (`<!-- ===== SECTION ===== -->`).
 
+## Toolkit
+
+"Plugged into the tools your team already uses" (`#toolkit`, between
+What we do and FAQ): an M&N hub with 12 tools wired to it by SVG curves,
+red pulses flowing along each line (CSS `tl-flow`). Logos are inline
+SVGs from Simple Icons (CC0). To swap a tool, replace its `<li class="tool">`
+and keep the `--x` positions; the connector paths use the same x values.
+
 ## Rotating headline
 
 The hero headline keeps "We design products" fixed and cycles the ending

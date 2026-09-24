@@ -657,6 +657,96 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 .result-desc { margin: 0; font-size: 14.5px; line-height: 1.55; }
 
 /* =========================================================
+   Toolkit (hub-and-spoke integrations map)
+   ========================================================= */
+.toolkit {
+  padding: 110px 0 120px;
+  margin-top: 120px;
+  background: radial-gradient(60% 50% at 50% 55%, rgba(214,40,40,.14), transparent 70%), #0d0d0f;
+  color: #fff;
+}
+.toolkit-head { max-width: 720px; margin: 0 auto 56px; text-align: center; }
+.toolkit-eyebrow { color: rgba(255,255,255,.55); }
+.toolkit-head h2 { font-size: clamp(32px, 4.6vw, 52px); color: #fff; margin-bottom: 16px; }
+.toolkit-head .accent { color: #ff5c5c; }
+.toolkit-head p:not(.eyebrow) { color: rgba(255,255,255,.62); font-size: 17px; line-height: 1.6; margin: 0; }
+
+.toolkit-map { position: relative; max-width: 1000px; margin: 0 auto; aspect-ratio: 1000 / 600; }
+.toolkit-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.tl-line { fill: none; stroke: rgba(214,40,40,.32); stroke-width: 1.4; vector-effect: non-scaling-stroke; }
+.tl-pulse {
+  fill: none;
+  stroke: #ff5c5c;
+  stroke-width: 2;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 60 1000;
+  stroke-dashoffset: 60;
+  filter: drop-shadow(0 0 4px rgba(255,92,92,.9));
+  animation: tl-flow 2.8s cubic-bezier(.45,0,.55,1) infinite;
+  animation-delay: var(--d);
+  opacity: 0;
+}
+@keyframes tl-flow {
+  0% { stroke-dashoffset: 60; opacity: 0; }
+  12% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { stroke-dashoffset: -420; opacity: 0; }
+}
+.toolkit-hub {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 84px; height: 84px;
+  transform: translate(-50%, -50%);
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.25);
+  background: linear-gradient(145deg, #e03434, #7a0f0f);
+  box-shadow: 0 0 0 8px rgba(214,40,40,.08), 0 0 60px rgba(214,40,40,.55);
+  font-size: 22px; font-weight: 800; letter-spacing: -0.03em; color: #fff;
+  animation: hub-pulse 2.8s ease-in-out infinite;
+}
+@keyframes hub-pulse {
+  0%, 100% { box-shadow: 0 0 0 8px rgba(214,40,40,.08), 0 0 50px rgba(214,40,40,.45); }
+  50% { box-shadow: 0 0 0 14px rgba(214,40,40,.05), 0 0 80px rgba(214,40,40,.7); }
+}
+.toolkit-tools { position: absolute; inset: 0; }
+.tool {
+  position: absolute;
+  left: var(--x);
+  width: 120px;
+  margin-left: -60px;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.tool-top { top: 0; }
+.tool-bot { bottom: 0; flex-direction: column-reverse; }
+.tool-chip {
+  width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.1);
+  background: #1c1216;
+  transition: transform .25s var(--ease), border-color .25s ease;
+}
+.tool:hover .tool-chip { transform: translateY(-3px); border-color: rgba(255,92,92,.6); }
+.tool-top .tool-chip { margin-bottom: 10px; }
+.tool-bot .tool-chip { margin-top: 10px; }
+.tool-name { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.88); }
+.tool-cat { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-top: 3px; }
+.tool-top .tool-name { order: 2; } .tool-top .tool-cat { order: 3; }
+.tool-bot .tool-name { order: 2; } .tool-bot .tool-cat { order: 1; margin: 0 0 3px; }
+
+@media (max-width: 720px) {
+  .toolkit { padding: 80px 0; margin-top: 80px; }
+  .toolkit-map { aspect-ratio: 1000 / 700; }
+  .tool { width: 60px; margin-left: -30px; }
+  .tool-chip { width: 38px; height: 38px; border-radius: 10px; }
+  .tool-chip svg { width: 18px; height: 18px; }
+  .tool-name, .tool-cat { display: none; }
+  .toolkit-hub { width: 64px; height: 64px; font-size: 17px; border-radius: 16px; }
+}
+
+/* =========================================================
    FAQ
    ========================================================= */
 .faq { padding: 120px 0; }
@@ -883,6 +973,8 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   .marquee-track { animation: none; }
   .cs-panel, .cs-body, .cs-panel.is-active .cs-body { transition: none; }
   .start-dot::after { animation: none; }
+  .tl-pulse { display: none; }
+  .toolkit-hub { animation: none; }
 }
 
 /* =========================================================
@@ -1001,7 +1093,7 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
    ========================================================= */
 .hero-title,
 .audience-head h2, .cases-head h2, .wwd-head h2, .faq-head h2, .start h2, .section-head h2,
-.audience-card h3, .cs-content h3, .wwd-card h3,
+.toolkit-head h2, .audience-card h3, .cs-content h3, .wwd-card h3,
 .ab-hero h1, .ab-section h2, .person h3, .principle h3,
 .result-value, .cs-stats dt {
   font-family: var(--font-serif);
