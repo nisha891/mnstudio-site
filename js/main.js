@@ -105,6 +105,8 @@
   const onScroll = () => {
     const scrolled = window.scrollY > 12;
     if (header) header.classList.toggle('scrolled', scrolled);
+    const heroEl = document.querySelector('.hero');
+    if (header && heroEl) header.classList.toggle('is-over-dark', window.scrollY < heroEl.offsetHeight - 100);
     if (toTopBtn) toTopBtn.classList.toggle('visible', window.scrollY > 600);
   };
   document.addEventListener('scroll', onScroll, { passive: true });
@@ -225,84 +227,109 @@
     if (autoplay) requestAnimationFrame(tick);
   }
 
-  /* ---------- Hero ribbon: twisting, grainy band drawn on canvas ---------- */
-  const ribbon = document.getElementById('heroRibbon');
-  if (ribbon && ribbon.getContext) {
-    const ctx = ribbon.getContext('2d');
+  /* ---------- Hero strands: a twisting bundle of glowing lines ---------- */
+  const strands = document.getElementById('heroStrands');
+  if (strands && strands.getContext) {
+    const ctx = strands.getContext('2d');
     const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const FACE_A = [214, 40, 40];   // brand red
-    const FACE_B = [24, 24, 24];    // near-black
-    const LIGHT = [252, 236, 236];  // highlight where the ribbon turns edge-on
-    const STEP = 4;                 // px per slice (quads keep edges smooth)
-    let w = 0, h = 0, t = 0, last = null, running = false, visible = true;
-
-    // Grain: a static noise mask (generated once) punches tiny holes in the
-    // ribbon, giving the stippled look. Applied by CSS so it costs nothing per frame.
-    const noise = document.createElement('canvas');
-    noise.width = noise.height = 160;
-    const nctx = noise.getContext('2d');
-    const img = nctx.createImageData(160, 160);
-    for (let i = 0; i < img.data.length; i += 4) {
-      img.data[i + 3] = Math.random() < 0.24 ? Math.random() * 150 : 255;
-    }
-    nctx.putImageData(img, 0, 0);
-    const maskUrl = `url(${noise.toDataURL()})`;
-    ribbon.style.webkitMaskImage = maskUrl;
-    ribbon.style.maskImage = maskUrl;
-    ribbon.style.webkitMaskSize = ribbon.style.maskSize = '160px 160px';
-
-    const mix = (a, b, k) => `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * k)).join(',')})`;
+    const LINES = 30;
+    const TAU = Math.PI * 2;
+    let w = 0, h = 0, t = 3, last = null, running = false, visible = true;
+    let grad = null;
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = ribbon.clientWidth;
-      h = ribbon.clientHeight;
-      ribbon.width = Math.round(w * dpr);
-      ribbon.height = Math.round(h * dpr);
+      w = strands.clientWidth;
+      h = strands.clientHeight;
+      strands.width = Math.round(w * dpr);
+      strands.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      grad = null;
       draw();
+    };
+
+    // One ribbon, described in a rotated local frame that runs bottom-left to top-right
+    const frameOf = () => {
+      const len = Math.hypot(w, h) * 1.15;
+      const mobile = w < 720;
+      return {
+        len,
+        cx: w * (mobile ? 0.55 : 0.66),
+        cy: h * (mobile ? 0.97 : 0.5),
+        angle: mobile ? -0.3 : -0.46,
+        amp: Math.min(h * 0.26, 210),
+      };
+    };
+    const curve = (u, f) => {
+      const cy = f.amp * 0.35 * Math.sin(TAU * u * 0.7 - t * 0.22)
+        + f.amp * 0.15 * Math.sin(TAU * u * 1.6 + t * 0.17);
+      const thickness = f.amp * (0.7 + 0.3 * Math.sin(TAU * u * 0.5 + t * 0.13));
+      const twist = Math.sin(TAU * u * 0.95 - t * 0.33);
+      return { cy, half: thickness * twist };
     };
 
     const draw = () => {
       if (!w || !h) return;
-      ctx.globalCompositeOperation = 'source-over';
+      const f = frameOf();
       ctx.clearRect(0, 0, w, h);
-      const TAU = Math.PI * 2;
-      // Sample the ribbon edge at each slice, then fill quads between neighbours
-      // so the edges stay smooth even where the curve is steep.
-      const at = (x) => {
-        const u = x / w;
-        const cy = h / 2
-          + h * 0.13 * Math.sin(TAU * u * 1.05 - t * 0.45)
-          + h * 0.06 * Math.sin(TAU * u * 2.4 + t * 0.3);
-        const thickness = h * 0.33 * (0.6 + 0.4 * Math.sin(TAU * u * 0.8 + t * 0.22));
-        const twist = Math.sin(TAU * u * 1.55 - t * 0.6);
-        const half = Math.abs(thickness * twist);
-        return { top: cy - half, bot: cy + half, twist };
-      };
-      let prev = at(0);
-      for (let x = STEP; x <= w + STEP; x += STEP) {
-        const cur = at(x);
-        const twist = (prev.twist + cur.twist) / 2;
-        const face = twist >= 0 ? FACE_A : FACE_B;
-        const edgeOn = 1 - Math.abs(twist);
-        const top = Math.min(prev.top, cur.top);
-        const bot = Math.max(prev.bot, cur.bot, top + 1);
-        const base = mix(face, LIGHT, Math.min(edgeOn * edgeOn * 0.9, 0.9));
-        const g = ctx.createLinearGradient(0, top, 0, bot);
-        g.addColorStop(0, mix(face, LIGHT, Math.min(0.55 + edgeOn * 0.4, 0.95)));
-        g.addColorStop(0.45, base);
-        g.addColorStop(1, base);
-        ctx.fillStyle = g;
-        ctx.beginPath();
-        ctx.moveTo(x - STEP - 0.4, prev.top);
-        ctx.lineTo(x + 0.4, cur.top);
-        ctx.lineTo(x + 0.4, cur.bot);
-        ctx.lineTo(x - STEP - 0.4, prev.bot);
-        ctx.closePath();
-        ctx.fill();
-        prev = cur;
+      ctx.save();
+      ctx.translate(f.cx, f.cy);
+      ctx.rotate(f.angle);
+      if (!grad) {
+        grad = ctx.createLinearGradient(-f.len / 2, 0, f.len / 2, 0);
+        grad.addColorStop(0, 'rgba(214,40,40,0)');
+        grad.addColorStop(0.15, 'rgba(214,40,40,.7)');
+        grad.addColorStop(0.55, 'rgba(255,92,92,.95)');
+        grad.addColorStop(0.8, 'rgba(255,190,190,.9)');
+        grad.addColorStop(1, 'rgba(255,120,120,.15)');
       }
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = grad;
+      const STEP = 10;
+      const n = Math.ceil(f.len / STEP);
+      // Sample the ribbon once, then offset each strand across its width
+      const pts = new Array(n + 1);
+      for (let i = 0; i <= n; i++) {
+        const u = i / n;
+        pts[i] = curve(u, f);
+      }
+      for (let k = 0; k < LINES; k++) {
+        const sOff = (k / (LINES - 1)) * 2 - 1;         // -1 .. 1 across the ribbon
+        ctx.globalAlpha = 0.3 + 0.6 * (1 - Math.abs(sOff));
+        ctx.beginPath();
+        for (let i = 0; i <= n; i++) {
+          const x = -f.len / 2 + i * STEP;
+          const y = pts[i].cy + sOff * pts[i].half;
+          if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+      // Two white highlights travelling along individual strands
+      ctx.lineWidth = 1.6;
+      [[7, 0], [21, 0.5]].forEach(([k, phase]) => {
+        const sOff = (k / (LINES - 1)) * 2 - 1;
+        const head = ((t * 0.06 + phase) % 1) * 0.8 + 0.25;
+        const tail = head - 0.07;
+        ctx.globalAlpha = 0.9;
+        const i0 = Math.max(0, Math.floor(tail * n)), i1 = Math.min(n, Math.floor(head * n));
+        if (i1 <= i0) return;
+        const x0 = -f.len / 2 + i0 * STEP, x1 = -f.len / 2 + i1 * STEP;
+        const hg = ctx.createLinearGradient(x0, 0, x1, 0);
+        hg.addColorStop(0, 'rgba(255,255,255,0)');
+        hg.addColorStop(1, 'rgba(255,255,255,.9)');
+        ctx.strokeStyle = hg;
+        ctx.beginPath();
+        for (let i = i0; i <= i1; i++) {
+          const x = -f.len / 2 + i * STEP;
+          const y = pts[i].cy + sOff * pts[i].half;
+          if (i === i0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      });
+      ctx.restore();
+      ctx.globalAlpha = 1;
+      ctx.globalCompositeOperation = 'source-over';
     };
 
     const frame = (now) => {
@@ -319,14 +346,13 @@
     };
     const stop = () => { running = false; };
 
-    t = 2; // a pleasing starting pose (also the static frame for reduced motion)
     resize();
     window.addEventListener('resize', resize);
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(([entry]) => {
         visible = entry.isIntersecting;
         if (visible) start(); else stop();
-      }).observe(ribbon);
+      }).observe(strands);
     }
     document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
     start();

@@ -13,6 +13,7 @@ css/style.css    Page styling — layout, theming, responsive breakpoints
 css/nav.css      Header: announcement bar, mega-menu nav, theme toggle,
                  mobile drawer (black / white / red, light + dark)
 assets/clients/  Client logos (transparent PNGs) for the scrolling logo strip
+assets/fonts/    Qualux display serif (WOFF2), used for headlines
 js/main.js       Mega-menus (hover/click/Esc), mobile drawer, theme toggle,
                  sticky header state, scroll-reveal animations, back-to-top
                  button, footer year, featured case study rail
@@ -32,18 +33,23 @@ Or just open `index.html` directly in a browser.
 ## Customizing
 
 - **Colors / fonts / spacing** — CSS custom properties at the top of
-  `css/style.css` (`:root`).
+  `css/style.css` (`:root`). Headlines and big numbers use Qualux Light
+  (`--font-serif`, see "Display type" at the end of `style.css`); body and
+  UI text use Inter (`--font-sans`). Qualux is a commercial font by
+  Asenbayu: confirm the licence covers web embedding before launch.
 - **Copy & sections** — edit `index.html` directly; each section is
   clearly commented (`<!-- ===== SECTION ===== -->`).
 
-## Hero ribbon
+## Hero
 
-The twisting red/black band at the bottom of the hero is a `<canvas>`
-(`#heroRibbon`) drawn in `js/main.js` ("Hero ribbon" block). Colours are
-`FACE_A` / `FACE_B` / `LIGHT`; shape and speed come from the sine terms in
-`at()`. Grain is a static noise mask applied via CSS, so each frame only
-draws the ribbon. It pauses off-screen and in background tabs, and shows
-a still frame when the visitor prefers reduced motion.
+Dark, Mintlify-inspired hero: a badge chip, headline, CTAs, a decorative
+product-window preview (hidden below 1024px) and a bundle of glowing line
+strands (`#heroStrands`, drawn in `js/main.js`, "Hero strands" block) that
+twist across the background. The header switches to dark tokens
+(`.site-header.is-over-dark` in `css/nav.css`) while it sits over the hero.
+Animation pauses off-screen and is static for reduced motion.
+
+The previous light hero with the grainy ribbon is at commit `ae7d7cf`.
 
 ## Featured case studies
 
