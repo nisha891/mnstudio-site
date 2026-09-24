@@ -17,7 +17,7 @@
   --nav-btn-bg: #0a0a0a;
   --nav-btn-ink: #ffffff;
   --nav-shadow: 0 24px 48px -16px rgba(0, 0, 0, .18);
-  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  --font-mono: var(--font-sans); /* labels use Inter too */
   --announce-h: 36px;
   --nav-h: 64px;
 }
@@ -101,7 +101,6 @@
   line-height: 1;
   flex-shrink: 0;
 }
-.nav-logo-text span { color: var(--nav-red); margin: 0 .04em; }
 
 /* ---------- Top-level links ---------- */
 .main-nav { margin-left: auto; }
@@ -236,7 +235,7 @@
   border-bottom: 1px solid var(--nav-line);
   font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: .18em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--nav-label);
 }
@@ -292,7 +291,7 @@
 .mega-feature .mega-feature-eyebrow {
   font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: .18em;
+  letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--nav-red);
   margin-bottom: 12px;
