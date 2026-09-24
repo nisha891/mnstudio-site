@@ -8,6 +8,7 @@ No build step, no dependencies — plain HTML, CSS and vanilla JS.
 ```
 about.html      About page (hero, leadership x3, team, story, principles);
                  shares header/footer markup with index.html
+case-studies/   Case study pages (freedai.html); images in assets/case-studies/
 index.html      Page markup (hero, client logos, who we work with, featured
                  case studies, what we do, FAQ, results, ready-to-start CTA,
                  footer)

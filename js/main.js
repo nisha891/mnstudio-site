@@ -398,6 +398,17 @@
     }, 3200);
   }
 
+  /* ---------- Case study walkthroughs: click a step to show its screen ---------- */
+  document.querySelectorAll('.walkthrough').forEach((wt) => {
+    const steps = Array.from(wt.querySelectorAll('.wt-step'));
+    const shots = Array.from(wt.querySelectorAll('.wt-stage img'));
+    const show = (i) => {
+      steps.forEach((b, k) => { b.classList.toggle('is-on', k === i); b.setAttribute('aria-pressed', String(k === i)); });
+      shots.forEach((img, k) => img.classList.toggle('is-on', k === i));
+    };
+    steps.forEach((b, i) => b.addEventListener('click', () => show(i)));
+  });
+
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();

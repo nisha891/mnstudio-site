@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freed AI case study — MN Studio</title>
+<meta name="description" content="How MN Studio designed the Freed AI browser extension: recording, transcripts, SOAP notes and copying into the EHR, right where clinicians work.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230a0a0a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-weight=%22800%22 font-family=%22Inter,Arial,sans-serif%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>M</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap">
+<link rel="preload" href="../assets/fonts/talesha-01.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/nav.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="announce">
+    <a href="https://www.linkedin.com/pulse/alma-case-product-debt-scientific-software-munmun-goswami-r9dpf/" target="_blank" rel="noopener" class="announce-link"><span class="announce-tag">New</span> Read about <strong>ALMA and the case of product debt in scientific software</strong> <span aria-hidden="true">→</span></a>
+  </div>
+
+  <div class="nav-bar">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="M&amp;N home">
+        <span class="nav-logo-text">M&amp;N</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary">
+        <ul class="nav-list">
+        <li class="nav-item has-mega">
+          <button class="nav-link" type="button" aria-expanded="false" aria-controls="mega-services">Services <svg class="chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="mega" id="mega-services">
+            <div class="mega-inner">
+          <div class="mega-col">
+            <p class="mega-label">Who we solve for</p>
+            <ul>
+              <li><a href="../index.html#services"><span class="mega-title">For Impact-Driven Startups</span><span class="mega-desc">0-to-1 founding MVPs and flagship launches for enterprises. Data-heavy products, platforms and software. Industry agnostic.</span></a></li>
+              <li><a href="../index.html#services"><span class="mega-title">For VC &amp; Private Equity</span><span class="mega-desc">In-house tools and portfolio startups working through ambiguity and chaos. We bring structure and consultation.</span></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-label">What we design</p>
+            <ul>
+              <li><a href="../index.html#services"><span class="mega-title">Founding MVP</span><span class="mega-desc">Zero-to-one product design, from first concept to a launch-ready v1.</span></a></li>
+              <li><a href="../index.html#services"><span class="mega-title">Agentic Workflows</span><span class="mega-desc">AI-native flows designed around how people actually work.</span></a></li>
+              <li><a href="../index.html#services"><span class="mega-title">UI/UX Overhauls</span><span class="mega-desc">Audits, redesigns and optimisation of products already in market.</span></a></li>
+              <li><a href="../index.html#services"><span class="mega-title">CRO for E-commerce</span><span class="mega-desc">Conversion-focused design for online stores and websites.</span></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-label">How we lead</p>
+            <ul>
+              <li><a href="../index.html#services"><span class="mega-title">Full-Stack Product Design</span><span class="mega-desc">Research, UX, UI and design systems, end to end.</span></a></li>
+              <li><a href="../index.html#services"><span class="mega-title">Product Management</span><span class="mega-desc">Roadmapping, prioritisation and discovery that keeps teams shipping.</span></a></li>
+              <li><a href="../index.html#services"><span class="mega-title">Leadership</span><span class="mega-desc">Interim and fractional design and product leadership.</span></a></li>
+            </ul>
+            <p class="mega-tagline">Fractional · Advisory · Retainer</p>
+          </div>
+          <div class="mega-feature">
+            <span class="mega-feature-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
+            <p class="mega-feature-eyebrow">Giving back</p>
+            <p class="mega-feature-title">For the missions that matter.</p>
+            <p>One nonprofit design project every quarter, pro bono or at cost. Good design shouldn't only be for the highest bidder.</p>
+            <div class="mega-feature-actions">
+              <a href="../index.html#start" class="nav-btn nav-btn-outline">See the program</a>
+              <a href="../index.html#start" class="nav-btn nav-btn-accent">Apply <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item has-mega">
+          <button class="nav-link" type="button" aria-expanded="false" aria-controls="mega-work">Our Work <svg class="chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="mega" id="mega-work">
+            <div class="mega-inner mega-inner-3">
+          <div class="mega-col mega-col-wide">
+            <p class="mega-label">Case studies</p>
+            <ul>
+              <li><a href="../index.html#case-studies"><span class="mega-title">Space</span><span class="mega-desc">B2B platform to integrate audio widgets for sales, e-commerce and fireside chats.</span></a></li>
+              <li><a href="../index.html#case-studies"><span class="mega-title">FlowMo</span><span class="mega-desc">Custom LMS built inside Google Looker for staff training.</span></a></li>
+              <li><a href="../index.html#case-studies"><span class="mega-title">FreeStyle+</span><span class="mega-desc">B2B digital transformation using improv for employee mental health training in enterprise environments.</span></a></li>
+              <li><a href="../index.html#case-studies"><span class="mega-title">Collagerie</span><span class="mega-desc">Redefining product discovery with an AI-based search experience.</span></a></li>
+              <li><a href="../case-studies/freedai.html"><span class="mega-title">FreedAI</span><span class="mega-desc">UX discovery for extension design for clinicians.</span></a></li>
+              <li><a href="../index.html#case-studies"><span class="mega-title">Resultbook</span><span class="mega-desc">Helping social impact, data-driven firm Vera Solutions launch its second flagship product.</span></a></li>
+              <li><a href="../index.html#case-studies"><span class="mega-title">Reunion Marketplace</span><span class="mega-desc">Clean energy tax credit marketplace.</span></a></li>
+              <li><a href="../index.html#case-studies"><span class="mega-title">Reunion PWA</span><span class="mega-desc">Compliance platform.</span></a></li>
+              <li><a href="../index.html#case-studies"><span class="mega-title">Go2Andaman</span><span class="mega-desc">Ferry booking experience redesign for more conversions.</span></a></li>
+            </ul>
+            <a href="../index.html#case-studies" class="mega-more">All case studies <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="mega-col">
+            <p class="mega-label">Live demos</p>
+            <ul>
+              <li><a href="https://www.youtube.com/watch?v=NluLyz_ETic" target="_blank" rel="noopener"><span class="mega-title">Reunion PWA <span class="ext" aria-hidden="true">↗</span></span><span class="mega-desc">Audit-ready compliance management to prove tax credit eligibility, protect credit value, and close transactions with confidence.</span></a></li>
+              <li><a href="https://www.youtube.com/watch?v=8T7dPmiHS1Y" target="_blank" rel="noopener"><span class="mega-title">Sogage <span class="ext" aria-hidden="true">↗</span></span><span class="mega-desc">B2B social media management platform for gaming.</span></a></li>
+              <li><a href="https://eatsurreal.co.uk" target="_blank" rel="noopener"><span class="mega-title">Surreal <span class="ext" aria-hidden="true">↗</span></span><span class="mega-desc">Increased revenue per user by 150% within a week of launch.</span></a></li>
+            </ul>
+          </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item has-mega">
+          <button class="nav-link" type="button" aria-expanded="false" aria-controls="mega-news">Newsroom <svg class="chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="mega" id="mega-news">
+            <div class="mega-inner">
+          <div class="mega-col">
+            <p class="mega-label">Read</p>
+            <ul>
+              <li><a href="#"><span class="mega-title">Journal</span><span class="mega-desc">Essays on product, design and building 0-to-1.</span></a></li>
+              <li><a href="#"><span class="mega-title">Playbooks</span><span class="mega-desc">Frameworks we use on real engagements.</span></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-label">Our clients in press</p>
+            <ul>
+              <li><a href="https://www.wsj.com/business/nvidia-corporate-tax-disclosures-1621b927?mod=author_content_page_1_pos_1" target="_blank" rel="noopener"><span class="mega-title">Reunion <span class="ext" aria-hidden="true">↗</span></span><span class="press-mark press-wsj"><span class="sr-only">Featured in </span>The Wall Street Journal</span></a></li>
+              <li><a href="https://www.forbes.com/sites/emmylucas/2022/05/17/tech-talent-startup-ateam-raises-55-million-from-investors-like-adam-grant-and-jay-z/?sh=47c6163c37ed" target="_blank" rel="noopener"><span class="mega-title">A.Team <span class="ext" aria-hidden="true">↗</span></span><span class="press-mark press-forbes"><span class="sr-only">Featured in </span>Forbes</span></a></li>
+              <li><a href="https://whatworkscities.bloomberg.org/cities/miami-florida-usa/" target="_blank" rel="noopener"><span class="mega-title">I See Change <span class="ext" aria-hidden="true">↗</span></span><span class="press-mark press-bloomberg"><span class="sr-only">Featured by </span>Bloomberg <small>What Works Cities</small></span></a></li>
+            </ul>
+          </div>
+          <div class="mega-col">
+            <p class="mega-label">Press</p>
+            <ul>
+              <li><a href="#"><span class="mega-title">Announcements</span><span class="mega-desc">Studio news, launches and partnerships.</span></a></li>
+            </ul>
+          </div>
+          <div class="mega-feature">
+            <p class="mega-feature-eyebrow">Newsletter</p>
+            <p class="mega-feature-title">One useful idea a month.</p>
+            <p>Short, practical notes on product design and leadership. No spam.</p>
+            <a href="../index.html#start" class="mega-feature-link">Subscribe <span aria-hidden="true">→</span></a>
+          </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+        </ul>
+        <div class="nav-cta-mobile">
+          <a href="https://calendly.com/munmun_mnstudio/lets_get_to_know_each_other" target="_blank" rel="noopener" class="nav-btn nav-btn-secondary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg> Book a call</a>
+          <a href="https://wa.me/919099344578" class="nav-btn nav-btn-primary" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg> Talk to the founder</a>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <a href="https://calendly.com/munmun_mnstudio/lets_get_to_know_each_other" target="_blank" rel="noopener" class="nav-btn nav-btn-secondary nav-cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg> Book a call</a>
+        <a href="https://wa.me/919099344578" class="nav-btn nav-btn-primary nav-cta" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg> Talk to the founder</a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="about-page case-page">
+
+  <!-- ================= CASE HERO ================= -->
+  <section class="csp-hero">
+    <div class="wrap">
+      <a href="../index.html#case-studies" class="csp-back reveal"><span aria-hidden="true">←</span> All case studies</a>
+      <p class="eyebrow eyebrow-muted reveal">Case study · Healthcare AI</p>
+      <h1 class="reveal">Freed AI: an AI scribe that lives <span class="accent">where clinicians work.</span></h1>
+      <p class="ab-lede reveal">UX discovery and design for the Freed AI browser extension. It records visits, writes the notes, and moves them into the EHR, so clinicians can spend their time on patients instead of paperwork.</p>
+      <dl class="csp-meta reveal">
+        <div><dt>Client</dt><dd>Freed AI</dd></div>
+        <div><dt>Users</dt><dd>Clinicians</dd></div>
+        <div><dt>Platform</dt><dd>Browser extension</dd></div>
+        <div><dt>Our role</dt><dd>UX discovery · Extension design</dd></div>
+      </dl>
+    </div>
+    <div class="wrap">
+      <figure class="csp-hero-shot reveal">
+        <img src="../assets/case-studies/freedai/notes-04-over-ehr.webp" alt="The Freed AI extension floating over an EHR, copying a generated note into the patient record." width="2000" height="1275">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= GOAL ================= -->
+  <section class="ab-section ab-alt" id="goal">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-muted reveal">The goal</p>
+      <h2 class="reveal">Give clinicians back <span class="accent">their time.</span></h2>
+      <p class="csp-intro reveal">Clinicians lose hours to documentation. The extension needed to record conversations and create transcripts automatically, then do four things well:</p>
+      <div class="csp-goals">
+          <article class="csp-goal reveal"><span class="csp-goal-num">01</span><h3>Transcripts into notes</h3><p>Turn every recorded conversation into custom or template-based clinical notes.</p></article>
+          <article class="csp-goal reveal"><span class="csp-goal-num">02</span><h3>Conversation history</h3><p>Keep track of every conversation with each patient, searchable in seconds.</p></article>
+          <article class="csp-goal reveal"><span class="csp-goal-num">03</span><h3>Into the EHR/EMR</h3><p>Copy critical data into the clinician’s EHR or EMR without retyping.</p></article>
+          <article class="csp-goal reveal"><span class="csp-goal-num">04</span><h3>More accessible Freed</h3><p>Bring Freed AI into the browser, on top of the tools clinicians already use.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DURING THE SESSION ================= -->
+  <section class="ab-section" id="during">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-muted reveal">During the session</p>
+      <h2 class="reveal">Record without <span class="accent">breaking eye contact.</span></h2>
+        <div class="walkthrough reveal" id="wtDuring">
+          <ol class="wt-steps">
+            <li><button type="button" class="wt-step is-on" aria-pressed="true" data-i="0">
+              <span class="wt-num">01</span>
+              <span class="wt-text"><strong>Start recording</strong><span>A slim toolbar docks to the edge of any telehealth call. One click starts a new recording.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="1">
+              <span class="wt-num">02</span>
+              <span class="wt-text"><strong>Tag the visit</strong><span>While recording, add the patient’s name and pick a note template. A timer and pause/stop stay in reach.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="2">
+              <span class="wt-num">03</span>
+              <span class="wt-text"><strong>Stay with the patient</strong><span>The panel tucks away into a small pause/stop pill so the clinician’s attention stays on the conversation.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="3">
+              <span class="wt-num">04</span>
+              <span class="wt-text"><strong>Go deeper when needed</strong><span>Jump into the full Freed web app for anything the quick view can’t do.</span></span>
+            </button></li>
+          </ol>
+          <div class="wt-stage">
+            <img src="../assets/case-studies/freedai/session-01-start-recording.webp" alt="Freed toolbar docked beside a telehealth video call, with the Start New Recording tooltip showing." width="2000" height="1275" class="is-on">
+            <img src="../assets/case-studies/freedai/session-02-recording-details.webp" alt="Recording panel slid out from the toolbar with Patient Name, Note Template, an 08:00 timer and pause and stop controls." width="2000" height="1275" class="" loading="lazy">
+            <img src="../assets/case-studies/freedai/session-03-recording-collapsed.webp" alt="The recording panel collapsed to a small pill with pause and stop buttons." width="2000" height="1275" class="" loading="lazy">
+            <img src="../assets/case-studies/freedai/session-04-open-web-view.webp" alt="Toolbar with the Open Web View tooltip showing." width="2000" height="1275" class="" loading="lazy">
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ================= AFTER THE SESSION ================= -->
+  <section class="ab-section ab-alt" id="after">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-muted reveal">After the session</p>
+      <h2 class="reveal">From conversation to chart <span class="accent">in one click.</span></h2>
+        <div class="walkthrough reveal" id="wtAfter">
+          <ol class="wt-steps">
+            <li><button type="button" class="wt-step is-on" aria-pressed="true" data-i="0">
+              <span class="wt-num">01</span>
+              <span class="wt-text"><strong>Open your notes</strong><span>The notes button brings every generated note into the toolbar, without leaving the call.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="1">
+              <span class="wt-num">02</span>
+              <span class="wt-text"><strong>Find any conversation</strong><span>A searchable history of sessions by patient, with date, time and visit type at a glance.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="2">
+              <span class="wt-num">03</span>
+              <span class="wt-text"><strong>Shape the note</strong><span>Switch between a summary and S/O/A/P sections, change length, refine with AI, or view the full transcript.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="3">
+              <span class="wt-num">04</span>
+              <span class="wt-text"><strong>Copy it into the EHR</strong><span>The note floats over the clinician’s EHR, and one click copies it straight into the right field.</span></span>
+            </button></li>
+          </ol>
+          <div class="wt-stage">
+            <img src="../assets/case-studies/freedai/notes-01-view-customize.webp" alt="Toolbar with the View/Customize Notes tooltip showing." width="2000" height="1275" class="is-on">
+            <img src="../assets/case-studies/freedai/notes-02-history-list.webp" alt="Panel listing past patient sessions with dates and a Flu tag, with a patient-name search field." width="2000" height="1275" class="" loading="lazy">
+            <img src="../assets/case-studies/freedai/notes-03-soap-note-copy.webp" alt="Note panel with Summary and S, O, A, P tabs, a Concise length toggle, an AI wand, a Transcript tab and a Copy button." width="2000" height="1275" class="" loading="lazy">
+            <img src="../assets/case-studies/freedai/notes-04-over-ehr.webp" alt="The Freed note panel floating over an EHR, with the note being copied into the Subjective field." width="2000" height="1275" class="" loading="lazy">
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ================= DECISIONS ================= -->
+  <section class="ab-section" id="decisions">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-muted reveal">Design decisions</p>
+      <h2 class="reveal">Small surface, <span class="accent">big time savings.</span></h2>
+      <div class="csp-decisions">
+          <div class="csp-decision reveal"><h3>Docked, never in the way</h3><p>The toolbar sits on the screen edge, so it never covers the patient’s face or the EHR fields a clinician is typing into.</p></div>
+          <div class="csp-decision reveal"><h3>Collapses while recording</h3><p>Once a session starts, controls shrink to a pause/stop pill. The clinician’s focus belongs to the patient.</p></div>
+          <div class="csp-decision reveal"><h3>Works on top of any tool</h3><p>One overlay works across telehealth platforms and EHRs, so there’s nothing new for clinics to integrate or learn.</p></div>
+          <div class="csp-decision reveal"><h3>Copy, not re-type</h3><p>Notes are structured in SOAP sections that map to EHR fields, so one click moves each part to the right place.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OUTCOMES ================= -->
+  <section class="ab-section ab-alt" id="outcomes">
+    <div class="wrap ab-narrow">
+      <p class="eyebrow eyebrow-muted reveal">Process &amp; outcomes</p>
+      <h2 class="reveal">What we <span class="accent">learned.</span></h2>
+      <p class="reveal ab-placeholder">Placeholder: discovery and research, such as clinician interviews, the workflows you observed, and the insights that shaped the toolbar.</p>
+      <p class="reveal ab-placeholder">Placeholder: outcomes, such as time saved per visit, adoption, ratings or client feedback.</p>
+    </div>
+  </section>
+
+  <!-- ================= NEXT ================= -->
+  <section class="csp-next">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-muted reveal">Have a product like this?</p>
+      <h2 class="reveal">Let’s design what <span class="accent">your users need next.</span></h2>
+      <div class="hero-cta reveal">
+        <a href="https://calendly.com/munmun_mnstudio/lets_get_to_know_each_other" target="_blank" rel="noopener" class="btn btn-primary">Book a 30-minute meeting</a>
+        <a href="../index.html#case-studies" class="btn btn-ghost">See more work</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <canvas class="footer-strands" id="footerStrands" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="../index.html" class="footer-logo" aria-label="M&amp;N home">M&amp;N</a>
+      <p class="footer-tagline">Product design and leadership for founders, funds and missions that matter. From founding MVP to flagship product.</p>
+    </div>
+
+    <nav class="footer-grid" aria-label="Footer">
+      <div class="footer-col">
+        <h2 class="footer-title">What we design</h2>
+        <ul>
+          <li><a href="../index.html#services">Founding MVP</a></li>
+          <li><a href="../index.html#services">Agentic Workflows</a></li>
+          <li><a href="../index.html#services">UI/UX Overhauls</a></li>
+          <li><a href="../index.html#services">CRO for E-commerce</a></li>
+          <li><a href="../index.html#services">Full-Stack Product Design</a></li>
+          <li><a href="../index.html#services">Product Management &amp; Leadership</a></li>
+          <li><a href="../index.html#services">All services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-title">Who we work with</h2>
+        <ul>
+          <li><a href="../index.html#audience">For impact-driven startups</a></li>
+          <li><a href="../index.html#audience">For enterprises</a></li>
+          <li><a href="../index.html#audience">For VC &amp; private equity</a></li>
+          <li><a href="../index.html#case-studies">Case studies</a></li>
+          <li><a href="../index.html#results">Results</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-title">Company</h2>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="#">Newsroom</a></li>
+          <li><a href="../index.html#faq">FAQs</a></li>
+        </ul>
+        <h2 class="footer-title footer-title-sub">Live demos</h2>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=NluLyz_ETic" target="_blank" rel="noopener">Reunion PWA</a></li>
+          <li><a href="https://www.youtube.com/watch?v=8T7dPmiHS1Y" target="_blank" rel="noopener">Sogage</a></li>
+          <li><a href="https://eatsurreal.co.uk" target="_blank" rel="noopener">Surreal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2 class="footer-title">Contact</h2>
+        <ul>
+          <li><a href="https://wa.me/919099344578" target="_blank" rel="noopener">WhatsApp the founder</a></li>
+          <li><a href="https://calendly.com/munmun_mnstudio/lets_get_to_know_each_other" target="_blank" rel="noopener">Book a 30-minute meeting</a></li>
+          <li class="footer-note">Fractional · Advisory · Retainer<br>Working with clients across the US, UK, Europe, Dubai and India</li>
+          <li><a href="https://www.linkedin.com/in/goswamimunmun/" target="_blank" rel="noopener" class="footer-social"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>Munmun on LinkedIn</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> MN Studio LLC. All rights reserved.</p>
+      <p>Designed to ship.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

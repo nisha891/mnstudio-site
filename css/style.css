@@ -1115,12 +1115,74 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 }
 
 /* =========================================================
+   Case study page
+   ========================================================= */
+.csp-hero { padding: calc(100px + clamp(40px, 8vh, 90px)) 0 0; }
+.csp-hero h1 { font-size: clamp(38px, 5.2vw, 68px); line-height: 1.05; max-width: 20ch; margin-bottom: 22px; }
+.csp-back { display: inline-flex; gap: 8px; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+.csp-back:hover { color: var(--accent); }
+.csp-meta { display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: 12px 48px; margin: 36px 0 48px; padding-top: 24px; border-top: 1px solid var(--line); }
+.csp-meta dt { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 4px; }
+.csp-meta dd { margin: 0; font-size: 15px; font-weight: 500; color: var(--ink); }
+.csp-hero-shot { margin: 0 0 -1px; border-radius: 16px 16px 0 0; overflow: hidden; background: var(--paper); box-shadow: 0 30px 80px -40px rgba(0,0,0,.35); }
+.csp-hero-shot img { display: block; width: 100%; height: auto; }
+.csp-intro { max-width: 60ch; font-size: 17px; line-height: 1.7; margin: -24px 0 40px; }
+.csp-goals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: var(--radius); overflow: hidden; }
+.csp-goal { padding: 28px 26px 30px; background: var(--paper); }
+.csp-goal-num { display: block; margin-bottom: 18px; font-size: 12px; font-weight: 600; letter-spacing: .14em; color: var(--accent-dark); }
+.csp-goal h3 { font-size: 23px; margin-bottom: 10px; }
+.csp-goal p { font-size: 15px; line-height: 1.6; margin: 0; }
+
+/* Interactive walkthrough: step list + screen */
+.walkthrough { display: grid; grid-template-columns: 340px 1fr; gap: 40px; align-items: start; }
+.wt-steps { display: flex; flex-direction: column; gap: 8px; }
+.wt-step {
+  display: flex; gap: 16px; width: 100%; padding: 18px 18px 18px 16px;
+  text-align: left; font: inherit; color: inherit; cursor: pointer;
+  background: transparent; border: 1px solid transparent; border-left: 3px solid var(--line); border-radius: 0 12px 12px 0;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+.wt-step:hover { background: rgba(10,10,10,.03); }
+.wt-step.is-on { background: var(--paper); border-color: var(--line); border-left-color: var(--accent); box-shadow: 0 10px 30px -20px rgba(0,0,0,.3); }
+.wt-step:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wt-num { font-size: 12px; font-weight: 600; letter-spacing: .12em; color: var(--ink-soft); padding-top: 3px; }
+.wt-step.is-on .wt-num { color: var(--accent); }
+.wt-text strong { display: block; font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.wt-text span { display: block; font-size: 14px; line-height: 1.55; color: var(--ink-soft); }
+.wt-stage { display: grid; border-radius: 14px; overflow: hidden; }
+.wt-stage img { grid-area: 1 / 1; width: 100%; height: auto; opacity: 0; transition: opacity .4s ease; }
+.wt-stage img.is-on { opacity: 1; }
+
+.csp-decisions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px 56px; max-width: 1000px; }
+.csp-decision { padding-left: 22px; border-left: 2px solid var(--accent); }
+.csp-decision h3 { font-size: 26px; margin-bottom: 10px; }
+.csp-decision p { font-size: 16px; line-height: 1.65; margin: 0; }
+.csp-next { padding: 110px 0; text-align: center; }
+.csp-next h2 { font-size: clamp(32px, 4.4vw, 52px); margin-bottom: 8px; }
+.csp-next .hero-cta { justify-content: center; }
+
+@media (max-width: 1024px) {
+  .csp-goals { grid-template-columns: repeat(2, 1fr); }
+  .walkthrough { grid-template-columns: 1fr; gap: 20px; }
+  .wt-steps { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+  .wt-steps li { flex: 0 0 min(280px, 78%); scroll-snap-align: start; }
+  .wt-step { height: 100%; }
+}
+@media (max-width: 720px) {
+  .csp-meta { grid-template-columns: repeat(2, auto); }
+  .csp-goals { grid-template-columns: 1fr; }
+  .csp-decisions { grid-template-columns: 1fr; gap: 32px; }
+  .csp-next { padding: 72px 0; }
+}
+
+/* =========================================================
    Display type: Talesha for headlines and big numbers
    ========================================================= */
 .hero-title,
 .audience-head h2, .cases-head h2, .wwd-head h2, .faq-head h2, .start h2, .section-head h2,
 .toolkit-head h2, .audience-card h3, .cs-content h3, .wwd-card h3,
 .ab-hero h1, .ab-section h2, .person h3, .principle h3,
+.csp-hero h1, .csp-goal h3, .csp-decision h3, .csp-next h2,
 .result-value, .cs-stats dt {
   font-family: var(--font-serif);
   font-weight: 400;          /* Talesha ships a single weight; avoid faux bold */
