@@ -42,8 +42,8 @@ Or just open `index.html` directly in a browser.
 
 ## Navigation
 
-- **Book a call** buttons currently link to `#contact` — swap in your
-  booking link (e.g. Calendly) in both places in `index.html`.
+- **Book a call** buttons link to Calendly
+  (`calendly.com/munmun_mnstudio/lets_get_to_know_each_other`).
 - **Talk to the founder** buttons link to WhatsApp (`https://wa.me/919099344578`).
   Change the number in both places in `index.html` if needed.
 - Mega-menu content for Services / Our Work / Newsroom is in the header
