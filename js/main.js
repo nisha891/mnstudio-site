@@ -1,6 +1,21 @@
 (() => {
   'use strict';
 
+  /* ---------- Open every page at the top ----------
+     Some viewers (and back/forward restores) carry the previous page's scroll
+     position over, dropping visitors at the footer. Unless the link targets a
+     section (#hash), start at the top. */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  const toPageTop = () => {
+    if (location.hash) return;
+    window.scrollTo(0, 0);
+    // Also reset any scrolling container around the page, such as an embedding frame.
+    const top = document.body;
+    try { top.scrollIntoView({ block: 'start', behavior: 'instant' }); } catch (e) { top.scrollIntoView(true); }
+  };
+  toPageTop();
+  window.addEventListener('pageshow', toPageTop);
+
   /* ---------- Navigation: mega menus + mobile drawer ---------- */
   const navToggle = document.getElementById('navToggle');
   const mainNav = document.getElementById('mainNav');
