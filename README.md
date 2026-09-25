@@ -102,3 +102,15 @@ are **placeholders** until real client quotes are supplied. Remove
 - `420px`  — buttons stack full-width
 
 Tested at 1440×900 (desktop), 834×1100 (tablet) and 390×844 (mobile).
+
+## Service pages
+
+`services/*.html` (one page per item in the Services menu, plus Giving back) are generated from
+`tools/services_data.py` by `tools/build_services.py`, using `case-studies/resultbook.html` as the
+header/footer shell. Edit the copy in `services_data.py`, then run:
+
+```sh
+python3 tools/build_services.py
+```
+
+The script also points the Services menu, footer links and Giving back buttons on every page at these pages.
