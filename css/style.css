@@ -1162,6 +1162,32 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 .csp-decision { padding-left: 22px; border-left: 2px solid var(--accent); }
 .csp-decision h3 { font-size: 26px; margin-bottom: 10px; }
 .csp-decision p { font-size: 16px; line-height: 1.65; margin: 0; }
+/* FlowMo-style additions */
+.csp-links { display: flex; flex-wrap: wrap; gap: 12px; margin: -20px 0 48px; }
+.csp-results { padding: 64px 0; border-bottom: 1px solid var(--line); }
+.csp-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 0; }
+.csp-stats > div { padding-left: 22px; border-left: 2px solid var(--accent); }
+.csp-stats dt { font-size: clamp(40px, 5vw, 64px); line-height: 1; color: var(--ink); margin-bottom: 10px; }
+.csp-stats dd { margin: 0; font-size: 15px; line-height: 1.5; color: var(--ink-soft); max-width: 24ch; }
+.csp-timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 0 0 56px; padding: 0; list-style: none; counter-reset: tl; }
+.csp-timeline li { position: relative; padding: 18px 18px 20px; background: var(--paper); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 12px; }
+.csp-tl-stage { display: block; margin-bottom: 8px; font-size: 11.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-dark); }
+.csp-timeline strong { display: block; font-size: 16px; font-weight: 600; line-height: 1.35; color: var(--ink); }
+.csp-scope { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; }
+.csp-scope ul { columns: 2; column-gap: 32px; font-size: 15.5px; line-height: 1.5; color: var(--ink-soft); }
+.csp-scope li { break-inside: avoid; padding: 7px 0; border-bottom: 1px solid var(--line); }
+.csp-scope .csp-features { columns: 1; }
+.csp-features li { font-size: 17px; font-weight: 600; color: var(--ink); }
+.csp-features span { display: inline-block; width: 44px; font-size: 12px; font-weight: 600; letter-spacing: .08em; color: var(--accent); }
+.csp-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 56px; align-items: center; }
+.csp-split .csp-problem { margin: 0; }
+.csp-figure { margin: 0; border-radius: 14px; overflow: hidden; background: #fff; border: 1px solid var(--line); box-shadow: 0 30px 70px -45px rgba(0,0,0,.35); }
+.csp-figure img { display: block; width: 100%; height: auto; }
+.csp-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.csp-stack li { padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px; background: #fff; font-size: 14px; font-weight: 500; color: var(--ink); }
+.wt-stage-fit { aspect-ratio: 16 / 10; background: #fff; border: 1px solid var(--line); }
+.wt-stage-fit img { height: 100%; object-fit: contain; }
+.csp-quote { margin-top: 8px; }
 .csp-next { padding: 110px 0; text-align: center; }
 .csp-next h2 { font-size: clamp(32px, 4.4vw, 52px); margin-bottom: 8px; }
 .csp-next .hero-cta { justify-content: center; }
@@ -1172,9 +1198,14 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   .wt-steps { flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
   .wt-steps li { flex: 0 0 min(280px, 78%); scroll-snap-align: start; }
   .wt-step { height: 100%; }
+  .csp-timeline { grid-template-columns: repeat(3, 1fr); }
+  .csp-split, .csp-scope { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 720px) {
   .csp-meta { grid-template-columns: repeat(2, auto); }
+  .csp-stats { grid-template-columns: 1fr; gap: 24px; }
+  .csp-timeline { grid-template-columns: 1fr 1fr; }
+  .csp-scope ul { columns: 1; }
   .csp-goals { grid-template-columns: 1fr; }
   .csp-decisions { grid-template-columns: 1fr; gap: 32px; }
   .csp-next { padding: 72px 0; }
@@ -1188,7 +1219,7 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 .toolkit-head h2, .audience-card h3, .cs-content h3, .wwd-card h3,
 .ab-hero h1, .ab-section h2, .person h3, .principle h3,
 .csp-hero h1, .csp-goal h3, .csp-decision h3, .csp-next h2,
-.result-value, .cs-stats dt {
+.result-value, .cs-stats dt, .csp-stats dt {
   font-family: var(--font-serif);
   font-weight: 400;          /* Talesha ships a single weight; avoid faux bold */
   font-synthesis: none;
