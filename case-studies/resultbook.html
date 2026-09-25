@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Freed AI case study — MN Studio</title>
-<meta name="description" content="How MN Studio designed the Freed AI browser extension: recording, transcripts, SOAP notes and copying into the EHR, right where clinicians work.">
+<title>Resultbook case study — MN Studio</title>
+<meta name="description" content="How MN Studio designed Resultbook with Vera Solutions: a platform where NGOs share impact data and funders manage their social good portfolio.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230a0a0a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-weight=%22800%22 font-family=%22Inter,Arial,sans-serif%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>M</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,7 +84,7 @@
               <li><a href="flowmo.html"><span class="mega-title">FlowMo</span><span class="mega-desc">LMS that teaches SaaS tools from inside them. Now a VC-funded company.</span></a></li>
               <li><a href="../index.html#case-studies"><span class="mega-title">FreeStyle+</span><span class="mega-desc">B2B digital transformation using improv for employee mental health training in enterprise environments.</span></a></li>
               <li><a href="../index.html#case-studies"><span class="mega-title">Collagerie</span><span class="mega-desc">Redefining product discovery with an AI-based search experience.</span></a></li>
-              <li><a href="../case-studies/freedai.html"><span class="mega-title">FreedAI</span><span class="mega-desc">UX discovery for extension design for clinicians.</span></a></li>
+              <li><a href="freedai.html"><span class="mega-title">FreedAI</span><span class="mega-desc">UX discovery for extension design for clinicians.</span></a></li>
               <li><a href="resultbook.html"><span class="mega-title">Resultbook</span><span class="mega-desc">Helping social impact, data-driven firm Vera Solutions launch its second flagship product.</span></a></li>
               <li><a href="../index.html#case-studies"><span class="mega-title">Reunion Marketplace</span><span class="mega-desc">Clean energy tax credit marketplace.</span></a></li>
               <li><a href="../index.html#case-studies"><span class="mega-title">Reunion PWA</span><span class="mega-desc">Compliance platform.</span></a></li>
@@ -162,149 +162,135 @@
   <section class="csp-hero">
     <div class="wrap">
       <a href="../index.html#case-studies" class="csp-back reveal"><span aria-hidden="true">←</span> All case studies</a>
-      <p class="eyebrow eyebrow-muted reveal">UX discovery · Healthcare AI</p>
-      <h1 class="reveal">Freed AI: an AI scribe that lives <span class="accent">where clinicians work.</span></h1>
-      <p class="ab-lede reveal">UX discovery for a Chrome extension for Freed AI, the AI scribe used by over 10,000 clinicians. It lets clinicians record visits and paste Freed’s notes into any browser-based EHR without switching tabs.</p>
+      <p class="eyebrow eyebrow-muted reveal">Enterprise product design · Social impact</p>
+      <h1 class="reveal">Resultbook: data that lets impact investors <span class="accent">manage their social good.</span></h1>
+      <p class="ab-lede reveal">We worked with Vera Solutions, which builds data solutions for social change, to design Resultbook: a digital platform connecting investors with the impact makers solving the world’s most pressing problems. It’s Vera’s second flagship product.</p>
       <dl class="csp-meta reveal">
-        <div><dt>Product</dt><dd>Freed AI</dd></div>
-        <div><dt>Type</dt><dd>UX discovery</dd></div>
-        <div><dt>Users</dt><dd>10,000+ clinicians</dd></div>
-        <div><dt>Platform</dt><dd>Chrome extension</dd></div>
-        <div><dt>Scope</dt><dd>Session view · Note view · Copy-paste flow</dd></div>
+        <div><dt>Client</dt><dd>Vera Solutions</dd></div>
+        <div><dt>Product</dt><dd>Resultbook</dd></div>
+        <div><dt>Type</dt><dd>Enterprise product design</dd></div>
+        <div><dt>Users</dt><dd>NGOs · Funders · Impact investors</dd></div>
+        <div><dt>Platform</dt><dd>Responsive web app</dd></div>
       </dl>
     </div>
     <div class="wrap">
-      <figure class="csp-hero-shot reveal">
-        <img src="../assets/case-studies/freedai/notes-04-over-ehr.webp" alt="The Freed AI extension floating over an EHR, copying a generated note into the patient record." width="2000" height="1275">
+      <figure class="csp-hero-shot csp-hero-crop reveal">
+        <img src="../assets/case-studies/resultbook/profile-public.webp" alt="A public Resultbook profile for RiseUp Learning Collective, with themes, population served, Sustainable Development Goals, vision and key performance indicators." width="1337" height="1557">
       </figure>
     </div>
   </section>
 
-  <!-- ================= GOAL ================= -->
-  <section class="ab-section ab-alt" id="goal">
+  <!-- ================= CONTEXT ================= -->
+  <section class="ab-section ab-alt" id="context">
     <div class="wrap">
-      <p class="eyebrow eyebrow-muted reveal">The problem</p>
-      <h2 class="reveal">Stop the <span class="accent">tab-switching.</span></h2>
+      <p class="eyebrow eyebrow-muted reveal">The brief</p>
+      <h2 class="reveal">Make impact <span class="accent">visible and fundable.</span></h2>
       <div class="csp-problem reveal">
-        <p>Freed listens to a clinician’s conversation with a patient and writes the medical documentation. But Freed isn’t where that documentation ends up: the final destination is the <strong>EHR</strong>, and every EHR is set up differently, sometimes even between clinics.</p>
-        <p>Some EHRs take the whole note in one field. Others need it pasted section by section, so clinicians <strong>switch tabs back and forth</strong> between Freed and their EHR. Even starting a recording means leaving the EHR to open Freed.</p>
-        <p>The aim of the discovery: make copying and pasting into a browser-based EHR <strong>as seamless as possible</strong>.</p>
+        <p>Impact investors want to manage their social good portfolio with the same clarity as any other portfolio. The organisations they fund, often NGOs working across several geographies, need a simple way to <strong>show their work, report their results and keep funders updated</strong>.</p>
+        <p>Resultbook brings both sides onto one platform, harnessing data so investors can see the impact they’re funding and impact makers can prove it.</p>
       </div>
-      <div class="csp-principles reveal">
-        <p class="csp-principles-label">Freed’s product principles</p>
-        <ul>
-          <li><strong>Clinician first</strong></li>
-          <li><strong>Simplicity over everything</strong></li>
-          <li><strong>Just in time:</strong> introduce features and complexity only when they’re relevant and helpful</li>
-        </ul>
-      </div>
-      <p class="csp-intro reveal">The extension needed to record conversations and create transcripts automatically, then do four things well:</p>
-      <div class="csp-goals">
-          <article class="csp-goal reveal"><span class="csp-goal-num">01</span><h3>Transcripts into notes</h3><p>Turn every recorded conversation into custom or template-based clinical notes.</p></article>
-          <article class="csp-goal reveal"><span class="csp-goal-num">02</span><h3>Conversation history</h3><p>Keep track of every conversation with each patient, searchable in seconds.</p></article>
-          <article class="csp-goal reveal"><span class="csp-goal-num">03</span><h3>Into the EHR/EMR</h3><p>Copy critical data into the clinician’s EHR or EMR without retyping.</p></article>
-          <article class="csp-goal reveal"><span class="csp-goal-num">04</span><h3>More accessible Freed</h3><p>Bring Freed AI into the browser, on top of the tools clinicians already use.</p></article>
+      <p class="csp-intro reveal">We designed five core features around that exchange:</p>
+      <div class="csp-goals csp-goals-5">
+          <article class="csp-goal reveal"><span class="csp-goal-num">Nº1</span><h3>NGO profile creation</h3><p>Organisations build and manage their profile content from the back end.</p></article>
+          <article class="csp-goal reveal"><span class="csp-goal-num">Nº2</span><h3>Dynamic profile display</h3><p>A filterable public profile, kept up to date with the impact data funders need.</p></article>
+          <article class="csp-goal reveal"><span class="csp-goal-num">Nº3</span><h3>Funding data collection</h3><p>Funding updates exchanged between investors and investees.</p></article>
+          <article class="csp-goal reveal"><span class="csp-goal-num">Nº4</span><h3>Connected profiles</h3><p>Multiple profiles across geographies, managed from one account.</p></article>
+          <article class="csp-goal reveal"><span class="csp-goal-num">Nº5</span><h3>Impact measurement</h3><p>KPI-by-KPI impact reporting that goes public once published.</p></article>
       </div>
     </div>
   </section>
 
-  <!-- ================= DURING THE SESSION ================= -->
-  <section class="ab-section" id="during">
+  <!-- ================= FEATURES ================= -->
+  <section class="ab-section" id="features">
     <div class="wrap">
-      <p class="eyebrow eyebrow-muted reveal">During the session</p>
-      <h2 class="reveal">Record without <span class="accent">breaking eye contact.</span></h2>
-        <div class="walkthrough reveal" id="wtDuring">
+      <p class="eyebrow eyebrow-muted reveal">Features</p>
+      <h2 class="reveal">From profile to proof <span class="accent">of impact.</span></h2>
+        <div class="walkthrough reveal" id="wtFeatures">
           <ol class="wt-steps">
             <li><button type="button" class="wt-step is-on" aria-pressed="true" data-i="0">
               <span class="wt-num">01</span>
-              <span class="wt-text"><strong>Start recording</strong><span>A slim toolbar docks to the edge of any telehealth call. One click starts a new recording.</span></span>
+              <span class="wt-text"><strong>Profile creation</strong><span>NGOs create their profile from the back end and manage its content section by section: vision, KPIs, objectives, projects, people and files.</span></span>
             </button></li>
             <li><button type="button" class="wt-step" aria-pressed="false" data-i="1">
               <span class="wt-num">02</span>
-              <span class="wt-text"><strong>Tag the visit</strong><span>While recording, add the patient’s name and pick a note template. A timer and pause/stop stay in reach.</span></span>
+              <span class="wt-text"><strong>Dynamic profile display</strong><span>A filterable profile page, regularly updated with all the impact data funders and investors need to see.</span></span>
             </button></li>
             <li><button type="button" class="wt-step" aria-pressed="false" data-i="2">
               <span class="wt-num">03</span>
-              <span class="wt-text"><strong>Stay with the patient</strong><span>The panel tucks away into a small pause/stop pill so the clinician’s attention stays on the conversation.</span></span>
+              <span class="wt-text"><strong>Data collection</strong><span>Funders request updates, and organisations see every connection’s funding amount, shared data points and update status in one table.</span></span>
             </button></li>
             <li><button type="button" class="wt-step" aria-pressed="false" data-i="3">
               <span class="wt-num">04</span>
-              <span class="wt-text"><strong>Go deeper when needed</strong><span>Jump into the full Freed web app for anything the quick view can’t do.</span></span>
+              <span class="wt-text"><strong>Connection management</strong><span>NGOs can have multiple profiles across geographies, and accept connection and update requests from foundations as they arrive.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="4">
+              <span class="wt-num">05</span>
+              <span class="wt-text"><strong>Impact measurement</strong><span>A flow for impact organisations to measure their impact KPI by KPI, which becomes publicly visible once published.</span></span>
             </button></li>
           </ol>
-          <div class="wt-stage">
-            <img src="../assets/case-studies/freedai/session-01-start-recording.webp" alt="Freed toolbar docked beside a telehealth video call, with the Start New Recording tooltip showing." width="2000" height="1275" class="is-on">
-            <img src="../assets/case-studies/freedai/session-02-recording-details.webp" alt="Recording panel slid out from the toolbar with Patient Name, Note Template, an 08:00 timer and pause and stop controls." width="2000" height="1275" class="" loading="lazy">
-            <img src="../assets/case-studies/freedai/session-03-recording-collapsed.webp" alt="The recording panel collapsed to a small pill with pause and stop buttons." width="2000" height="1275" class="" loading="lazy">
-            <img src="../assets/case-studies/freedai/session-04-open-web-view.webp" alt="Toolbar with the Open Web View tooltip showing." width="2000" height="1275" class="" loading="lazy">
+          <div class="wt-stage wt-stage-fit wt-stage-square">
+            <img src="../assets/case-studies/resultbook/profile-builder.webp" alt="Profile Overview editor with a sortable list of profile sections on the left and fields for name, description, profile image, background and social profiles." width="1579" height="1687" class="is-on" loading="lazy">
+            <img src="../assets/case-studies/resultbook/profile-public.webp" alt="Public profile for RiseUp Learning Collective with themes, SDG badges, vision, KPI cards and expandable objectives." width="1337" height="1557" loading="lazy">
+            <img src="../assets/case-studies/resultbook/data-funding-table.webp" alt="Connected Profiles table listing foundations with date, funding amount, data points shared and whether updates were fulfilled." width="1619" height="750" loading="lazy">
+            <img src="../assets/case-studies/resultbook/connected-profiles.webp" alt="My Profiles dashboard with two organisation profiles and a notifications panel of connection and update requests from foundations." width="1642" height="1467" loading="lazy">
+            <img src="../assets/case-studies/resultbook/impact-kpis.webp" alt="Key Performance Indicators editor where five indicators are selected from a list, each with a type tag and percentage." width="1546" height="1467" loading="lazy">
           </div>
         </div>
     </div>
   </section>
 
-  <!-- ================= AFTER THE SESSION ================= -->
-  <section class="ab-section ab-alt" id="after">
+  <!-- ================= APPROACH ================= -->
+  <section class="ab-section ab-alt" id="approach">
     <div class="wrap">
-      <p class="eyebrow eyebrow-muted reveal">After the session</p>
-      <h2 class="reveal">From conversation to chart <span class="accent">in one click.</span></h2>
-        <div class="walkthrough reveal" id="wtAfter">
-          <ol class="wt-steps">
-            <li><button type="button" class="wt-step is-on" aria-pressed="true" data-i="0">
-              <span class="wt-num">01</span>
-              <span class="wt-text"><strong>Open your notes</strong><span>The notes button brings every generated note into the toolbar, without leaving the call.</span></span>
-            </button></li>
-            <li><button type="button" class="wt-step" aria-pressed="false" data-i="1">
-              <span class="wt-num">02</span>
-              <span class="wt-text"><strong>Find any conversation</strong><span>A searchable history of sessions by patient, with date, time and visit type at a glance.</span></span>
-            </button></li>
-            <li><button type="button" class="wt-step" aria-pressed="false" data-i="2">
-              <span class="wt-num">03</span>
-              <span class="wt-text"><strong>Shape the note</strong><span>Switch between a summary and S/O/A/P sections, change length, refine with AI, or view the full transcript.</span></span>
-            </button></li>
-            <li><button type="button" class="wt-step" aria-pressed="false" data-i="3">
-              <span class="wt-num">04</span>
-              <span class="wt-text"><strong>Copy it into the EHR</strong><span>The note floats over the clinician’s EHR, and one click copies it straight into the right field.</span></span>
-            </button></li>
-          </ol>
-          <div class="wt-stage">
-            <img src="../assets/case-studies/freedai/notes-01-view-customize.webp" alt="Toolbar with the View/Customize Notes tooltip showing." width="2000" height="1275" class="is-on">
-            <img src="../assets/case-studies/freedai/notes-02-history-list.webp" alt="Panel listing past patient sessions with dates and a Flu tag, with a patient-name search field." width="2000" height="1275" class="" loading="lazy">
-            <img src="../assets/case-studies/freedai/notes-03-soap-note-copy.webp" alt="Note panel with Summary and S, O, A, P tabs, a Concise length toggle, an AI wand, a Transcript tab and a Copy button." width="2000" height="1275" class="" loading="lazy">
-            <img src="../assets/case-studies/freedai/notes-04-over-ehr.webp" alt="The Freed note panel floating over an EHR, with the note being copied into the Subjective field." width="2000" height="1275" class="" loading="lazy">
-          </div>
+      <p class="eyebrow eyebrow-muted reveal">Approach</p>
+      <h2 class="reveal">Test every assumption, <span class="accent">then build.</span></h2>
+      <p class="csp-intro reveal">Following an agile way of working, we constantly tested ideas, strategy and assumptions so the end result stayed aligned with end users’ needs and goals.</p>
+      <ol class="csp-timeline reveal">
+        <li><span class="csp-tl-stage">Kick off</span><strong>Interviews</strong></li>
+        <li><span class="csp-tl-stage">Stage 1 · Demo day</span><strong>Research, UX &amp; discovery workshops</strong></li>
+        <li><span class="csp-tl-stage">Stage 2 · Go / no go</span><strong>Testing</strong></li>
+        <li><span class="csp-tl-stage">Stage 3 · Demo day</span><strong>UI design</strong></li>
+        <li><span class="csp-tl-stage">Launch</span><strong>Testing</strong></li>
+      </ol>
+      <div class="csp-scope reveal">
+        <div>
+          <p class="csp-principles-label">Key tasks handled</p>
+          <ul>
+            <li>Dashboard designs</li>
+            <li>Login and sign-up design</li>
+            <li>Responsive design</li>
+            <li>Custom UI components</li>
+            <li>Product management</li>
+            <li>Team management</li>
+            <li>In-house workshops</li>
+            <li>Custom branding and UI</li>
+            <li>Design iterations from user and board feedback</li>
+            <li>Rapid prototyping</li>
+            <li>Wireframes and multiple user flows</li>
+            <li>Data visualisation</li>
+          </ul>
         </div>
-    </div>
-  </section>
-
-  <!-- ================= DECISIONS ================= -->
-  <section class="ab-section" id="decisions">
-    <div class="wrap">
-      <p class="eyebrow eyebrow-muted reveal">Design decisions</p>
-      <h2 class="reveal">Small surface, <span class="accent">big time savings.</span></h2>
-      <div class="csp-decisions">
-          <div class="csp-decision reveal"><h3>Docked, never in the way</h3><p>The toolbar sits on the screen edge, so it never covers the patient’s face or the EHR fields a clinician is typing into.</p></div>
-          <div class="csp-decision reveal"><h3>Just in time</h3><p>Once a session starts, controls shrink to a pause/stop pill. Patient name and note template appear only when recording, and notes only when they’re needed.</p></div>
-          <div class="csp-decision reveal"><h3>Works on top of any tool</h3><p>One overlay works across telehealth platforms and EHRs, so there’s nothing new for clinics to integrate or learn.</p></div>
-          <div class="csp-decision reveal"><h3>Copy whole, or section by section</h3><p>Copy the full note for EHRs with one field, or one SOAP section at a time for EHRs that split the note, all without leaving the EHR tab.</p></div>
+        <div>
+          <p class="csp-principles-label">Tech stack</p>
+          <p class="csp-scope-note">As an MVP, 0-to-1 design firm, we build custom products on top of existing UI components. It helps ship faster and shortens the time to market.</p>
+          <ul class="csp-stack" aria-label="Tech stack">
+            <li>Figma</li>
+            <li>Mantine</li>
+            <li>Ant Design</li>
+            <li>Lucidchart</li>
+            <li>Jira</li>
+            <li>Slack</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= OUTCOMES ================= -->
-  <section class="ab-section ab-alt" id="outcomes">
-    <div class="wrap ab-narrow">
-      <p class="eyebrow eyebrow-muted reveal">Process &amp; outcomes</p>
-      <h2 class="reveal">What we <span class="accent">learned.</span></h2>
-      <p class="reveal ab-placeholder">Placeholder: discovery and research, such as clinician interviews, the workflows you observed, and the insights that shaped the toolbar.</p>
-      <p class="reveal ab-placeholder">Placeholder: outcomes, such as time saved per visit, adoption, ratings or client feedback.</p>
     </div>
   </section>
 
   <!-- ================= NEXT ================= -->
   <section class="csp-next">
     <div class="wrap">
-      <p class="eyebrow eyebrow-muted reveal">Have a product like this?</p>
-      <h2 class="reveal">Let’s design what <span class="accent">your users need next.</span></h2>
+      <p class="eyebrow eyebrow-muted reveal">Launching a flagship product?</p>
+      <h2 class="reveal">Let’s design it <span class="accent">around your data.</span></h2>
       <div class="hero-cta reveal">
         <a href="https://calendly.com/munmun_mnstudio/lets_get_to_know_each_other" target="_blank" rel="noopener" class="btn btn-primary">Book a 30-minute meeting</a>
         <a href="../index.html#case-studies" class="btn btn-ghost">See more work</a>
