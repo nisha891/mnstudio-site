@@ -8,7 +8,7 @@ CASES = {
     "freedai": ("Freed AI", "Healthcare AI · UX discovery", "10,000+", "clinicians use the AI scribe we explored a browser extension for.", "../case-studies/freedai.html"),
     "reunion": ("Reunion", "Clean energy · Marketplace", "$8B+", "in tax credits transferred through the marketplace we designed.", "../index.html#case-studies"),
     "surreal": ("Surreal", "E-commerce · CRO", "+150%", "revenue per user within a week of launch.", "../index.html#case-studies"),
-    "space": ("Space", "Audio SaaS · B2B", "+18.1%", "MRR for a Clubhouse-style audio platform.", "../index.html#case-studies"),
+    "space": ("Space", "Audio SaaS · B2B", "+18.1%", "MRR for a Clubhouse-style audio platform.", "../case-studies/space.html"),
     "iseechange": ("I See Change", "Climate tech · Research", "White House", "among the stakeholders we interviewed for a new EV charging feature.", "../index.html#case-studies"),
     "go2andaman": ("Go2Andaman", "Travel · Redesign", "Ferry booking", "experience redesigned for more conversions.", "../index.html#case-studies"),
     "collagerie": ("Collagerie", "Retail · AI search", "AI search", "Redefining product discovery with an AI-based search experience.", "../index.html#case-studies"),
