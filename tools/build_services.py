@@ -199,7 +199,7 @@ s = shell.index('<main id="main"'); e = shell.index("</main>") + len("</main>")
 os.makedirs("services", exist_ok=True)
 for p in PAGES:
     out = shell[:s] + main_html(p) + shell[e:]
-    out = re.sub(r'href="(flowmo|freedai|resultbook|reunion-pwa|space)\.html"', r'href="../case-studies/\1.html"', out)
+    out = re.sub(r'href="(flowmo|freedai|resultbook|reunion-pwa|space-web-app|space)\.html"', r'href="../case-studies/\1.html"', out)
     out = re.sub(r"<title>[^<]*</title>", f"<title>{esc(p['title'])}</title>", out)
     out = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{esc(p["meta"])}">', out)
     open(f"services/{p['slug']}.html", "w").write(out)

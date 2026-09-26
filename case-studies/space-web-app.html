@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Space case study — MN Studio</title>
-<meta name="description" content="How MN Studio designed Space, an embeddable widget that brings live audio rooms, 1:1 chat, RSVPs and recorded sessions onto any website. +18.1% MRR.">
+<title>Space web app case study — MN Studio</title>
+<meta name="description" content="How MN Studio designed the Space web app, where teams install the audio widget, host live rooms, take 1:1 customer calls and review analytics. +18.1% MRR.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230a0a0a%22/><text x=%2250%22 y=%2268%22 font-size=%2258%22 font-weight=%22800%22 font-family=%22Inter,Arial,sans-serif%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>M</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -165,19 +165,21 @@
     <div class="wrap">
       <a href="../index.html#case-studies" class="csp-back reveal"><span aria-hidden="true">←</span> All case studies</a>
       <p class="eyebrow eyebrow-muted reveal">Product design · B2B audio SaaS</p>
-      <h1 class="reveal">Space: live audio rooms <span class="accent">on any website.</span></h1>
-      <p class="ab-lede reveal">Space is a B2B platform that lets companies embed Clubhouse-style audio on their own website, for sales conversations, e-commerce and fireside chats. We designed the widget visitors use to join a live room, talk, react and buy, without leaving the page.</p>
+      <h1 class="reveal">Space web app: the control room <span class="accent">behind every conversation.</span></h1>
+      <!-- REVIEW: confirm MN Studio designed the full web app (sign-up, dashboard, rooms, console, settings, analytics), as the Drive folder suggests. -->
+      <p class="ab-lede reveal">Space lets companies put live audio on their own website. The widget is what visitors see. The web app is where the company’s team signs up, installs the widget, creates and hosts audio rooms, takes 1:1 calls with customers and looks back at who joined. We designed it end to end.</p>
       <dl class="csp-meta reveal">
         <div><dt>Client</dt><dd>Space</dd></div>
-        <div><dt>Product</dt><dd>Embeddable audio widget</dd></div>
+        <div><dt>Product</dt><dd>Web app for admins and team members</dd></div>
         <div><dt>Type</dt><dd>Product design</dd></div>
-        <div><dt>Use cases</dt><dd>Sales · E-commerce · Fireside chats</dd></div>
+        <div><dt>Flows</dt><dd>Setup · Rooms · 1:1 chat · Settings · Analytics</dd></div>
+        <!-- REVIEW: +18.1% MRR is the known result for Space overall; confirm it is fine to show it on the web app page too. -->
         <div><dt>Result</dt><dd>+18.1% MRR</dd></div>
       </dl>
     </div>
     <div class="wrap">
       <figure class="csp-hero-shot reveal">
-        <img src="../assets/case-studies/space/x-chat.webp" alt="Expanded Space audio room on a website: a live, recording session with the speaker's photo on the left and group chat on the right, above controls for chat, raise hand, react, settings and leave room." width="1280" height="720">
+        <img src="../assets/case-studies/space-web-app/dash-rooms.webp" alt="Space dashboard greeting 'Hello Andrew', with live audio rooms at the top showing LIVE and Recording badges, Join Room and Send Invite Link buttons, and scheduled rooms below." width="1440" height="1037">
       </figure>
     </div>
   </section>
@@ -186,9 +188,9 @@
   <section class="csp-results" aria-label="Results">
     <div class="wrap">
       <dl class="csp-stats">
-        <div class="reveal"><dt>+18.1%</dt><dd>increase in monthly recurring revenue</dd></div>
-        <div class="reveal"><dt>3</dt><dd>ways to listen: compact widget, expanded view and pop-out</dd></div>
-        <div class="reveal"><dt>4</dt><dd>features: live rooms, 1:1 audio chat, RSVPs and past sessions</dd></div>
+        <div class="reveal"><dt>+18.1%</dt><dd>increase in monthly recurring revenue for Space</dd></div>
+        <div class="reveal"><dt>2</dt><dd>kinds of user: admins who set Space up, and team members who take the calls</dd></div>
+        <div class="reveal"><dt>3</dt><dd>ways to talk to customers: live rooms, 1:1 audio chat and recordings</dd></div>
       </dl>
     </div>
   </section>
@@ -197,165 +199,249 @@
   <section class="ab-section ab-alt" id="brief">
     <div class="wrap">
       <p class="eyebrow eyebrow-muted reveal">The brief</p>
-      <h2 class="reveal">Bring the conversation <span class="accent">to the customer.</span></h2>
+      <h2 class="reveal">One place to run <span class="accent">every audio conversation.</span></h2>
       <div class="csp-problem reveal">
-        <p>Live audio builds trust fast, but sending website visitors off to another app to listen breaks the moment. Space puts the room <strong>right on the company’s own site</strong>, where the customer already is.</p>
-        <p>The widget had to work for someone who has never used it: join in a click, understand who’s speaking, take part when they want to, and never lose the page they came to see.</p>
+        <p>The widget only works if the people behind it can set it up and run it without help. Space needed a web app that takes a company from <strong>sign-up to its first live room</strong>, then gives the team what it needs during and after every conversation.</p>
+        <!-- REVIEW: audience below is taken from the sign-up role options (Founder/CEO, Sales/Marketing, Product, Support) and the Admin / Team Member accounts in the screens. -->
+        <p>It is used by two kinds of people. <strong>Admins</strong>, often founders, marketers or product leads, install the widget, style it, schedule rooms and invite the team. <strong>Team members</strong> in sales and support answer customers who call in from the website, with the customer’s details beside the call.</p>
       </div>
-      <p class="csp-intro reveal">We designed four features into one widget:</p>
+      <p class="csp-intro reveal">The web app covers four jobs:</p>
       <div class="csp-goals">
-          <article class="csp-goal reveal"><span class="csp-goal-num">01</span><h3>Live audio rooms</h3><p>Join a live discussion, listen to the host, raise a hand and speak when invited.</p></article>
-          <article class="csp-goal reveal"><span class="csp-goal-num">02</span><h3>1:1 audio chat</h3><p>Start a private audio and text chat with the team, with an offline state when no one’s around.</p></article>
-          <article class="csp-goal reveal"><span class="csp-goal-num">03</span><h3>RSVP to events</h3><p>See upcoming audio events and RSVP straight from the widget.</p></article>
-          <article class="csp-goal reveal"><span class="csp-goal-num">04</span><h3>Previous sessions</h3><p>Listen back to recorded sessions, or have the recording sent by email.</p></article>
+          <article class="csp-goal reveal"><span class="csp-goal-num">01</span><h3>Get set up</h3><p>Create an account, install the widget with one snippet and switch features on.</p></article>
+          <article class="csp-goal reveal"><span class="csp-goal-num">02</span><h3>Run live rooms</h3><p>Schedule a room, host it, bring listeners on stage and answer questions.</p></article>
+          <article class="csp-goal reveal"><span class="csp-goal-num">03</span><h3>Talk 1:1</h3><p>Answer customers waiting on the website and pull in a teammate when needed.</p></article>
+          <article class="csp-goal reveal"><span class="csp-goal-num">04</span><h3>Learn from it</h3><p>See who registered, who joined and when, and keep recordings in one place.</p></article>
       </div>
     </div>
   </section>
 
-  <!-- ================= LIVE ROOM WALKTHROUGH ================= -->
-  <section class="ab-section" id="live-room">
+  <!-- ================= SIGN UP AND INSTALL ================= -->
+  <section class="ab-section" id="setup">
     <div class="wrap">
-      <p class="eyebrow eyebrow-muted reveal">Joining a live audio room</p>
-      <h2 class="reveal">From visitor to speaker <span class="accent">in a few taps.</span></h2>
-        <div class="walkthrough reveal" id="wtRoom">
+      <p class="eyebrow eyebrow-muted reveal">Sign up and install</p>
+      <h2 class="reveal">From sign-up to installed <span class="accent">in a few steps.</span></h2>
+        <div class="walkthrough reveal" id="wtSetup">
           <ol class="wt-steps">
             <li><button type="button" class="wt-step is-on" aria-pressed="true" data-i="0">
               <span class="wt-num">01</span>
-              <span class="wt-text"><strong>Spot what’s live</strong><span>The widget greets visitors and shows the live session, with the host and topic, next to a 1:1 audio chat.</span></span>
+              <span class="wt-text"><strong>Create an account</strong><span>Four short fields. The panel on the right shows what the widget will do, so people know what they’re signing up for.</span></span>
             </button></li>
             <li><button type="button" class="wt-step" aria-pressed="false" data-i="1">
               <span class="wt-num">02</span>
-              <span class="wt-text"><strong>Allow the microphone</strong><span>A clear explanation comes before the browser asks, so people know why before they’re asked.</span></span>
+              <span class="wt-text"><strong>Verify the email</strong><span>A six-digit code, with an easy way to get a new one if it doesn’t arrive.</span></span>
             </button></li>
             <li><button type="button" class="wt-step" aria-pressed="false" data-i="2">
               <span class="wt-num">03</span>
-              <span class="wt-text"><strong>A few quick questions</strong><span>Name, email, location and LinkedIn in one short form, which also gives the host a warm lead.</span></span>
+              <span class="wt-text"><strong>Install the widget</strong><span>Paste one snippet into the website. Not the one who edits the site? Email it to a teammate instead.</span></span>
             </button></li>
             <li><button type="button" class="wt-step" aria-pressed="false" data-i="3">
               <span class="wt-num">04</span>
-              <span class="wt-text"><strong>Listen in</strong><span>Everyone on stage at a glance, with a ring around whoever is speaking and controls always within reach.</span></span>
-            </button></li>
-            <li><button type="button" class="wt-step" aria-pressed="false" data-i="4">
-              <span class="wt-num">05</span>
-              <span class="wt-text"><strong>Raise a hand</strong><span>One tap asks to speak, and the button changes to “Lower hand” so people know it worked.</span></span>
-            </button></li>
-            <li><button type="button" class="wt-step" aria-pressed="false" data-i="5">
-              <span class="wt-num">06</span>
-              <span class="wt-text"><strong>Get invited to speak</strong><span>The host’s invitation arrives as a simple prompt, and the visitor chooses to ask their question.</span></span>
-            </button></li>
-            <li><button type="button" class="wt-step" aria-pressed="false" data-i="6">
-              <span class="wt-num">07</span>
-              <span class="wt-text"><strong>React and chat</strong><span>Emoji reactions and a group chat let quieter listeners take part without speaking.</span></span>
-            </button></li>
-            <li><button type="button" class="wt-step" aria-pressed="false" data-i="7">
-              <span class="wt-num">08</span>
-              <span class="wt-text"><strong>Shop the conversation</strong><span>For e-commerce, the host can pin a product ribbon with price and a Buy button, right in the room.</span></span>
-            </button></li>
-            <li><button type="button" class="wt-step" aria-pressed="false" data-i="8">
-              <span class="wt-num">09</span>
-              <span class="wt-text"><strong>When it ends</strong><span>Visitors can ask for the recording by email, so the conversation keeps working after it’s over.</span></span>
-            </button></li>
-          </ol>
-          <div class="wt-stage wt-stage-fit wt-stage-tint">
-            <img src="../assets/case-studies/space/w-join.webp" alt="Widget greeting 'Hello there! We are here to help you' with a Start a conversation card and a live session card for 'How to use audio for engagement?' with a Join the Conversation button." width="429" height="615" class="is-on" loading="lazy">
-            <img src="../assets/case-studies/space/w-permissions.webp" alt="'We'll need your permission' screen explaining the browser will ask for microphone access, with an illustration of the Allow prompt and a Request Permissions button." width="429" height="537" loading="lazy">
-            <img src="../assets/case-studies/space/w-form.webp" alt="'Please answer a few questions' form with full name, email, location, LinkedIn URL and whether they've used the product before." width="429" height="627" loading="lazy">
-            <img src="../assets/case-studies/space/w-host.webp" alt="User Research Discussion room with speakers on stage and the host highlighted, above chat, raise hand, react, settings and leave room controls." width="429" height="543" loading="lazy">
-            <img src="../assets/case-studies/space/w-raise.webp" alt="The room after raising a hand, with the control now labelled Lower Hand." width="429" height="543" loading="lazy">
-            <img src="../assets/case-studies/space/w-invite.webp" alt="Prompt reading 'The Speaker is inviting you to ask your question' with Cancel and Ask buttons." width="429" height="543" loading="lazy">
-            <img src="../assets/case-studies/space/w-react.webp" alt="Reaction tray open with emoji reactions above the room controls." width="429" height="543" loading="lazy">
-            <img src="../assets/case-studies/space/w-ribbon-ecom.webp" alt="E-commerce ribbon in the room showing Women's Sandals, price and a Buy button." width="429" height="543" loading="lazy">
-            <img src="../assets/case-studies/space/w-ended.webp" alt="Message 'The User Research Discussion has ended' with a Send Me the Recording button." width="429" height="615" loading="lazy">
-          </div>
-        </div>
-    </div>
-  </section>
-
-  <!-- ================= THREE VIEWS ================= -->
-  <section class="ab-section ab-alt" id="views">
-    <div class="wrap">
-      <p class="eyebrow eyebrow-muted reveal">Three ways to listen</p>
-      <h2 class="reveal">As small or as big <span class="accent">as the moment needs.</span></h2>
-      <p class="csp-intro reveal">Every screen was designed in three sizes, so visitors can keep browsing while they listen, or give the room their full attention.</p>
-      <div class="csp-views">
-        <figure class="csp-view reveal">
-          <div class="csp-view-img csp-view-img-tint"><img src="../assets/case-studies/space/w-minimize.webp" alt="The widget minimised to a slim bar with controls." width="431" height="125" loading="lazy"></div>
-          <figcaption><strong>Minimised &amp; compact widget</strong>Tucks into the corner of the page while the visitor keeps browsing.</figcaption>
-        </figure>
-        <figure class="csp-view reveal">
-          <div class="csp-view-img"><img src="../assets/case-studies/space/x-multi.webp" alt="Expanded view on a website with many speakers shown on a dark stage." width="1370" height="763" loading="lazy"></div>
-          <figcaption><strong>Expanded view</strong>A full-page room for when the conversation is the reason they came.</figcaption>
-        </figure>
-        <figure class="csp-view reveal">
-          <div class="csp-view-img"><img src="../assets/case-studies/space/x-popout.webp" alt="Pop-out window showing the audio room separately from the website." width="1280" height="720" loading="lazy"></div>
-          <figcaption><strong>Pop-out</strong>Its own window, so the room keeps playing while they move around the site.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= EXPANDED ================= -->
-  <section class="ab-section" id="expanded">
-    <div class="wrap">
-      <p class="eyebrow eyebrow-muted reveal">The expanded experience</p>
-      <h2 class="reveal">A full stage, <span class="accent">still on your site.</span></h2>
-        <div class="walkthrough reveal" id="wtExpanded">
-          <ol class="wt-steps">
-            <li><button type="button" class="wt-step is-on" aria-pressed="true" data-i="0">
-              <span class="wt-num">01</span>
-              <span class="wt-text"><strong>Invited by link</strong><span>Guests invited by email or social media land straight on an invitation from the host.</span></span>
-            </button></li>
-            <li><button type="button" class="wt-step" aria-pressed="false" data-i="1">
-              <span class="wt-num">02</span>
-              <span class="wt-text"><strong>Speaker and chat side by side</strong><span>The speaker’s photo takes the stage, with the group chat alongside.</span></span>
-            </button></li>
-            <li><button type="button" class="wt-step" aria-pressed="false" data-i="2">
-              <span class="wt-num">03</span>
-              <span class="wt-text"><strong>A room full of voices</strong><span>Large panels show every speaker, with a ring on whoever is talking.</span></span>
-            </button></li>
-            <li><button type="button" class="wt-step" aria-pressed="false" data-i="3">
-              <span class="wt-num">04</span>
-              <span class="wt-text"><strong>Screen share</strong><span>Hosts can share their screen for demos and walkthroughs, clearly labelled for listeners.</span></span>
+              <span class="wt-text"><strong>A guided first tour</strong><span>A short tour switches on 1:1 chat and live rooms, sets the widget’s style and invites the team.</span></span>
             </button></li>
           </ol>
           <div class="wt-stage wt-stage-fit">
-            <img src="../assets/case-studies/space/x-joining.webp" alt="Invitation card: Kate Marple is inviting you to join the audio room 'How to use audio for engagement?' with a Continue button." width="1280" height="720" class="is-on" loading="lazy">
-            <img src="../assets/case-studies/space/x-chat.webp" alt="Expanded room with the speaker's photo and live, recording badges beside the group chat." width="1280" height="720" loading="lazy">
-            <img src="../assets/case-studies/space/x-multi.webp" alt="Expanded room with fifteen speakers on a dark stage." width="1370" height="763" loading="lazy">
-            <img src="../assets/case-studies/space/x-screenshare.webp" alt="Expanded room showing a shared screen of analytics, labelled 'Kate is sharing her screen'." width="1280" height="720" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/setup-signup.webp" alt="Create an account form asking for name, work email, company name and company role, beside a purple panel previewing a 1:1 chat with prospects." width="1600" height="1000" class="is-on" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/setup-verify.webp" alt="Verify step: "Woohoo, you just created your account" with six boxes for a code sent by email and a link to re-generate the code." width="1600" height="1000" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/setup-embed.webp" alt="Embed Code step: website and platform fields, a code snippet with Copy Code, and buttons to Verify the Installation or Email Team Member." width="1600" height="1000" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/setup-welcome.webp" alt="Welcome to Space tour card over the widget settings page, with a Let’s Get Started button." width="1600" height="999" loading="lazy">
           </div>
         </div>
     </div>
   </section>
-
-  <!-- ================= MORE FEATURES ================= -->
-  <section class="ab-section ab-alt" id="more">
+  <!-- ================= THE DASHBOARD ================= -->
+  <section class="ab-section ab-alt" id="dashboard">
     <div class="wrap">
-      <p class="eyebrow eyebrow-muted reveal">Beyond live rooms</p>
-      <h2 class="reveal">Conversations that don’t <span class="accent">need a schedule.</span></h2>
-      <div class="csp-views csp-views-2">
-        <figure class="csp-view reveal">
-          <div class="csp-view-img csp-view-img-tint"><img src="../assets/case-studies/space/c-chattext.webp" alt="1:1 chat: 'You are now talking to Zee' with a text conversation about how to unmute, and controls for chat, react, unmute and end call." width="431" height="545" loading="lazy"></div>
-          <figcaption><strong>1:1 audio chat</strong>Talk to the team privately, by voice or text, with an offline state that still takes a message.</figcaption>
-        </figure>
-        <figure class="csp-view reveal">
-          <div class="csp-view-img csp-view-img-tint"><img src="../assets/case-studies/space/r-rsvp.webp" alt="Upcoming audio events list with times, descriptions and RSVP buttons." width="429" height="531" loading="lazy"></div>
-          <figcaption><strong>RSVP &amp; previous sessions</strong>Upcoming events to RSVP for, and past sessions to listen back to or get by email.</figcaption>
-        </figure>
-      </div>
+      <p class="eyebrow eyebrow-muted reveal">The dashboard</p>
+      <h2 class="reveal">Always clear <span class="accent">what to do next.</span></h2>
+        <div class="walkthrough reveal" id="wtDash">
+          <ol class="wt-steps">
+            <li><button type="button" class="wt-step is-on" aria-pressed="true" data-i="0">
+              <span class="wt-num">01</span>
+              <span class="wt-text"><strong>Start from empty</strong><span>A new account doesn’t land on a blank page. It gets one clear action: create a room now, or schedule one for later.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="1">
+              <span class="wt-num">02</span>
+              <span class="wt-text"><strong>Rooms at a glance</strong><span>Live rooms sit at the top with a join button and audience count. Scheduled rooms follow, and plan limits stay in the sidebar.</span></span>
+            </button></li>
+          </ol>
+          <div class="wt-stage wt-stage-fit">
+            <img src="../assets/case-studies/space-web-app/dash-empty.webp" alt="Empty dashboard reading "Seems like you have not created a room yet" with a Create a Room button and an illustration." width="1440" height="902" class="is-on" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/dash-rooms.webp" alt="Dashboard with live rooms showing LIVE and Recording badges, Join Room and Send Invite Link, and a grid of scheduled rooms with Start Room buttons." width="1440" height="1037" loading="lazy">
+          </div>
+        </div>
     </div>
   </section>
-
+  <!-- ================= CREATING AN AUDIO ROOM ================= -->
+  <section class="ab-section" id="create-room">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-muted reveal">Creating an audio room</p>
+      <h2 class="reveal">Simple by default, <span class="accent">detailed when needed.</span></h2>
+        <div class="walkthrough reveal" id="wtCreate">
+          <ol class="wt-steps">
+            <li><button type="button" class="wt-step is-on" aria-pressed="true" data-i="0">
+              <span class="wt-num">01</span>
+              <span class="wt-text"><strong>The basics first</strong><span>Title, description, banner, date, time and time zone. That’s enough to schedule a room.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="1">
+              <span class="wt-num">02</span>
+              <span class="wt-text"><strong>Advanced settings, tucked away</strong><span>Invite links, questions, reactions, raised hands, a shopping ribbon, audio quality and locked rooms are there when needed, out of the way when not.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="2">
+              <span class="wt-num">03</span>
+              <span class="wt-text"><strong>Check it, then go live</strong><span>A summary of every choice, with Edit Room and Start Room side by side.</span></span>
+            </button></li>
+          </ol>
+          <div class="wt-stage wt-stage-fit">
+            <img src="../assets/case-studies/space-web-app/room-create.webp" alt="Create a Room form with title, description, banner image, date, time and time zone fields." width="1440" height="1090" class="is-on" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/room-advanced.webp" alt="Advanced settings with Generate Link for the invite link, toggles for questions, reactions, raising hands, participants speaking, CTA ribbon and audio log, an audio profile menu and a Locked Room toggle." width="1440" height="1072" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/room-manage.webp" alt="Manage room page summarising the room title, description, time, invite link, CTA ribbon, enabled settings, audio profile and locked-room code, with Edit Room and Start Room buttons." width="1440" height="1051" loading="lazy">
+          </div>
+        </div>
+    </div>
+  </section>
+  <!-- ================= HOSTING A LIVE ROOM ================= -->
+  <section class="ab-section ab-alt" id="host">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-muted reveal">Hosting a live room</p>
+      <h2 class="reveal">Everything the host needs, <span class="accent">on one screen.</span></h2>
+        <div class="walkthrough reveal" id="wtHost">
+          <ol class="wt-steps">
+            <li><button type="button" class="wt-step is-on" aria-pressed="true" data-i="0">
+              <span class="wt-num">01</span>
+              <span class="wt-text"><strong>The host’s view</strong><span>Speakers in the middle, participants, questions and raised hands on the right, and every control along the bottom.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="1">
+              <span class="wt-num">02</span>
+              <span class="wt-text"><strong>Bring people on stage</strong><span>Raised hands queue up on the right. The host accepts them one by one.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="2">
+              <span class="wt-num">03</span>
+              <span class="wt-text"><strong>Manage speakers</strong><span>Hover over a speaker to make them a co-host, remove them or unmute them.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="3">
+              <span class="wt-num">04</span>
+              <span class="wt-text"><strong>Answer questions</strong><span>Questions are sorted into open, answered and dismissed. Answer out loud, reply in text or dismiss.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="4">
+              <span class="wt-num">05</span>
+              <span class="wt-text"><strong>Promote mid-session</strong><span>Pin a message with a link and a button while the room is live, such as a discount or a new feature.</span></span>
+            </button></li>
+          </ol>
+          <div class="wt-stage wt-stage-fit">
+            <img src="../assets/case-studies/space-web-app/live-main.webp" alt="Live room "No More Webinars" with a grid of speakers, a Recording badge, Share Room Link, a participants panel and controls for screenshare, audio settings, promotion ribbon, stop recording, unmute and End Session." width="1600" height="813" class="is-on" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/live-hands.webp" alt="Hands Raised tab listing participants with green Accept buttons, next to the speaker grid." width="1600" height="813" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/live-speaker.webp" alt="A speaker card showing hover options for Speaker, Remove and Unmute." width="1440" height="732" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/live-qa.webp" alt="Q&amp;A tab with open questions, each with Answer Live, Text Reply and Dismiss options." width="1440" height="732" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/live-ribbon.webp" alt="Set up your promotional message dialog with title, description, URL and call-to-action fields." width="1440" height="710" loading="lazy">
+          </div>
+        </div>
+    </div>
+  </section>
+  <!-- ================= 1:1 AUDIO CHAT FOR THE TEAM ================= -->
+  <section class="ab-section" id="console">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-muted reveal">1:1 audio chat for the team</p>
+      <h2 class="reveal">Customers call in. <span class="accent">The team is ready.</span></h2>
+        <div class="walkthrough reveal" id="wtConsole">
+          <ol class="wt-steps">
+            <li><button type="button" class="wt-step is-on" aria-pressed="true" data-i="0">
+              <span class="wt-num">01</span>
+              <span class="wt-text"><strong>See who’s waiting</strong><span>Waiting customers are listed with how long they’ve waited. Their details sit beside the call before anyone answers.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="1">
+              <span class="wt-num">02</span>
+              <span class="wt-text"><strong>Bring in a teammate</strong><span>Invite a colleague into the same call, with voice and chat together.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="2">
+              <span class="wt-num">03</span>
+              <span class="wt-text"><strong>Pop it out</strong><span>The call opens in its own small window, so the team member can keep working in other tabs. Customer details are one tap away.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="3">
+              <span class="wt-num">04</span>
+              <span class="wt-text"><strong>Pick up where it ended</strong><span>Closed conversations keep the recording, the customer’s rating and the chat history.</span></span>
+            </button></li>
+          </ol>
+          <div class="wt-stage wt-stage-fit">
+            <img src="../assets/case-studies/space-web-app/console-incoming.webp" alt="Team member console with a list of waiting customers, "Joanna Whittkar is waiting" with Decline and Answer buttons, and a details panel with location, occupation, LinkedIn and organisation." width="1600" height="1000" class="is-on" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/console-group.webp" alt="Active call with the customer and two invited teammates, with the chat history below." width="1600" height="1000" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/console-popout.webp" alt="Pop-out call window with three participants, chat, and an open customer details card." width="1200" height="1176" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/console-closed.webp" alt="Closed conversation showing an audio player with the call recording, a star rating and the chat transcript." width="1600" height="1000" loading="lazy">
+          </div>
+        </div>
+    </div>
+  </section>
+  <!-- ================= SETTINGS ================= -->
+  <section class="ab-section ab-alt" id="settings">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-muted reveal">Settings</p>
+      <h2 class="reveal">Change it here, <span class="accent">see it there.</span></h2>
+        <div class="walkthrough reveal" id="wtSettings">
+          <ol class="wt-steps">
+            <li><button type="button" class="wt-step is-on" aria-pressed="true" data-i="0">
+              <span class="wt-num">01</span>
+              <span class="wt-text"><strong>Style the widget</strong><span>Logo, header message, a welcome message in text or audio, and brand colour, with a live preview of the widget.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="1">
+              <span class="wt-num">02</span>
+              <span class="wt-text"><strong>Set the room rules</strong><span>Choose whether listeners can chat, react or speak, and what details to ask for before they join.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="2">
+              <span class="wt-num">03</span>
+              <span class="wt-text"><strong>Invite the team</strong><span>Add teammates by email, give each one a role and see who has accepted.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="3">
+              <span class="wt-num">04</span>
+              <span class="wt-text"><strong>Connect other tools</strong><span>An API key for custom set-ups, plus ready-made integrations such as Shopify, HubSpot and Klaviyo.</span></span>
+            </button></li>
+          </ol>
+          <div class="wt-stage wt-stage-fit">
+            <img src="../assets/case-studies/space-web-app/settings-general.webp" alt="Customize Your Widget page with logo, header message, welcome message and brand colour fields beside a live widget preview." width="1440" height="919" class="is-on" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/settings-live.webp" alt="Live Audio Room settings with toggles for chat, reactions, speaking permissions and capturing name, email and phone number, beside a widget preview." width="1440" height="991" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/settings-team.webp" alt="Users tab with emails being added and a table of team members with invitation status and roles." width="1440" height="902" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/settings-integrations.webp" alt="Integrations page with an Open API Key field and a list of integrations including Shopify, HubSpot and Klaviyo." width="1600" height="992" loading="lazy">
+          </div>
+        </div>
+    </div>
+  </section>
+  <!-- ================= ANALYTICS ================= -->
+  <section class="ab-section" id="analytics">
+    <div class="wrap">
+      <p class="eyebrow eyebrow-muted reveal">Analytics</p>
+      <h2 class="reveal">After the room ends, <span class="accent">the insight begins.</span></h2>
+        <div class="walkthrough reveal" id="wtAnalytics">
+          <ol class="wt-steps">
+            <li><button type="button" class="wt-step is-on" aria-pressed="true" data-i="0">
+              <span class="wt-num">01</span>
+              <span class="wt-text"><strong>The summary</strong><span>Speakers, registrations, attendees, length and date at the top, with the full speaker and attendee lists below.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="1">
+              <span class="wt-num">02</span>
+              <span class="wt-text"><strong>Who came and went</strong><span>A timeline of who joined and left, and whether they were the host, a speaker or an attendee.</span></span>
+            </button></li>
+            <li><button type="button" class="wt-step" aria-pressed="false" data-i="2">
+              <span class="wt-num">03</span>
+              <span class="wt-text"><strong>Keep the recordings</strong><span>Upload past sessions, play them back and request a transcript.</span></span>
+            </button></li>
+          </ol>
+          <div class="wt-stage wt-stage-fit">
+            <img src="../assets/case-studies/space-web-app/analytics-overview.webp" alt="Room overview with speakers, registrations, attendees, session duration and date, above tables of speakers and attendees." width="1600" height="1159" class="is-on" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/analytics-activity.webp" alt="Activity Details table listing each person, their type (host, speaker or attendee), whether they joined or left, and the time." width="1440" height="954" loading="lazy">
+            <img src="../assets/case-studies/space-web-app/analytics-recordings.webp" alt="Recording tab with fields to add a recording and a list of uploaded recordings with audio players and Request Transcription buttons." width="1440" height="901" loading="lazy">
+          </div>
+        </div>
+    </div>
+  </section>
   <!-- ================= DECISIONS ================= -->
-  <section class="ab-section" id="decisions">
+  <!-- REVIEW: these decisions are read from the screens; check they match the reasoning at the time. -->
+  <section class="ab-section ab-alt" id="decisions">
     <div class="wrap">
       <p class="eyebrow eyebrow-muted reveal">Design decisions</p>
-      <h2 class="reveal">Small widget, <span class="accent">complete experience.</span></h2>
+      <h2 class="reveal">Powerful for the team, <span class="accent">calm to use.</span></h2>
       <div class="csp-decisions">
-          <div class="csp-decision reveal"><h3>No app, no account</h3><p>Visitors join from the page they’re on. The only setup is a microphone permission, explained before the browser asks.</p></div>
-          <div class="csp-decision reveal"><h3>Listening first, speaking by choice</h3><p>Everyone joins as a listener. Raising a hand, reacting and chatting let people take part at the level they’re comfortable with.</p></div>
-          <div class="csp-decision reveal"><h3>Commerce inside the conversation</h3><p>The product ribbon puts a Buy button where the recommendation happens, instead of sending shoppers to search for it.</p></div>
-          <div class="csp-decision reveal"><h3>Every state designed</h3><p>Re-joining, being muted by the speaker, a discussion ending, recording sent and errors all have their own clear screen.</p></div>
+          <div class="csp-decision reveal"><h3>Show the result while you set it up</h3><p>Every widget setting has a live preview beside it, so admins see what visitors will see before they save.</p></div>
+          <div class="csp-decision reveal"><h3>Simple first, advanced on request</h3><p>A room needs only a title and a time. Permissions, ribbons, audio quality and locked rooms stay under “Advanced settings”.</p></div>
+          <div class="csp-decision reveal"><h3>The customer beside the conversation</h3><p>In 1:1 calls, the customer’s role, company and order history sit next to the call, so sales and support never go in cold.</p></div>
+          <div class="csp-decision reveal"><h3>No dead ends</h3><p>Empty dashboards, recordings and chats each explain what goes there and offer the one action that fills them.</p></div>
       </div>
     </div>
   </section>
@@ -367,8 +453,7 @@
       <h2 class="reveal">Let’s design the experience <span class="accent">around the conversation.</span></h2>
       <div class="hero-cta reveal">
         <a href="https://calendly.com/munmun_mnstudio/lets_get_to_know_each_other" target="_blank" rel="noopener" class="btn btn-primary">Book a 30-minute meeting</a>
-        <a href="space-web-app.html" class="btn btn-ghost">See the web app</a>
-        <a href="../index.html#case-studies" class="btn btn-ghost">See more work</a>
+        <a href="space.html" class="btn btn-ghost">See the widget</a>
       </div>
     </div>
   </section>
