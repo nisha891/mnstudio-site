@@ -455,3 +455,12 @@
 @media (prefers-reduced-motion: reduce) {
   .mega, .main-nav, .nav-link .chev { transition: none !important; }
 }
+
+/* Framework nav item: small triangle mark beside the label */
+.nav-link-fw { gap: 7px; }
+.nav-fw-icon { flex-shrink: 0; transition: transform .25s ease; }
+.nav-link-fw:hover .nav-fw-icon { transform: rotate(-12deg); }
+.nav-link-fw[aria-current="page"] { color: var(--nav-red); }
+@media (max-width: 1080px) {
+  .nav-link.nav-link-fw { justify-content: flex-start; gap: 10px; }
+}
